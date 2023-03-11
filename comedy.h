@@ -39,13 +39,6 @@ public:
 	// -----------------------------------~Comedy()-----------------------------------
 	// Destructor for class Comedy 
 	~Comedy();
-	// -----------------------------------Comedy-----------------------------------
-	// Constructor with parameter for Comedy 
-	Comedy(ifstream&);
-
-	// -----------------------------------~Comedy()-----------------------------------
-	// Destructor for class Comedy 
-	~Comedy();
 
 	// -----------------------------------display-----------------------------------
 	// Outputs to the screen all of the details of the movie (Year, Title, Director, Stock)
