@@ -73,12 +73,7 @@ public:
 	//	int stock; //stock of specific movie
 	virtual void insert(ifstream&) = 0;
 
-private:
-	// Properties of Movie Class
-	string movieTitle; //title of specific movie
-	string movieDirector; //director of specific movie
-	int movieYear; //year of specific movie
-	int stock; //stock of specific movie
+
 
 };
 

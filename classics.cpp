@@ -21,7 +21,13 @@
 //Default constructor for Comedy 
 Classics::Classics()
 {
-
+	releaseMonth = 0;
+	releaseYear = 0;
+	//stock = 0;
+	title = "";
+	director = "";
+	firstNameMajorAct = "";
+	lastNameMajorAct = "";
 }
 
 ////Paramaterized constructor for Comedy 
@@ -42,18 +48,18 @@ Classics::Classics()
 Classics::Classics(ifstream& infile)
 {
 	//set up the comedy movie node for the BST
-	ClassicsBST* classicsMovie = new ClassicsBST;
-	classicsMovie->title = movieTitle;
-	classicsMovie->director = movieDirector;
-	classicsMovie->year = movieYear;
-	classicsMovie->month = movieMonth;
-	classicsMovie->majorActor = majorActor;
-	classicsMovie->stock = currStock;
-	classicsMovie->left = NULL;
-	classicsMovie->right = NULL;
+	// ClassicsBST* classicsMovie = new ClassicsBST;
+	// classicsMovie->title = movieTitle;
+	// classicsMovie->director = movieDirector;
+	// classicsMovie->year = movieYear;
+	// classicsMovie->month = movieMonth;
+	// classicsMovie->majorActor = majorActor;
+	// classicsMovie->stock = currStock;
+	// classicsMovie->left = NULL;
+	// classicsMovie->right = NULL;
 
 
-	infile >> stock;
+	// infile >> stock;
 	getline(infile, director, ',');
 	getline(infile, title, ',');
 	infile >> firstNameMajorAct >> lastNameMajorAct >> releaseMonth >> releaseYear;
