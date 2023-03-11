@@ -30,8 +30,9 @@ public:
 	// Default constructor for Classics class
 	Classics();
 
- //Paramaterized constructor for Classics
-  Classics(string title, string director, int month, int year, int currStock, string majorActor);
+	// -----------------------------------Classics-----------------------------------
+	// Paramaterized constructor for Classics
+	Classics(string title, string director, int month, int year, int currStock, string majorActor);
 
 	// -----------------------------------Classics-----------------------------------
 	// Constructor with parameter for Classics class
@@ -77,7 +78,10 @@ string getMajorActor();
 	// -----------------------------------insert-----------------------------------
 	// This movie object inserts itself into the Classics binary search tree
 	//parameters: string - remaining current command line from data4movies.txt
-	void insert(ifstream&);
+	//void insert(ifstream&);
+
+	virtual bool operator==(const Classics&) const;
+	virtual bool operator>(const Classics&) const;
 
 private:
 

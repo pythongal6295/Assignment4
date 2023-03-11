@@ -20,18 +20,39 @@
 //Default constructor for Drama 
 Drama::Drama()
 {
-
+	releaseMonth = 0;
+	releaseYear = 0;
+	stock = 0;
+	title = "";
+	director = "";
 }
 
-//Paramaterized constructor for Drama 
-Drama::Drama(string movieTitle, string movieDirector, int movieYear, int currStock)
+////Paramaterized constructor for Drama 
+//Drama::Drama(string movieTitle, string movieDirector, int movieYear, int currStock)
+//{
+//	//set up the comedy movie node for the BST
+//	DramaBST* dramaMovie = new DramaBST;
+//	dramaMovie->title = movieTitle;
+//	dramaMovie->director = movieDirector;
+//	dramaMovie->year = movieYear;
+//	dramaMovie->stock = currStock;
+//	dramaMovie->left = NULL;
+//	dramaMovie->right = NULL;
+//}
+
+// -----------------------------------Drama()-----------------------------------
+// Constructor with parameter for Drama class
+Drama::Drama(ifstream& infile)
 {
-	//set up the comedy movie node for the BST
-	DramaBST* dramaMovie = new DramaBST;
-	dramaMovie->title = movieTitle;
-	dramaMovie->director = movieDirector;
-	dramaMovie->year = movieYear;
-	dramaMovie->stock = currStock;
-	dramaMovie->left = NULL;
-	dramaMovie->right = NULL;
+	infile >> stock >> director >> title >> releaseYear;
+}
+
+bool Drama::operator==(const Drama&) const
+{
+	return false;
+}
+
+bool Drama::operator>(const Drama&) const
+{
+	return false;
 }

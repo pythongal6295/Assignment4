@@ -35,7 +35,7 @@ public:
 	// ----------------------------------createMovieObject----------------------------------
 	// Creates new movie genre object with switch, using first letter from current 
 	// string line in data4movies.txt (BusinessLogic::loadMovies())
-	static Movie* createMovieObject(ifstream&);
+	static Movie* createMovieObject(char, ifstream&);
 };
 
 #endif

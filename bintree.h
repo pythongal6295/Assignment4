@@ -47,12 +47,12 @@ public:
 	// --------------------------------------------------------------------------------
 	BinTree();
 
-	// --------------------------------------------------------------------------------
-	// Copy constructor
-	// Makes a deep copy of the right hand side binary tree into the left hand side 
-	// binary tree.
-	// --------------------------------------------------------------------------------
-	BinTree(const BinTree&);
+	//// --------------------------------------------------------------------------------
+	//// Copy constructor
+	//// Makes a deep copy of the right hand side binary tree into the left hand side 
+	//// binary tree.
+	//// --------------------------------------------------------------------------------
+	//BinTree(const BinTree&);
 
 	// --------------------------------------------------------------------------------
 	// Destructor
@@ -60,11 +60,11 @@ public:
 	// --------------------------------------------------------------------------------
 	~BinTree();
 
-	// --------------------------------------------------------------------------------
-	// Overload of operator=
-	// Overloaded assignment operator. Makes a deep copy to assign one tree to another.
-	// --------------------------------------------------------------------------------
-	const BinTree& operator=(const BinTree&);
+	//// --------------------------------------------------------------------------------
+	//// Overload of operator=
+	//// Overloaded assignment operator. Makes a deep copy to assign one tree to another.
+	//// --------------------------------------------------------------------------------
+	//const BinTree& operator=(const BinTree&);
 
 	// --------------------------------------------------------------------------------
 	// Overload of operator==
@@ -78,55 +78,55 @@ public:
 	// --------------------------------------------------------------------------------
 	bool operator!=(const BinTree&) const;
 
-	// --------------------------------------------------------------------------------
-	// Retrieve function
-	// Function to get the NodeData* of a given object in the tree (via pass-by-reference
-	// parameter) and to report whether the object is found(true or false).
-	// --------------------------------------------------------------------------------
-	bool retrieve(const NodeData&, NodeData*&);
+	//// --------------------------------------------------------------------------------
+	//// Retrieve function
+	//// Function to get the NodeData* of a given object in the tree (via pass-by-reference
+	//// parameter) and to report whether the object is found(true or false).
+	//// --------------------------------------------------------------------------------
+	//bool retrieve(const NodeData&, NodeData*&);
 
-	// --------------------------------------------------------------------------------
-	// getHeight function
-	// Function to find the height of a given value in the tree.
-	// --------------------------------------------------------------------------------
-	int getHeight(const NodeData&) const;
+	//// --------------------------------------------------------------------------------
+	//// getHeight function
+	//// Function to find the height of a given value in the tree.
+	//// --------------------------------------------------------------------------------
+	//int getHeight(const NodeData&) const;
 
-	// --------------------------------------------------------------------------------
-	// bstreeToArray function
-	// Function to fill an array of Nodedata* by using an inorder traversal of the tree.
-	// --------------------------------------------------------------------------------
-	void bstreeToArray(NodeData* []);
+	//// --------------------------------------------------------------------------------
+	//// bstreeToArray function
+	//// Function to fill an array of Nodedata* by using an inorder traversal of the tree.
+	//// --------------------------------------------------------------------------------
+	//void bstreeToArray(NodeData* []);
 
-	// --------------------------------------------------------------------------------
-	// arrayToBSTree function
-	// Function to build a balanced BinTree from a sorted array of NodeData* leaving the
-	// array filled with NULLs.
-	// --------------------------------------------------------------------------------
-	void arrayToBSTree(NodeData* []);
+	//// --------------------------------------------------------------------------------
+	//// arrayToBSTree function
+	//// Function to build a balanced BinTree from a sorted array of NodeData* leaving the
+	//// array filled with NULLs.
+	//// --------------------------------------------------------------------------------
+	//void arrayToBSTree(NodeData* []);
 
-	// --------------------------------------------------------------------------------
-	// displaySideways function
-	// Function for helping display a binary tree as if you are viewing it from the side.
-	// --------------------------------------------------------------------------------
-	void displaySideways() const;
+	//// --------------------------------------------------------------------------------
+	//// displaySideways function
+	//// Function for helping display a binary tree as if you are viewing it from the side.
+	//// --------------------------------------------------------------------------------
+	//void displaySideways() const;
 
-	// --------------------------------------------------------------------------------
-	// isEmpty function
-	// Function to know if a tree is empty.
-	// --------------------------------------------------------------------------------
-	bool isEmpty() const;
+	//// --------------------------------------------------------------------------------
+	//// isEmpty function
+	//// Function to know if a tree is empty.
+	//// --------------------------------------------------------------------------------
+	//bool isEmpty() const;
 
-	// --------------------------------------------------------------------------------
-	// makeEmpty function
-	// Make the tree empty so isEmpty returns true
-	// --------------------------------------------------------------------------------
-	void makeEmpty();
+	//// --------------------------------------------------------------------------------
+	//// makeEmpty function
+	//// Make the tree empty so isEmpty returns true
+	//// --------------------------------------------------------------------------------
+	//void makeEmpty();
 
 	// --------------------------------------------------------------------------------
 	// Insert function
 	// Function to insert a new node in the tree.
 	// --------------------------------------------------------------------------------
-	bool insert(NodeData*&);
+	//bool insert(NodeData*&);
 
 	// --------------------------------------------------------------------------------
 	// Insert function
@@ -144,43 +144,43 @@ private:
 	// --------------------------------------------------------------------------------
 	bool insertRecursive(NodeBST*&, Movie*&);
 
-	// --------------------------------------------------------------------------------
-	// inorderHelper function
-	// Function to traverse binary tree in order. Helper method to overload << operator.
-	// --------------------------------------------------------------------------------
-	void inorderHelper(NodeBST*, ostream&)const;
+	//// --------------------------------------------------------------------------------
+	//// inorderHelper function
+	//// Function to traverse binary tree in order. Helper method to overload << operator.
+	//// --------------------------------------------------------------------------------
+	//void inorderHelper(NodeBST*, ostream&)const;
 
-	// --------------------------------------------------------------------------------
-	// findNodeRecursive
-	// Helper function to find the node of the tree that contains a given value. 
-	// The traversed tree is considered as a general binary tree.
-	// --------------------------------------------------------------------------------
-	int findNodeRecursive(const NodeData&, NodeBST*) const;
-	
-	// --------------------------------------------------------------------------------
-	// getHeightRecursive
-	// Helper function to find the height of a general binary tree recursively.
-	// --------------------------------------------------------------------------------
-	int getHeightRecursive(NodeBST*) const;
-	
-	// --------------------------------------------------------------------------------
-	// inorderToArray function
-	// Function to traverse binary tree in order. Helper method of arrayToBSTree(). 
-	// --------------------------------------------------------------------------------
-	void inorderToArray(NodeBST*&, NodeData* [], int)const;
+	//// --------------------------------------------------------------------------------
+	//// findNodeRecursive
+	//// Helper function to find the node of the tree that contains a given value. 
+	//// The traversed tree is considered as a general binary tree.
+	//// --------------------------------------------------------------------------------
+	//int findNodeRecursive(const NodeData&, NodeBST*) const;
+	//
+	//// --------------------------------------------------------------------------------
+	//// getHeightRecursive
+	//// Helper function to find the height of a general binary tree recursively.
+	//// --------------------------------------------------------------------------------
+	//int getHeightRecursive(NodeBST*) const;
+	//
+	//// --------------------------------------------------------------------------------
+	//// inorderToArray function
+	//// Function to traverse binary tree in order. Helper method of arrayToBSTree(). 
+	//// --------------------------------------------------------------------------------
+	//void inorderToArray(NodeBST*&, NodeData* [], int)const;
 
-	// --------------------------------------------------------------------------------
-	// inorderHelper function
-	// Helper for displaySideways() function.
-	// --------------------------------------------------------------------------------
-	void sideways(NodeBST*, int) const;
+	//// --------------------------------------------------------------------------------
+	//// inorderHelper function
+	//// Helper for displaySideways() function.
+	//// --------------------------------------------------------------------------------
+	//void sideways(NodeBST*, int) const;
 
-	// --------------------------------------------------------------------------------
-	// Copy function
-	// Makes a deep copy of right hand side polynomial into left hand side polynomial.
-	// Used as helper for assignment operator method and copy constructor.
-	// --------------------------------------------------------------------------------
-	NodeBST* copy(const NodeBST*);
+	//// --------------------------------------------------------------------------------
+	//// Copy function
+	//// Makes a deep copy of right hand side polynomial into left hand side polynomial.
+	//// Used as helper for assignment operator method and copy constructor.
+	//// --------------------------------------------------------------------------------
+	//NodeBST* copy(const NodeBST*);
 
 	// --------------------------------------------------------------------------------
 	// Remove helper function
@@ -188,17 +188,17 @@ private:
 	// --------------------------------------------------------------------------------
 	void removeHelper(NodeBST*);
 
-	// --------------------------------------------------------------------------------
-	// retrieveRecursive function
-	// Helper function for retrieve(). Uses recursion to find a given object.
-	// --------------------------------------------------------------------------------
-	bool retrieveRecursive(NodeBST*, const NodeData&, NodeData*&);
+	//// --------------------------------------------------------------------------------
+	//// retrieveRecursive function
+	//// Helper function for retrieve(). Uses recursion to find a given object.
+	//// --------------------------------------------------------------------------------
+	//bool retrieveRecursive(NodeBST*, const NodeData&, NodeData*&);
 
-	// --------------------------------------------------------------------------------
-	// arrayToBSTHelper function
-	// Helper function for arrayToBST(). Recursively inserts array elements to make a balanced tree.
-	// --------------------------------------------------------------------------------
-	NodeBST* arrayToBSTHelper(NodeData* [], int, int);
+	//// --------------------------------------------------------------------------------
+	//// arrayToBSTHelper function
+	//// Helper function for arrayToBST(). Recursively inserts array elements to make a balanced tree.
+	//// --------------------------------------------------------------------------------
+	//NodeBST* arrayToBSTHelper(NodeData* [], int, int);
 
 	// --------------------------------------------------------------------------------
 	// compare function
