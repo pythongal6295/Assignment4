@@ -29,6 +29,11 @@ using namespace std;
 class BusinessLogic
 {
 public:
+	// BusinessLogic() Default constructor
+	BusinessLogic();
+	// ~BusinessLogic() Default destructor
+	~BusinessLogic();
+
 	// -----------------------------------loadMovies-------------------------------------
 	// Uses private data member movieFactory to use MovieFactory::createMovieObject() 
 	// public function to create a new movie genre object(Comedy, Drama or Classics). 
@@ -47,13 +52,13 @@ public:
 
 private:
 
-	HashTable customerHashTable;	//hash table with all customers
-	BinTree comediesBST;    //BST of comedies
-	BinTree dramasBST;		  //BST of dramas
-	BinTree classicsBST;		//BST of classics
+	HashTable* customerHashTable;	//hash table with all customers
+	BinTree* comediesBST;    //BST of comedies
+	BinTree* dramasBST;		  //BST of dramas
+	BinTree* classicsBST;		//BST of classics
 
-	MovieFactory movieFactory; //instance of MovieFactory to create movie objects
-	TransactionFactory transactionFactory; //instance of TransactionFactory to create transaction objects
+	//MovieFactory movieFactory; //instance of MovieFactory to create movie objects
+	//TransactionFactory transactionFactory; //instance of TransactionFactory to create transaction objects
 };
 
 #endif

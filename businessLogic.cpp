@@ -1,5 +1,14 @@
 #include "businessLogic.h"
 
+// Default constructor
+BusinessLogic::BusinessLogic()
+{
+	customerHashTable = new HashTable();	//hash table with all customers
+	comediesBST = new BinTree();    //BST of comedies
+	dramasBST = new BinTree();		  //BST of dramas
+	classicsBST = new BinTree();		//BST of classics
+}
+
 // -----------------------------------loadMovies-------------------------------------
 // Uses private data member movieFactory to use MovieFactory::createMovieObject() 
 // public function to create a new movie genre object(Comedy, Drama or Classics). 
@@ -13,18 +22,18 @@ void BusinessLogic::loadMovies(ifstream& infile)
 		infile >> movieType;
 		// If movieType is comedy, classic or drama insert information in binary tree node
 		if (movieType == 'F' || movieType == 'C' || movieType == 'D') {
-			newMovie = curType.createMovieObject(infile);
+			newMovie = curType.createMovieObject(movieType, infile);
 			//newMovie->insert(infile);
 
 			switch (movieType) {
 			case 'F':
-				comediesBST.insert(newMovie);
+				comediesBST->insert(newMovie);
 				break;
 			case 'C':
-				classicsBST.insert(newMovie);
+				classicsBST->insert(newMovie);
 				break;
 			case 'D':
-				dramasBST.insert(newMovie);
+				dramasBST->insert(newMovie);
 				break;
 			}
 		}
@@ -50,8 +59,8 @@ void BusinessLogic::loadCommands(ifstream& infile)
 		infile >> transaction;
 		// If transaction type is borrow, return, show inventory or show client history, do transaction
 		if (transaction == 'B' || transaction == 'R' || transaction == 'I' || transaction == 'H') {
-			newTransaction = curType.createTransactionObject(transaction);
-			newTransaction->setData(infile);
+			newTransaction = curType.createTransactionObject(transaction,infile);
+			//newTransaction->setData(infile);
 			newTransaction->doTransaction();
 		}
 		// If transaction type is unknown, then read next line in file if not empty

@@ -3,11 +3,11 @@
 // ----------------------------------createTransactionObject----------------------------------
 // Creates new transaction object with switch, using first letter from current 
 // string line in data4commands.txt (BusinessLogic::loadCommands())
-Transaction* TransactionFactory::createTransactionObject(ifstream& infile)
+Transaction* TransactionFactory::createTransactionObject(char command, ifstream& infile)
 {
-	Transaction* selection;
-	char command;
-	infile >> command; //Set command to first char in file
+	Transaction* selection=nullptr;
+	//char command;
+	//infile >> command; //Set command to first char in file
 
 	// Create a new object with the data in the first line of infile
 	switch (command) {
@@ -24,4 +24,5 @@ Transaction* TransactionFactory::createTransactionObject(ifstream& infile)
 		selection = new History(infile);
 		break;
 	}
+	return selection;
 }
