@@ -1,7 +1,5 @@
 // ---------------------------------------------- drama.h ----------------------------------------------------
 // Kelly M. Kauffman			CSS502 A
-// Jessica Lee Chan
-// Maria Ixchel Arias Cruz
 // Brenda S. Vega Contreras 
 // Creation Date : 2/25/23
 // Date of Last Modification: 2/25/23
@@ -27,8 +25,11 @@ class Drama : public Movie
 {
 public:
 // -----------------------------------Drama()-----------------------------------
-//Default constructor for drama 
+//Default constructor for Drama 
   Drama();
+
+ //Paramaterized constructor for Drama
+  Drama(string title, string director, int year, int currStock);
 
 // -----------------------------------~Drama()-----------------------------------
 //Destructor for class Drama 

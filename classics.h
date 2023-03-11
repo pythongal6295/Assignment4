@@ -1,7 +1,5 @@
 // ---------------------------------------------- classics.h ----------------------------------------------------
 // Kelly M. Kauffman			CSS502 A
-// Jessica Lee Chan
-// Maria Ixchel Arias Cruz
 // Brenda S. Vega Contreras 
 // Creation Date : 2/25/23
 // Date of Last Modification: 2/25/23
@@ -19,6 +17,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <string>
 #include "movie.h"
 
 using namespace std;
@@ -30,6 +29,9 @@ public:
 // -----------------------------------Classics()-----------------------------------
 // Default constructor for Classics class
   Classics();
+
+ //Paramaterized constructor for Classics
+  Classics(string title, string director, int month, int year, int currStock, string majorActor);
 
 // -----------------------------------~Classics()-----------------------------------
 // Destructor for Classics
@@ -72,8 +74,10 @@ private:
 struct ClassicsBST {
  int year;  //year of specific classics movie
  int stock; //stock of specific classics movie
+ int month; //month of specific classics movie
  string title;  //title of specific classics movie
  string director;  //director of specific classics movie
+ string majorActor; //major actor of specific classics movie
  ClassicsBST *right;  //pointer to right child in BST
  ClassicsBST *left;  //pointer to left child in BST
 };

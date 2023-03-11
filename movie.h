@@ -59,7 +59,6 @@ public:
 	// Parameters are string (remaining current command line from data4movies.txt)
 	virtual void insert(ifstream&) = 0;	
 
-private:
   // Properties of Movie Class
 	string movieTitle; //title of specific movie
 	string movieDirector; //director of specific movie

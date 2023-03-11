@@ -40,6 +40,9 @@ public:
   //default constructor
   HashTable();
 
+  //deconstructor
+  ~HashTable();
+
   // -----------------------------------setInTable-------------------------------------	
   // Function to set Customer object in hashTable[]
 	void setInTable(string, Customer *);	
