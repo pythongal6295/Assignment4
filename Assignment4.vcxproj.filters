@@ -39,13 +39,6 @@
     <ClCompile Include="bintree.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="comedy.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="drama.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="classics.cpp">
     <ClCompile Include="return.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
