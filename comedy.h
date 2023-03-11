@@ -27,53 +27,58 @@ class Comedy : public Movie
 {
 
 public:
-// -----------------------------------Comedy()-----------------------------------
-//Default constructor for Comedy 
-  Comedy();
+	// -----------------------------------Comedy()-----------------------------------
+	//Default constructor for Comedy 
+	Comedy();
 
-// -----------------------------------~Comedy()-----------------------------------
-//Destructor for class Comedy 
-  ~Comedy();
+	// -----------------------------------Comedy-----------------------------------
+	// Constructor with parameter for Comedy 
+	Comedy(ifstream&);
 
-// -----------------------------------display-----------------------------------
-// Outputs to the screen all of the details of the movie (Year, Title, Director, Stock)
-void display();
+	// -----------------------------------~Comedy()-----------------------------------
+	// Destructor for class Comedy 
+	~Comedy();
 
-// -----------------------------------getTitle-----------------------------------
-// Accessor - get the movieTitle of an object Comedy.
-string getTitle();
+	// -----------------------------------display-----------------------------------
+	// Outputs to the screen all of the details of the movie (Year, Title, Director, Stock)
+	void display();
 
-// -----------------------------------getStock-----------------------------------
-// Accessor - Get the number of copies available of a Comedy Movie.
-int getStock();
+	// -----------------------------------getTitle-----------------------------------
+	// Accessor - get the movieTitle of an object Comedy.
+	string getTitle();
 
-// -----------------------------------getDirector-----------------------------------
-// Accessor - get the movieDirector of a Comedy movie.
-string getDirector();
+	// -----------------------------------getStock-----------------------------------
+	// Accessor - Get the number of copies available of a Comedy Movie.
+	int getStock();
 
-// -----------------------------------setStock-----------------------------------
-// Mutator -  Modify data member stock after a command.
-void setStock(int);
+	// -----------------------------------getDirector-----------------------------------
+	// Accessor - get the movieDirector of a Comedy movie.
+	string getDirector();
 
-// -----------------------------------insert-----------------------------------
-// Insert a new object of type Comedy in a BST.
-// Precondition: String - current command line from data4movies.txt.
-void insert(ifstream&);
+	// -----------------------------------setStock-----------------------------------
+	// Mutator -  Modify data member stock after a command.
+	void setStock(int);
+
+	// -----------------------------------insert-----------------------------------
+	// Insert a new object of type Comedy in a BST.
+	// Precondition: String - current command line from data4movies.txt.
+	void insert(ifstream&);
 
 private:
 
-// -----------------------------------struct ComedyBST-----------------------------------
-// The structure represents a node that describes a comedy movie.
-// The created node is added to the Comedy binary search tree.
-// BST sorted by title, then year it was released
-struct ComedyBST {
- int year;  //year of specific comedy movie
- int stock;  //stock of specific comedy movie
- string title;  //title of specific comedy movie
- string director;  //director of specific comedy movie
- ComedyBST *right;  //pointer to right child in BST
- ComedyBST *left;  //pointer to left child in BST
-};
+	// -----------------------------------struct ComedyBST-----------------------------------
+	// The structure represents a node that describes a comedy movie.
+	// The created node is added to the Comedy binary search tree.
+	// BST sorted by title, then year it was released
+	struct ComedyBST
+	{
+		int year;  //year of specific comedy movie
+		int stock;  //stock of specific comedy movie
+		string title;  //title of specific comedy movie
+		string director;  //director of specific comedy movie
+		ComedyBST* right;  //pointer to right child in BST
+		ComedyBST* left;  //pointer to left child in BST
+	};
 
 };
 
