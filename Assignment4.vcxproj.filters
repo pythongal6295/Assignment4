@@ -45,7 +45,7 @@
     <ClCompile Include="show.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="history.cpp">
+    <ClCompile Include="classics.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
