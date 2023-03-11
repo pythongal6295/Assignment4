@@ -29,34 +29,31 @@ using namespace std;
 class BusinessLogic
 {
 public:
-  // -----------------------------------loadMovies-------------------------------------
-  // Uses private data member movieFactory to use MovieFactory::createMovieObject() 
-  // public function to create a new movie genre object(Comedy, Drama or Classics). 
-  // Calls Movie::insert(string, Movie * root) to include each line from file. 
+	// -----------------------------------loadMovies-------------------------------------
+	// Uses private data member movieFactory to use MovieFactory::createMovieObject() 
+	// public function to create a new movie genre object(Comedy, Drama or Classics). 
+	// Calls Movie::insert(string, Movie * root) to include each line from file. 
 	void loadMovies(ifstream&);
 
-  // -----------------------------------loadCustomers----------------------------------
+	// -----------------------------------loadCustomers----------------------------------
 	// Sets Custumer info in hash table using HashTable::setInTable(string) and an object
-  // of type Customer
-	void loadCustomers(ifstream&);	
+	// of type Customer
+	void loadCustomers(ifstream&);
 
-  // -----------------------------------loadCommands-----------------------------------
+	// -----------------------------------loadCommands-----------------------------------
 	// Reads each command line from file
 	// Uses public command functions of BusinessLogic ()
-	void loadCommands(ifstream&);	
+	void loadCommands(ifstream&);
 
 private:
-	
+
 	HashTable customerHashTable;	//hash table with all customers
 	BinTree comediesBST;    //BST of comedies
 	BinTree dramasBST;		  //BST of dramas
 	BinTree classicsBST;		//BST of classics
 
-	//BinTree* comediesRoot;    //root for BST of comedies
-	//BinTree* dramasRoot;		  //root for BST of dramas
-	//BinTree* classicsRoot;		//root for BST of classics
-  MovieFactory movieFactory; //instance of MovieFactory to create movie objects
-  TransactionFactory transactionFactory; //instance of TransactionFactory to create transaction objects
+	MovieFactory movieFactory; //instance of MovieFactory to create movie objects
+	TransactionFactory transactionFactory; //instance of TransactionFactory to create transaction objects
 };
 
 #endif

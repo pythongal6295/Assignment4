@@ -39,6 +39,15 @@
     <ClCompile Include="bintree.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="return.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="show.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="history.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bintree.h">
@@ -74,9 +83,6 @@
     <ClInclude Include="movieFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="nodedata.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="return.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -87,6 +93,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="transactionFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="nodedata.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

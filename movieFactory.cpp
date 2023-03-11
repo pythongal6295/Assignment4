@@ -1,8 +1,8 @@
 #include "movieFactory.h"
+
 // ----------------------------------createMovieObject----------------------------------
 // Creates new movie genre object with switch, using first letter from current 
 // string line in data4movies.txt (BusinessLogic::loadMovies())
-
 Movie* MovieFactory::createMovieObject(ifstream& infile)
 {
 	char movieType;
@@ -21,7 +21,7 @@ Movie* MovieFactory::createMovieObject(ifstream& infile)
 	case 'C':
 		selection = new Classics(infile);
 		break;
-	default:	// If movieType is invalid, set pointer to null
+	default:	// If movieType is invalid, set pointer to NULL
 		selection = nullptr;
 		break;
 	}
