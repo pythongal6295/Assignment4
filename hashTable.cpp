@@ -1,4 +1,4 @@
-// ---------------------------------------------- hashTable.h ----------------------------------------------------
+// ---------------------------------------------- hashTable.cpp ----------------------------------------------------
 // Kelly M. Kauffman			CSS502 A
 // Brenda S. Vega Contreras 
 // Creation Date : 3/10/23
@@ -23,6 +23,15 @@
     for (int i = 0; i < SIZE_HT; i++){
       hashTable[i] = NULL;
     }
+  }
+
+  // ---------------------------------- ~HashTable--------------------------------------
+  HashTable::HashTable()
+  {
+      for (int i = 0; i < SIZE_HT; i++) {
+          //delete each customer node
+          delete hashTable[i];
+      }
   }
 
   // ----------------------------------hashFunctionSet------------------------------------
