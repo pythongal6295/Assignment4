@@ -21,8 +21,14 @@ Borrow::Borrow(ifstream& infile)
 }
 
 // Constructor with parameter for Borrow class
-Borrow::Borrow(ifstream&)
+Borrow::Borrow(ifstream& infile)
 {
+	infile >> idNum >> mediaType >> movieType;
+	setData(infile);
+	// If invalid customerID or media type
+	if (mediaType!='D') {
+		
+	}
 }
 
 // Default destructor for Borrow class
