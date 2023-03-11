@@ -20,18 +20,21 @@
 
 using namespace std;
 
-class History: public Transaction
+class History : public Transaction
 {
 public:
-    // -----------------------------------History()-----------------------------------
-  // Default constructor for History class
-  History();
+	// -----------------------------------History()-----------------------------------
+	// Default constructor for History class
+	History();
 
-  //Default destructor for History class
-  ~History();
+	// Constructor with parameter for History class
+	History(ifstream&);
 
-  void doTransaction();
-  void setData(ifstream&);
+	//Default destructor for History class
+	~History();
+
+	void doTransaction();
+	void setData(ifstream&);
 };
 
 #endif

@@ -3,20 +3,25 @@
 // Creates new movie genre object with switch, using first letter from current 
 // string line in data4movies.txt (BusinessLogic::loadMovies())
 
-Movie* MovieFactory::createMovieObject(char movieType)
+Movie* MovieFactory::createMovieObject(ifstream& infile)
 {
+	char movieType;
+	infile >> movieType; // Set first character (movieType) in line
+
 	Movie* selection;
+
+	// Create an object with all the movie information
 	switch (movieType) {
 	case 'F':
-		selection = new Comedy();
+		selection = new Comedy(infile);
 		break;
 	case 'D':
-		selection = new Drama();
+		selection = new Drama(infile);
 		break;
 	case 'C':
-		selection = new Classics();
+		selection = new Classics(infile);
 		break;
-	default:
+	default:	// If movieType is invalid, set pointer to null
 		selection = nullptr;
 		break;
 	}
