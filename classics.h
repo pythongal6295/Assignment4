@@ -43,6 +43,10 @@ void display();
 
 // -----------------------------------getYear-----------------------------------
 // Returns the year of the movie
+int getMonth();
+
+// -----------------------------------getMonth-----------------------------------
+// Returns the year of the movie
 int getYear();
 
 // -----------------------------------getTitle-----------------------------------
@@ -56,6 +60,10 @@ int getStock();
 // -----------------------------------getDirector-----------------------------------
 // Returns the name of the directory of the movie
 string getDirector();
+
+// -----------------------------------getMajorActor-----------------------------------
+// Returns the name of the major actor of the movie
+string getMajorActor();
 
 // -----------------------------------setStock-----------------------------------
 // Sets a new value for the stock depending on borrow/rent actions

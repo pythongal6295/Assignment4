@@ -133,6 +133,7 @@
     <ClCompile Include="classics.cpp" />
     <ClCompile Include="comedy.cpp" />
     <ClCompile Include="drama.cpp" />
+    <ClCompile Include="driver.cpp" />
     <ClCompile Include="hashTable.cpp" />
     <ClCompile Include="movieFactory.cpp" />
     <ClCompile Include="nodedata.cpp" />
