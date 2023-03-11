@@ -91,13 +91,19 @@ string getMajorActor();
 	// This movie object inserts itself into the Classics binary search tree
 	//parameters: string - remaining current command line from data4movies.txt
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> dc33675 (Small fixes)
 	//void insert(ifstream&);
 
 	virtual bool operator==(const Classics&) const;
 	virtual bool operator>(const Classics&) const;
+<<<<<<< HEAD
 =======
 	void insert(ifstream&);
 >>>>>>> cc09f1b (Merging files)
+=======
+>>>>>>> dc33675 (Small fixes)
 
 private:
 
@@ -137,6 +143,8 @@ string majorActor; //major actor of specific classics movie
 		ClassicsBST* left;  //pointer to left child in BST
 	};
 >>>>>>> cc09f1b (Merging files)
+=======
+>>>>>>> dc33675 (Small fixes)
 
 };
 #endif
