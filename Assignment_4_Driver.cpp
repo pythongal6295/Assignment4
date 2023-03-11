@@ -34,7 +34,7 @@ int main()
 		cout << "File could not be opened." << endl;
 		return 1;
 	}
-	
+
 	// Save commands in infileCom
 	ifstream infileCom("data4commands.txt");
 	if (!infileCom) {

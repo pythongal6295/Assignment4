@@ -16,6 +16,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <string>
 using namespace std;
 
 class Transaction
@@ -34,6 +35,7 @@ public:
 	// Parameters are 
   virtual void doTransaction()=0;
 
+private:
   // -----------------------------------setData-----------------------------------
 	// Sort using the data structure which has all movies, it's being build for the first time. 
 	// Delared as "abstract class". 

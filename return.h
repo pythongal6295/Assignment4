@@ -25,6 +25,10 @@ class Return: public Transaction
 public:
 // Default constructor for Return class
  Return();
+
+ // Constructor with parameter for Return class
+ Return(ifstream&);
+
 // Default destructor for Show class
 ~Return();
 

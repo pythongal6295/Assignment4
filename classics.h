@@ -26,61 +26,66 @@ class Classics : public Movie
 {
 
 public:
-// -----------------------------------Classics()-----------------------------------
-// Default constructor for Classics class
-  Classics();
+	// -----------------------------------Classics()-----------------------------------
+	// Default constructor for Classics class
+	Classics();
 
  //Paramaterized constructor for Classics
   Classics(string title, string director, int month, int year, int currStock, string majorActor);
 
-// -----------------------------------~Classics()-----------------------------------
-// Destructor for Classics
-  ~Classics();
+	// -----------------------------------Classics-----------------------------------
+	// Constructor with parameter for Classics class
+	Classics(ifstream&);
 
-// -----------------------------------display-----------------------------------
-// Outputs to the screen all of the details of the movie (Year, Title, Director, Stock)
-void display();
+	// -----------------------------------~Classics()-----------------------------------
+	// Destructor for Classics
+	~Classics();
 
-// -----------------------------------getYear-----------------------------------
-// Returns the year of the movie
-int getYear();
+	// -----------------------------------display-----------------------------------
+	// Outputs to the screen all of the details of the movie (Year, Title, Director, Stock)
+	void display();
 
-// -----------------------------------getTitle-----------------------------------
-// Returns the title of the movie
-string getTitle();
+	// -----------------------------------getYear-----------------------------------
+	// Returns the year of the movie
+	int getYear();
 
-// -----------------------------------getStock-----------------------------------
-// Returns the stock of the movie
-int getStock();
+	// -----------------------------------getTitle-----------------------------------
+	// Returns the title of the movie
+	string getTitle();
 
-// -----------------------------------getDirector-----------------------------------
-// Returns the name of the directory of the movie
-string getDirector();
+	// -----------------------------------getStock-----------------------------------
+	// Returns the stock of the movie
+	int getStock();
 
-// -----------------------------------setStock-----------------------------------
-// Sets a new value for the stock depending on borrow/rent actions
-// Parameter: int - the new stock value
-void setStock(int);
+	// -----------------------------------getDirector-----------------------------------
+	// Returns the name of the directory of the movie
+	string getDirector();
 
-// -----------------------------------insert-----------------------------------
-// This movie object inserts itself into the Classics binary search tree
-//parameters: string - remaining current command line from data4movies.txt
-void insert(ifstream&);
+	// -----------------------------------setStock-----------------------------------
+	// Sets a new value for the stock depending on borrow/rent actions
+	// Parameter: int - the new stock value
+	void setStock(int);
+
+	// -----------------------------------insert-----------------------------------
+	// This movie object inserts itself into the Classics binary search tree
+	//parameters: string - remaining current command line from data4movies.txt
+	void insert(ifstream&);
 
 private:
 
-// Describes a node composed of information about the classics movie object.
-// The created node is added to the Classics binary search tree
-struct ClassicsBST {
- int year;  //year of specific classics movie
- int stock; //stock of specific classics movie
+	// Describes a node composed of information about the classics movie object.
+	// The created node is added to the Classics binary search tree
+	struct ClassicsBST
+	{
+		int year;  //year of specific classics movie
+		int stock; //stock of specific classics movie
  int month; //month of specific classics movie
- string title;  //title of specific classics movie
- string director;  //director of specific classics movie
+		string title;  //title of specific classics movie
+		string director;  //director of specific classics movie
  string majorActor; //major actor of specific classics movie
- ClassicsBST *right;  //pointer to right child in BST
- ClassicsBST *left;  //pointer to left child in BST
-};
+		ClassicsBST* right;  //pointer to right child in BST
+		ClassicsBST* left;  //pointer to left child in BST
+	};
 
 };
 #endif
