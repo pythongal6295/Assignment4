@@ -1,7 +1,7 @@
 #include "borrow.h"
 
 
-
+// Default constructor for Borrow class
 Borrow::Borrow()
 {
 	customerID = 0, releaseYear = 0, releaseMonth = 0;
@@ -9,6 +9,12 @@ Borrow::Borrow()
 	string movieTitle = "", movieDirector = "", majorActor = "";
 }
 
+// Constructor with parameter for Borrow class
+Borrow::Borrow(ifstream&)
+{
+}
+
+// Default destructor for Borrow class
 Borrow::~Borrow()
 {
 }
@@ -28,7 +34,7 @@ void Borrow::setData(ifstream& infile)
 		switch (movieType) {
 		case 'F':
 			// Store location string in NodeData array
-			getline(infile, movieTitle,',');
+			getline(infile, movieTitle, ',');
 			infile >> releaseYear;
 			break;
 		case 'C':
