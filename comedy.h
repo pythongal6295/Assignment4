@@ -29,8 +29,8 @@ public:
 	//Default constructor for Comedy 
 	Comedy();
 
-//Paramaterized constructor for Comedy 
-  Comedy(string title, string director, int year, int currStock);
+	//Paramaterized constructor for Comedy 
+	Comedy(string title, string director, int year, int currStock);
 
 	// -----------------------------------Comedy-----------------------------------
 	// Constructor with parameter for Comedy 
@@ -63,7 +63,13 @@ public:
 	// -----------------------------------insert-----------------------------------
 	// Insert a new object of type Comedy in a BST.
 	// Precondition: String - current command line from data4movies.txt.
-	void insert(ifstream&);
+	//void insert(ifstream&);
+
+
+	bool operator==(const Comedy&) const;
+
+	bool operator>(const Comedy&) const;
+
 
 private:
 
@@ -71,15 +77,15 @@ private:
 	// The structure represents a node that describes a comedy movie.
 	// The created node is added to the Comedy binary search tree.
 	// BST sorted by title, then year it was released
-	struct ComedyBST
-	{
-		int year;  //year of specific comedy movie
+	/*struct ComedyBST
+	{*/
+		int releaseYear;  //year of specific comedy movie
 		int stock;  //stock of specific comedy movie
 		string title;  //title of specific comedy movie
 		string director;  //director of specific comedy movie
-		ComedyBST* right;  //pointer to right child in BST
-		ComedyBST* left;  //pointer to left child in BST
-	};
+		//ComedyBST* right;  //pointer to right child in BST
+		//ComedyBST* left;  //pointer to left child in BST
+	//};
 
 };
 

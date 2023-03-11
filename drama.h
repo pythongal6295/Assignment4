@@ -28,8 +28,8 @@ public:
 //Default constructor for Drama 
   Drama();
 
- //Paramaterized constructor for Drama
-  Drama(string title, string director, int year, int currStock);
+	//Paramaterized constructor for Drama
+	Drama(string title, string director, int year, int currStock);
 
 	// -----------------------------------Drama()-----------------------------------
 	// Constructor with parameter for Drama class
@@ -66,7 +66,10 @@ public:
 	// -----------------------------------insert-----------------------------------
 	// Insert a new object of type Drama in a BST.
 	// Precondition: String - current command line from data4movies.txt.
-	void insert(ifstream&);
+	//void insert(ifstream&);
+
+	virtual bool operator==(const Drama&) const;
+	virtual bool operator>(const Drama&) const;
 
 private:
 
@@ -75,15 +78,16 @@ private:
 	// The created node is added to the Drama binary search tree.
 	// BST sorted by Director then by Title 
 
-	struct DramaBST
-	{
-		int year;  //year of specific drama movie
-		int stock; //stock of specific drama movie
-		string title;  //title of specific drama movie
-		string director; // director of specific drama movie.
-		DramaBST* right;  //pointer to right child in BST
-		DramaBST* left;  //pointer to left child in BST
-	};
+	/*struct DramaBST
+	{*/
+	int releaseMonth; // month of specific movie
+	int releaseYear;  // year of specific drama movie
+	int stock; // stock of specific drama movie
+	string title;  // title of specific drama movie
+	string director; // director of specific drama movie
+	//DramaBST* right;  // pointer to right child in BST
+	//DramaBST* left;  // pointer to left child in BST
+	//};
 
 };
 #endif
