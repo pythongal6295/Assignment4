@@ -49,10 +49,6 @@ public:
 
 // -----------------------------------getYear-----------------------------------
 // Returns the year of the movie
-int getMonth();
-
-// -----------------------------------getYear-----------------------------------
-// Returns the year of the movie
 int getYear();
 
 	// -----------------------------------getTitle-----------------------------------
@@ -63,22 +59,14 @@ int getYear();
 	// Returns the stock of the movie
 	int getStock();
 
-// -----------------------------------getDirector-----------------------------------
-// Returns the name of the directory of the movie
-string getDirector();
+	// -----------------------------------getDirector-----------------------------------
+	// Returns the name of the directory of the movie
+	string getDirector();
 
-// -----------------------------------getMajorActor-----------------------------------
-// Returns the name of the major actor of the movie
-string getMajorActor();
-
-	// -----------------------------------setStock-----------------------------------
-	// Sets a new value for the stock depending on borrow/rent actions
-	// Parameter: int - the new stock value
-	void setStock(int);
-	// -----------------------------------setStock-----------------------------------
-	// Sets a new value for the stock depending on borrow/rent actions
-	// Parameter: int - the new stock value
-	void setStock(int);
+// -----------------------------------setStock-----------------------------------
+// Sets a new value for the stock depending on borrow/rent actions
+// Parameter: int - the new stock value
+void setStock(int);
 
 	// -----------------------------------insert-----------------------------------
 	// This movie object inserts itself into the Classics binary search tree
@@ -87,19 +75,18 @@ string getMajorActor();
 
 private:
 
-	// Describes a node composed of information about the classics movie object.
-	// The created node is added to the Classics binary search tree
-	struct ClassicsBST
-	{
-		int year;  //year of specific classics movie
-		int stock; //stock of specific classics movie
- 		int month; //month of specific classics movie
-		string title;  //title of specific classics movie
-		string director;  //director of specific classics movie
- 		string majorActor; //major actor of specific classics movie
-		ClassicsBST* right;  //pointer to right child in BST
-		ClassicsBST* left;  //pointer to left child in BST
-	};
+// Describes a node composed of information about the classics movie object.
+// The created node is added to the Classics binary search tree
+struct ClassicsBST {
+ int year;  //year of specific classics movie
+ int stock; //stock of specific classics movie
+ int month; //month of specific classics movie
+ string title;  //title of specific classics movie
+ string director;  //director of specific classics movie
+ string majorActor; //major actor of specific classics movie
+ ClassicsBST *right;  //pointer to right child in BST
+ ClassicsBST *left;  //pointer to left child in BST
+};
 
 };
 #endif
