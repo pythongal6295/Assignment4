@@ -21,26 +21,26 @@ using namespace std;
 
 class Transaction
 {
-public:    
-// -----------------------------------Transaction()-----------------------------------
-  // Default constructor for Transaction class
-  Transaction();
+public:
+	// -----------------------------------Transaction()-----------------------------------
+	// Default constructor for Transaction class
+	Transaction();
 
-  //Default deconstructor for Transaction class
-  ~Transaction();
+	//Default deconstructor for Transaction class
+	~Transaction();
 
-    // -----------------------------------doTransaction-----------------------------------
+	// -----------------------------------doTransaction-----------------------------------
 	// Carry out a transaction (command) for the rental store
 	// Declared as "abstract class". 
 	// Parameters are 
-  virtual void doTransaction()=0;
+	virtual void doTransaction() = 0;
 
 private:
-  // -----------------------------------setData-----------------------------------
+	// -----------------------------------setData-----------------------------------
 	// Sort using the data structure which has all movies, it's being build for the first time. 
 	// Delared as "abstract class". 
 	// Parameters are string (remaining current command line from data4movies.txt)
-  virtual void setData(ifstream&)=0;
+	virtual void setData(ifstream&) = 0;
 
 };
 #endif

@@ -32,10 +32,11 @@ public:
 	~Borrow();
 
 	virtual void doTransaction();
-	virtual void setData(ifstream&);
 
 private:
-	int customerID, releaseYear, releaseMonth;
+	virtual void setData(ifstream&);
+
+	int idNum, releaseYear, releaseMonth;
 	char mediaType, movieType;
 	string movieTitle, movieDirector, majorActor;
 
