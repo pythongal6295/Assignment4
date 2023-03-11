@@ -46,6 +46,7 @@ public:
 	// Outputs to the screen all of the details of the movie (Year, Title, Director, Stock)
 	void display();
 
+<<<<<<< HEAD
 // -----------------------------------getYear-----------------------------------
 // Returns the year of the movie
 int getMonth();
@@ -53,6 +54,11 @@ int getMonth();
 // -----------------------------------getMonth-----------------------------------
 // Returns the year of the movie
 int getYear();
+=======
+	// -----------------------------------getYear-----------------------------------
+	// Returns the year of the movie
+	int getYear();
+>>>>>>> cc09f1b (Merging files)
 
 	// -----------------------------------getTitle-----------------------------------
 	// Returns the title of the movie
@@ -62,6 +68,7 @@ int getYear();
 	// Returns the stock of the movie
 	int getStock();
 
+<<<<<<< HEAD
 // -----------------------------------getDirector-----------------------------------
 // Returns the name of the directory of the movie
 string getDirector();
@@ -69,6 +76,11 @@ string getDirector();
 // -----------------------------------getMajorActor-----------------------------------
 // Returns the name of the major actor of the movie
 string getMajorActor();
+=======
+	// -----------------------------------getDirector-----------------------------------
+	// Returns the name of the directory of the movie
+	string getDirector();
+>>>>>>> cc09f1b (Merging files)
 
 	// -----------------------------------setStock-----------------------------------
 	// Sets a new value for the stock depending on borrow/rent actions
@@ -78,15 +90,20 @@ string getMajorActor();
 	// -----------------------------------insert-----------------------------------
 	// This movie object inserts itself into the Classics binary search tree
 	//parameters: string - remaining current command line from data4movies.txt
+<<<<<<< HEAD
 	//void insert(ifstream&);
 
 	virtual bool operator==(const Classics&) const;
 	virtual bool operator>(const Classics&) const;
+=======
+	void insert(ifstream&);
+>>>>>>> cc09f1b (Merging files)
 
 private:
 
 	// Describes a node composed of information about the classics movie object.
 	// The created node is added to the Classics binary search tree
+<<<<<<< HEAD
 	/*struct ClassicsBST
 	{*/
 	int stock; //stock of specific classics movie
@@ -99,6 +116,19 @@ private:
 	//ClassicsBST* right;  //pointer to right child in BST
 	//ClassicsBST* left;  //pointer to left child in BST
 	//};
+=======
+	struct ClassicsBST
+	{
+		int year;  //year of specific classics movie
+		int stock; //stock of specific classics movie
+ 		int month; //month of specific classics movie
+		string title;  //title of specific classics movie
+		string director;  //director of specific classics movie
+ 		string majorActor; //major actor of specific classics movie
+		ClassicsBST* right;  //pointer to right child in BST
+		ClassicsBST* left;  //pointer to left child in BST
+	};
+>>>>>>> cc09f1b (Merging files)
 
 };
 #endif
