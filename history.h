@@ -34,7 +34,11 @@ public:
 	~History();
 
 	void doTransaction();
+
+private:
 	void setData(ifstream&);
+
+	int idNum;
 };
 
 #endif
