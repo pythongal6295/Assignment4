@@ -51,7 +51,7 @@ public:
 	void loadCommands(ifstream&);
 
 private:
-	
+
 	HashTable customerHashTable;	//hash table with all customers
 	BinTree comediesBST;    //BST of comedies
 	BinTree dramasBST;		  //BST of dramas
