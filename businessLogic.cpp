@@ -13,8 +13,8 @@ void BusinessLogic::loadMovies(ifstream& infile)
 		infile >> movieType;
 		// If movieType is comedy, classic or drama insert information in binary tree node
 		if (movieType == 'F' || movieType == 'C' || movieType == 'D') {
-			newMovie = curType.createMovieObject(movieType);
-			newMovie->insert(infile);
+			newMovie = curType.createMovieObject(infile);
+			//newMovie->insert(infile);
 
 			switch (movieType) {
 			case 'F':

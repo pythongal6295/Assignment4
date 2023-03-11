@@ -27,13 +27,12 @@ public:
 	// Default constructor for Show class
 	Show();
 
-	// Constructor with parameter for Show class
-	Show(ifstream&);
-
 	//Default destructor for Show class
 	~Show();
 
 	void doTransaction();
+
+private:
 	void setData(ifstream&);
 
 };

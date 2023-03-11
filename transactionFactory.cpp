@@ -18,7 +18,7 @@ Transaction* TransactionFactory::createTransactionObject(ifstream& infile)
 		selection = new Return(infile);
 		break;
 	case 'I':
-		selection = new Show(infile);
+		selection = new Show();
 		break;
 	case 'H':
 		selection = new History(infile);
