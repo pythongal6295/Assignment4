@@ -47,10 +47,6 @@ public:
 	// Outputs to the screen all of the details of the movie (Year, Title, Director, Stock)
 	void display();
 
-// -----------------------------------getYear-----------------------------------
-// Returns the year of the movie
-int getYear();
-
 	// -----------------------------------getTitle-----------------------------------
 	// Returns the title of the movie
 	string getTitle();
@@ -59,9 +55,9 @@ int getYear();
 	// Returns the stock of the movie
 	int getStock();
 
-	// -----------------------------------getDirector-----------------------------------
-	// Returns the name of the directory of the movie
-	string getDirector();
+// -----------------------------------getDirector-----------------------------------
+// Returns the name of the directory of the movie
+string getDirector();
 
 // -----------------------------------setStock-----------------------------------
 // Sets a new value for the stock depending on borrow/rent actions
