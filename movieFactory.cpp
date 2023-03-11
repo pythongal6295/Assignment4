@@ -22,7 +22,6 @@ Movie* MovieFactory::createMovieObject(char movieType, ifstream& infile)
 		selection = new Classics(infile);
 		break;
 	default:	// If movieType is invalid, set pointer to NULL
-		selection = nullptr;
 		break;
 	}
 	return selection;

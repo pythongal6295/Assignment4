@@ -26,8 +26,8 @@ Borrow::Borrow(ifstream& infile)
 	infile >> idNum >> mediaType >> movieType;
 	setData(infile);
 	// If invalid customerID or media type
-	if (mediaType!='D') {
-		
+	if (mediaType != 'D') {
+		cout << "Invalid type of media";
 	}
 }
 

@@ -22,13 +22,24 @@
 Classics::Classics()
 {
 
-bool Classics::operator==(const Classics&) const
-{
-	return false;
 }
 
-//Paramaterized constructor for Comedy 
-Classics::Classics(string movieTitle, string movieDirector, int movieMonth, int movieYear, int currStock, string majorActor)
+////Paramaterized constructor for Comedy 
+//Classics::Classics(string movieTitle, string movieDirector, int movieMonth, int movieYear, int currStock, string majorActor)
+//{
+//	//set up the comedy movie node for the BST
+//	ClassicsBST* classicsMovie = new ClassicsBST;
+//	classicsMovie->title = movieTitle;
+//	classicsMovie->director = movieDirector;
+//	classicsMovie->year = movieYear;
+//	classicsMovie->month = movieMonth;
+//	classicsMovie->majorActor = majorActor;
+//	classicsMovie->stock = currStock;
+//	classicsMovie->left = NULL;
+//	classicsMovie->right = NULL;
+//}
+
+Classics::Classics(ifstream& infile)
 {
 	//set up the comedy movie node for the BST
 	ClassicsBST* classicsMovie = new ClassicsBST;
@@ -40,5 +51,20 @@ Classics::Classics(string movieTitle, string movieDirector, int movieMonth, int 
 	classicsMovie->stock = currStock;
 	classicsMovie->left = NULL;
 	classicsMovie->right = NULL;
+
+
+	infile >> stock;
+	getline(infile, director, ',');
+	getline(infile, title, ',');
+	infile >> firstNameMajorAct >> lastNameMajorAct >> releaseMonth >> releaseYear;
 }
 
+bool Classics::operator==(const Classics&) const
+{
+	return false;
+}
+
+bool Classics::operator>(const Classics&) const
+{
+	return false;
+}
