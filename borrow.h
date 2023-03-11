@@ -19,11 +19,14 @@
 #include "transaction.h"
 using namespace std;
 
-class Borrow:public Transaction
+class Borrow :public Transaction
 {
 public:
 	// Default constructor for Borrow class  
 	Borrow();
+
+	// Constructor with parameter for Borrow class
+	Borrow(ifstream&);
 
 	// Default destructor for Borrow class
 	~Borrow();

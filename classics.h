@@ -26,20 +26,24 @@ class Classics : public Movie
 {
 
 public:
-// -----------------------------------Classics()-----------------------------------
-// Default constructor for Classics class
-  Classics();
+	// -----------------------------------Classics()-----------------------------------
+	// Default constructor for Classics class
+	Classics();
 
  //Paramaterized constructor for Classics
   Classics(string title, string director, int month, int year, int currStock, string majorActor);
 
-// -----------------------------------~Classics()-----------------------------------
-// Destructor for Classics
-  ~Classics();
+	// -----------------------------------Classics-----------------------------------
+	// Constructor with parameter for Classics class
+	Classics(ifstream&);
 
-// -----------------------------------display-----------------------------------
-// Outputs to the screen all of the details of the movie (Release Date, Title, Director, Stock, Major Actor)
-void display();
+	// -----------------------------------~Classics()-----------------------------------
+	// Destructor for Classics
+	~Classics();
+
+	// -----------------------------------display-----------------------------------
+	// Outputs to the screen all of the details of the movie (Year, Title, Director, Stock)
+	void display();
 
 // -----------------------------------getMonth-----------------------------------
 // Returns the year of the movie
@@ -49,13 +53,13 @@ int getMonth();
 // Returns the year of the movie
 int getYear();
 
-// -----------------------------------getTitle-----------------------------------
-// Returns the title of the movie
-string getTitle();
+	// -----------------------------------getTitle-----------------------------------
+	// Returns the title of the movie
+	string getTitle();
 
-// -----------------------------------getStock-----------------------------------
-// Returns the stock of the movie
-int getStock();
+	// -----------------------------------getStock-----------------------------------
+	// Returns the stock of the movie
+	int getStock();
 
 // -----------------------------------getDirector-----------------------------------
 // Returns the name of the directory of the movie
@@ -65,15 +69,15 @@ string getDirector();
 // Returns the name of the major actor of the movie
 string getMajorActor();
 
-// -----------------------------------setStock-----------------------------------
-// Sets a new value for the stock depending on borrow/rent actions
-// Parameter: int - the new stock value
-void setStock(int);
+	// -----------------------------------setStock-----------------------------------
+	// Sets a new value for the stock depending on borrow/rent actions
+	// Parameter: int - the new stock value
+	void setStock(int);
 
-// -----------------------------------insert-----------------------------------
-// This movie object inserts itself into the Classics binary search tree
-//parameters: string - remaining current command line from data4movies.txt
-void insert(ifstream&);
+	// -----------------------------------insert-----------------------------------
+	// This movie object inserts itself into the Classics binary search tree
+	//parameters: string - remaining current command line from data4movies.txt
+	void insert(ifstream&);
 
 private:
 

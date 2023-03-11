@@ -26,15 +26,15 @@ using namespace std;
 
 class TransactionFactory
 {
-public:  
-// -----------------------------------TransactionFactory()-----------------------------------
-  // Default constructor for TransactionFactory class
-  TransactionFactory();
+public:
+	// -----------------------------------TransactionFactory()-----------------------------------
+	// Default constructor for TransactionFactory class
+	TransactionFactory();
 
-  // ----------------------------------createTransactionObject----------------------------------
+	// ----------------------------------createTransactionObject----------------------------------
 	// Creates new transaction object with switch, using first letter from current 
 	// string line in data4commands.txt (BusinessLogic::loadCommands())
-	static Transaction* createTransactionObject(char); 
+	static Transaction* createTransactionObject(ifstream&);
 };
 
 #endif

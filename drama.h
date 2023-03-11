@@ -31,54 +31,59 @@ public:
  //Paramaterized constructor for Drama
   Drama(string title, string director, int year, int currStock);
 
-// -----------------------------------~Drama()-----------------------------------
-//Destructor for class Drama 
-  ~Drama();
+	// -----------------------------------Drama()-----------------------------------
+	// Constructor with parameter for Drama class
+	Drama(ifstream&);
 
-// -----------------------------------display-----------------------------------
-// Outputs to the screen all of the details of the movie (Year, Title, Director, Stock)
-void display();
+	// -----------------------------------~Drama()-----------------------------------
+	// Destructor for class Drama 
+	~Drama();
 
-// -----------------------------------getYear-----------------------------------
-// Accessor - get the movieYear of an object Drama.
-int getYear();
+	// -----------------------------------display-----------------------------------
+	// Outputs to the screen all of the details of the movie (Year, Title, Director, Stock)
+	void display();
 
-// -----------------------------------getTitle-----------------------------------
-// Accessor - get the movieTitle of an object Drama.
-string getTitle();
+	// -----------------------------------getYear-----------------------------------
+	// Accessor - get the movieYear of an object Drama.
+	int getYear();
 
-// -----------------------------------getStock-----------------------------------
-// Accessor - Get the number of copies available of a drama Movie.
-int getStock();
+	// -----------------------------------getTitle-----------------------------------
+	// Accessor - get the movieTitle of an object Drama.
+	string getTitle();
 
-// -----------------------------------getDirector-----------------------------------
-// Accessor - get the movieDirector of a Drama movie.
-string getDirector();
+	// -----------------------------------getStock-----------------------------------
+	// Accessor - Get the number of copies available of a drama Movie.
+	int getStock();
 
-// -----------------------------------setStock-----------------------------------
-// Mutator -  Modify data member stock after a command.
-void setStock(int);
+	// -----------------------------------getDirector-----------------------------------
+	// Accessor - get the movieDirector of a Drama movie.
+	string getDirector();
 
-// -----------------------------------insert-----------------------------------
-// Insert a new object of type Drama in a BST.
-// Precondition: String - current command line from data4movies.txt.
-void insert(ifstream&);
+	// -----------------------------------setStock-----------------------------------
+	// Mutator -  Modify data member stock after a command.
+	void setStock(int);
+
+	// -----------------------------------insert-----------------------------------
+	// Insert a new object of type Drama in a BST.
+	// Precondition: String - current command line from data4movies.txt.
+	void insert(ifstream&);
 
 private:
 
-// -----------------------------------struct DramaBST-----------------------------------
-// The structure represent a node of type drama.
-// The created node is added to the Drama binary search tree.
-// BST sorted by Director then by Title 
+	// -----------------------------------struct DramaBST-----------------------------------
+	// The structure represent a node of type drama.
+	// The created node is added to the Drama binary search tree.
+	// BST sorted by Director then by Title 
 
-struct DramaBST {
- int year;  //year of specific drama movie
- int stock; //stock of specific drama movie
- string title;  //title of specific drama movie
- string director; // director of specific drama movie.
- DramaBST *right;  //pointer to right child in BST
- DramaBST *left;  //pointer to left child in BST
-};
+	struct DramaBST
+	{
+		int year;  //year of specific drama movie
+		int stock; //stock of specific drama movie
+		string title;  //title of specific drama movie
+		string director; // director of specific drama movie.
+		DramaBST* right;  //pointer to right child in BST
+		DramaBST* left;  //pointer to left child in BST
+	};
 
 };
 #endif
