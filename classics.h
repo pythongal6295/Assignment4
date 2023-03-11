@@ -79,10 +79,10 @@ private:
 	{
 		int year;  //year of specific classics movie
 		int stock; //stock of specific classics movie
- int month; //month of specific classics movie
+ 		int month; //month of specific classics movie
 		string title;  //title of specific classics movie
 		string director;  //director of specific classics movie
- string majorActor; //major actor of specific classics movie
+ 		string majorActor; //major actor of specific classics movie
 		ClassicsBST* right;  //pointer to right child in BST
 		ClassicsBST* left;  //pointer to left child in BST
 	};
