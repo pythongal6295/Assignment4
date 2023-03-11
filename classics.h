@@ -29,6 +29,9 @@ public:
 	// -----------------------------------Classics()-----------------------------------
 	// Default constructor for Classics class
 	Classics();
+	// -----------------------------------Classics()-----------------------------------
+	// Default constructor for Classics class
+	Classics();
 
 	// -----------------------------------Classics-----------------------------------
 	// Paramaterized constructor for Classics
@@ -41,7 +44,17 @@ public:
 	// -----------------------------------~Classics()-----------------------------------
 	// Destructor for Classics
 	~Classics();
+	// -----------------------------------Classics-----------------------------------
+	// Constructor with parameter for Classics class
+	Classics(ifstream&);
 
+	// -----------------------------------~Classics()-----------------------------------
+	// Destructor for Classics
+	~Classics();
+
+	// -----------------------------------display-----------------------------------
+	// Outputs to the screen all of the details of the movie (Year, Title, Director, Stock)
+	void display();
 	// -----------------------------------display-----------------------------------
 	// Outputs to the screen all of the details of the movie (Year, Title, Director, Stock)
 	void display();
@@ -63,7 +76,13 @@ int getYear();
 	// -----------------------------------getTitle-----------------------------------
 	// Returns the title of the movie
 	string getTitle();
+	// -----------------------------------getTitle-----------------------------------
+	// Returns the title of the movie
+	string getTitle();
 
+	// -----------------------------------getStock-----------------------------------
+	// Returns the stock of the movie
+	int getStock();
 	// -----------------------------------getStock-----------------------------------
 	// Returns the stock of the movie
 	int getStock();
@@ -81,7 +100,14 @@ string getMajorActor();
 	// Returns the name of the directory of the movie
 	string getDirector();
 >>>>>>> cc09f1b (Merging files)
+	// -----------------------------------getDirector-----------------------------------
+	// Returns the name of the directory of the movie
+	string getDirector();
 
+	// -----------------------------------setStock-----------------------------------
+	// Sets a new value for the stock depending on borrow/rent actions
+	// Parameter: int - the new stock value
+	void setStock(int);
 	// -----------------------------------setStock-----------------------------------
 	// Sets a new value for the stock depending on borrow/rent actions
 	// Parameter: int - the new stock value

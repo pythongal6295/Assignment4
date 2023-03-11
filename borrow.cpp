@@ -20,6 +20,11 @@ Borrow::Borrow(ifstream& infile)
 	}
 }
 
+// Constructor with parameter for Borrow class
+Borrow::Borrow(ifstream&)
+{
+}
+
 // Default destructor for Borrow class
 Borrow::~Borrow()
 {
