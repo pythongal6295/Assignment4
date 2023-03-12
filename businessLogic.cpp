@@ -1,5 +1,6 @@
 #include "businessLogic.h"
 #include <iostream>
+#include <fstream>
 #include <string>
 
 // Default constructor
@@ -21,18 +22,19 @@ BusinessLogic::~BusinessLogic()
 // Calls Movie::insert(string, Movie * root) to include each line from file. 
 void BusinessLogic::loadMovies(ifstream& infile)
 {
-	char movieType;
+	string movieType;
 	Movie* newMovie;
 
 	for (;;) {
-		infile >> movieType;
+		//infile >> movieType;
+		string garbage;
 		ifstream temp;
-		
+		getline(infile, movieType, ',');
 		// If movieType is comedy, classic or drama insert information in binary tree node
-		if (movieType == 'F' || movieType == 'C' || movieType == 'D') {
-			newMovie = movieFactory.createMovieObject(movieType, infile);
+		if (movieType == "F" || movieType == "C" || movieType == "D") {
+			newMovie = movieFactory.createMovieObject(movieType[0], infile);
 
-			switch (movieType) {
+			switch (movieType[0]) {
 			case 'F':
 				//comediesBST->insert(newMovie);
 				break;
@@ -44,7 +46,7 @@ void BusinessLogic::loadMovies(ifstream& infile)
 				break;
 			}
 		} else {	// Empty current line to get next movieType in file
-			//getline(infile);
+			getline(infile,garbage);	//	TO IMPROVE
 		}
 		// If movieType is unknown, then read next line in file if not empty
 		if (infile.eof()) break;		// Stop if no more lines of data

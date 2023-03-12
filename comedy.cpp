@@ -41,10 +41,15 @@ Comedy::Comedy()
 
 Comedy::Comedy(ifstream& infile)
 {
-	infile >> stock;
+	string temp;
+	getline(infile, temp, ',');
+	stock = stoi(temp);
 	getline(infile, director, ',');
+	director.erase(0, 1);//Removing front blank space
 	getline(infile, title, ',');
+	title.erase(0, 1);//Removing front blank space
 	infile >> releaseYear;
+	getline(infile, temp);
 }
 
 Comedy::~Comedy()

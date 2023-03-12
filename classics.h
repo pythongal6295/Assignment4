@@ -58,10 +58,6 @@ public:
 	// Returns the stock of the movie
 	int getStock();
 
-	// -----------------------------------getStock-----------------------------------
-	// Returns the stock of the movie
-	int getStock();
-
 	// -----------------------------------getDirector-----------------------------------
 	// Returns the name of the directory of the movie
 	string getDirector();

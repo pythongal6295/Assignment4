@@ -44,7 +44,18 @@ Drama::Drama()
 // Constructor with parameter for Drama class
 Drama::Drama(ifstream& infile):Drama()
 {
-	infile >> stock >> director >> title >> releaseYear;
+	//infile >> stock >> director >> title >> releaseYear;
+	string temp;
+	getline(infile, temp, ',');
+	stock = stoi(temp);
+	getline(infile, director, ',');
+	director.erase(0, 1);//Removing front blank space
+	getline(infile, title, ',');
+	title.erase(0, 1);//Removing front blank space
+	infile >> releaseYear;
+	getline(infile, temp);
+
+	
 }
 
 Drama::~Drama()

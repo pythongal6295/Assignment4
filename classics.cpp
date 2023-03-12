@@ -47,26 +47,37 @@ Classics::Classics()
 
 Classics::Classics(ifstream& infile)
 {
-	infile >> stock;
+	string temp;
+
+	getline(infile, temp, ',');
+	stock = stoi(temp);
 	getline(infile, director, ',');
+	director.erase(0, 1);//Removing front blank space
 	getline(infile, title, ',');
+	title.erase(0, 1);//Removing front blank space
 	infile >> firstName >> lastName >> releaseMonth >> releaseYear;
+	getline(infile, temp);
+}
+
+Classics::~Classics()
+{
+
 }
 
 //Paramaterized constructor for Comedy 
-Classics::Classics(string movieTitle, string movieDirector, int movieMonth, int movieYear, int currStock, string majorActor)
-{
-	//set up the comedy movie node for the BST
-	ClassicsBST* classicsMovie = new ClassicsBST;
-	classicsMovie->title = movieTitle;
-	classicsMovie->director = movieDirector;
-	classicsMovie->year = movieYear;
-	classicsMovie->month = movieMonth;
-	classicsMovie->majorActor = majorActor;
-	classicsMovie->stock = currStock;
-	classicsMovie->left = NULL;
-	classicsMovie->right = NULL;
-}
+//Classics::Classics(string movieTitle, string movieDirector, int movieMonth, int movieYear, int currStock, string majorActor)
+//{
+//	//set up the comedy movie node for the BST
+//	ClassicsBST* classicsMovie = new ClassicsBST;
+//	classicsMovie->title = movieTitle;
+//	classicsMovie->director = movieDirector;
+//	classicsMovie->year = movieYear;
+//	classicsMovie->month = movieMonth;
+//	classicsMovie->majorActor = majorActor;
+//	classicsMovie->stock = currStock;
+//	classicsMovie->left = NULL;
+//	classicsMovie->right = NULL;
+//}
 
 //bool Classics::operator==(const Classics&) const
 //{

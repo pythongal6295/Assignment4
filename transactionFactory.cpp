@@ -7,8 +7,6 @@
 Transaction* TransactionFactory::createTransactionObject(char command, ifstream& infile)
 {
 	Transaction* selection = nullptr;
-	//char command;
-	//infile >> command; //Set command to first char in file
 
 	// Create a new object with the data in the first line of infile
 	switch (command) {

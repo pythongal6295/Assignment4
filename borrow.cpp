@@ -53,7 +53,7 @@ void Borrow::setData(ifstream& infile)
 	default:
 		cout << "Invalid video code";
 		getline(infile, garbage);
-		//break;
+		break;
 	}
 	//} else {	// Else movieType is unknown
 	//	cout << "Invalid video code";

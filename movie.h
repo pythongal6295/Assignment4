@@ -30,6 +30,8 @@ public:
 	// Default constructor for Movie class
 	Movie();
 
+	// -----------------------------------Movie()-----------------------------------
+	// Destructor for Movie class
 	~Movie();
 
 	// -----------------------------------display-----------------------------------
@@ -73,7 +75,6 @@ public:
 	//	string movieDirector; //director of specific movie
 	//	int movieYear; //year of specific movie
 	//	int stock; //stock of specific movie
-	virtual void insert(ifstream&) = 0;
 
 
 
