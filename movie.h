@@ -30,6 +30,8 @@ public:
 	// Default constructor for Movie class
 	Movie();
 
+	~Movie();
+
 	// -----------------------------------display-----------------------------------
 	// Outputs to the screen all of the details of the movie (Year, Title, Director, Stock)
 	void display();

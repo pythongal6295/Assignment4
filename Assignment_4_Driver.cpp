@@ -46,7 +46,7 @@ int main()
 
 	//movieStore.loadMovies(infileMov);
 	//movieStore.loadCustomers(infileMov);
-	//movieStore.loadCommands(infileCom);	// Read commands line by line in BusinessLogic::loadCommands()
+	movieStore.loadCommands(infileCom);	// Read commands line by line in BusinessLogic::loadCommands()
 
 
 }

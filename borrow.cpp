@@ -10,7 +10,7 @@ Borrow::Borrow()
 }
 
 // Constructor with parameter for Borrow class
-Borrow::Borrow(ifstream& infile)
+Borrow::Borrow(ifstream& infile):Borrow()
 {
 	infile >> idNum >> mediaType >> movieType;
 	setData(infile);

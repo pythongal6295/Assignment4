@@ -18,11 +18,13 @@
 
 #include <iostream>
 #include <fstream>
-#include "hashTable.h"
+#include <string>
+//#include "hashTable.h"
 #include "movieFactory.h"
-#include "transaction.h"
+//#include "transaction.h"
 #include "transactionFactory.h"
-#include "bintree.h"
+//#include "bintree.h"
+
 
 using namespace std;
 
@@ -52,13 +54,13 @@ public:
 
 private:
 
-	HashTable* customerHashTable;	//hash table with all customers
-	BinTree* comediesBST;    //BST of comedies
-	BinTree* dramasBST;		  //BST of dramas
-	BinTree* classicsBST;		//BST of classics
+	//HashTable* customerHashTable;	//hash table with all customers
+	//BinTree* comediesBST;    //BST of comedies
+	//BinTree* dramasBST;		  //BST of dramas
+	//BinTree* classicsBST;		//BST of classics
 
-	//MovieFactory movieFactory; //instance of MovieFactory to create movie objects
-	//TransactionFactory transactionFactory; //instance of TransactionFactory to create transaction objects
+	MovieFactory movieFactory; //instance of MovieFactory to create movie objects
+	TransactionFactory transactionFactory; //instance of TransactionFactory to create transaction objects
 };
 
 #endif

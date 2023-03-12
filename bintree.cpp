@@ -479,35 +479,35 @@ bool BinTree::insert(Movie*& newData)
 	////////return insertRecursive(root, newData);
 }
 
-// --------------------------insertRecursive---------------------------------------
-// Recursive function to insert a new node in the tree.
-// Preconditions: NodeData* previously created to be inserted in BinTree.
-// Postconditions: BinTree has a new NodeBST.
-// --------------------------------------------------------------------------------
-//////bool BinTree::insertRecursive(NodeBST*& curNode, Movie*& newData)
-//////{
-//////	//////// If newData is NULL stop there
-//////	//////if (newData == NULL) {
-//////	//////	return false;
-//////	//////}
-//////	//////// If an empty node is found insert at current root node
-//////	//////if (curNode == NULL) {
-//////	//////	curNode = new NodeBST;
-//////	//////	curNode->item = newData;
-//////	//////	curNode->left = NULL;
-//////	//////	curNode->right = NULL;
-//////	//////	return true;
-//////	//////}
-//////	//////// Check for duplicates
-//////	//////else if (*newData == *curNode->item) {
-//////	//////	return false;
-//////	//////}
-//////	//////// If item to be inserted is less than current node then go left
-//////	//////else if (*curNode->item > *newData) {			
-//////	//////	return insertRecursive(curNode->left, newData);
-//////	//////}
-//////	//////// If item to be inserted is greater than current node then go right
-//////	//////else {
-//////	//////	return insertRecursive(curNode->right, newData);
-//////	//////}
-//////}
+ //--------------------------insertRecursive---------------------------------------
+ //Recursive function to insert a new node in the tree.
+ //Preconditions: NodeData* previously created to be inserted in BinTree.
+ //Postconditions: BinTree has a new NodeBST.
+ //--------------------------------------------------------------------------------
+//bool BinTree::insertRecursive(NodeBST*& curNode, Movie*& newData)
+//{
+//	//// If newData is NULL stop there
+//	//if (newData == NULL) {
+//	//	return false;
+//	//}
+//	//// If an empty node is found insert at current root node
+//	//if (curNode == NULL) {
+//	//	curNode = new NodeBST;
+//	//	curNode->item = newData;
+//	//	curNode->left = NULL;
+//	//	curNode->right = NULL;
+//	//	return true;
+//	//}
+//	//// Check for duplicates
+//	//else if (*newData == *curNode->item) {
+//	//	return false;
+//	//}
+//	//// If item to be inserted is less than current node then go left
+//	//else if (*curNode->item > *newData) {			
+//	//	return insertRecursive(curNode->left, newData);
+//	//}
+//	//// If item to be inserted is greater than current node then go right
+//	//else {
+//	//	return insertRecursive(curNode->right, newData);
+//	//}
+//}

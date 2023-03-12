@@ -2,15 +2,20 @@
 
 Return::Return()
 {
-	idNum = 0, releaseYear = 0, releaseMonth = 0;
-	mediaType = '\0', movieType = '\0';
-	string movieTitle = "", movieDirector = "", majorActor = "";
+	idNum = 0; 
+	releaseYear = 0;
+	releaseMonth = 0;
+	mediaType = '\0';
+	movieType = '\0';
+	movieTitle = "";
+	movieDirector = "";
+	majorActor = "";
 }
 
-Return::Return(ifstream& infile)
+Return::Return(ifstream& infile):Return()
 {
 	infile >> idNum >> mediaType >> movieType;
-	// if invalid customerID or media type
+	// If invalid customerID or media type
 }
 
 Return::~Return()

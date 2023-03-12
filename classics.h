@@ -32,7 +32,7 @@ public:
 
 	// -----------------------------------Classics-----------------------------------
 	// Paramaterized constructor for Classics
-	Classics(string title, string director, int month, int year, int currStock, string majorActor);
+	//Classics(string title, string director, int month, int year, int currStock, string majorActor);
 
 	// -----------------------------------Classics-----------------------------------
 	// Constructor with parameter for Classics class
@@ -46,13 +46,13 @@ public:
 	// Outputs to the screen all of the details of the movie (Year, Title, Director, Stock)
 	void display();
 
-// -----------------------------------getYear-----------------------------------
-// Returns the year of the movie
-int getMonth();
+	// -----------------------------------getYear-----------------------------------
+	// Returns the year of the movie
+	int getMonth();
 
-// -----------------------------------getMonth-----------------------------------
-// Returns the year of the movie
-int getYear();
+	// -----------------------------------getMonth-----------------------------------
+	// Returns the year of the movie
+	int getYear();
 
 	// -----------------------------------getTitle-----------------------------------
 	// Returns the title of the movie
@@ -62,13 +62,13 @@ int getYear();
 	// Returns the stock of the movie
 	int getStock();
 
-// -----------------------------------getDirector-----------------------------------
-// Returns the name of the directory of the movie
-string getDirector();
+	// -----------------------------------getDirector-----------------------------------
+	// Returns the name of the directory of the movie
+	string getDirector();
 
-// -----------------------------------getMajorActor-----------------------------------
-// Returns the name of the major actor of the movie
-string getMajorActor();
+	// -----------------------------------getMajorActor-----------------------------------
+	// Returns the name of the major actor of the movie
+	string getMajorActor();
 
 	// -----------------------------------setStock-----------------------------------
 	// Sets a new value for the stock depending on borrow/rent actions
@@ -80,8 +80,8 @@ string getMajorActor();
 	//parameters: string - remaining current command line from data4movies.txt
 	//void insert(ifstream&);
 
-	virtual bool operator==(const Classics&) const;
-	virtual bool operator>(const Classics&) const;
+	//bool operator==(const Classics&) const;
+	//bool operator>(const Classics&) const;
 
 private:
 
@@ -94,8 +94,8 @@ private:
 	int releaseMonth; //month of specific classics movie
 	string title;  //title of specific classics movie
 	string director;  //director of specific classics movie
-	string firstNameMajorAct; //major actor of specific classics movie
-	string lastNameMajorAct;
+	string firstName; //Major actor's first name
+	string lastName; //Major actor's last name
 	//ClassicsBST* right;  //pointer to right child in BST
 	//ClassicsBST* left;  //pointer to left child in BST
 	//};

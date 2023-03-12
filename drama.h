@@ -29,7 +29,7 @@ public:
 	Drama();
 
 	//Paramaterized constructor for Drama
-	Drama(string title, string director, int year, int currStock);
+	//Drama(string title, string director, int year, int currStock);
 
 	// -----------------------------------Drama()-----------------------------------
 	// Constructor with parameter for Drama class
@@ -68,8 +68,8 @@ public:
 	// Precondition: String - current command line from data4movies.txt.
 	//void insert(ifstream&);
 
-	virtual bool operator==(const Drama&) const;
-	virtual bool operator>(const Drama&) const;
+	/*virtual bool operator==(const Drama&) const;
+	virtual bool operator>(const Drama&) const;*/
 
 private:
 

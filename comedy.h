@@ -30,7 +30,7 @@ public:
 	Comedy();
 
 	//Paramaterized constructor for Comedy 
-	Comedy(string title, string director, int year, int currStock);
+	//Comedy(string title, string director, int year, int currStock);
 
 	// -----------------------------------Comedy-----------------------------------
 	// Constructor with parameter for Comedy 
@@ -66,9 +66,9 @@ public:
 	//void insert(ifstream&);
 
 
-	bool operator==(const Comedy&) const;
+	//bool operator==(const Comedy&) const;
 
-	bool operator>(const Comedy&) const;
+	//bool operator>(const Comedy&) const;
 
 
 private:

@@ -32,10 +32,10 @@ public:
 	// Default destructor for Show class
 	~Return();
 
-	void doTransaction();
+	virtual void doTransaction();
 
 private:
-	void setData(ifstream&);
+	virtual void setData(ifstream&);
 
 	int idNum, releaseYear, releaseMonth;
 	char mediaType, movieType;

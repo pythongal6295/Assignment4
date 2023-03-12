@@ -5,9 +5,6 @@
 // string line in data4movies.txt (BusinessLogic::loadMovies())
 Movie* MovieFactory::createMovieObject(char movieType, ifstream& infile)
 {
-	//char movieType;
-	//infile >> movieType; // Set first character (movieType) in line
-
 	Movie* selection = nullptr;
 
 	// Create an object with all the movie information
