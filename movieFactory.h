@@ -30,7 +30,11 @@ public:
 
 	// -----------------------------------MovieFactory()-----------------------------------
 	// Default constructor for MovieFactory class
-	//MovieFactory();
+	MovieFactory();
+
+	// -----------------------------------~MovieFactory()-----------------------------------
+	// Destructor for MovieFactory class
+	~MovieFactory();
 
 	// ----------------------------------createMovieObject----------------------------------
 	// Creates new movie genre object with switch, using first letter from current 
