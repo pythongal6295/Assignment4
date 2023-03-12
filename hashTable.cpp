@@ -76,7 +76,6 @@ int HashTable::hashFunctionGet(int customerID){
   indexCheck = false;
 
   //check if the customer ID at the current index matches the one passed into this function
-  //Do we need to check if there is a duplicate Customer ID?
   while (!indexCheck) {
     //if the current index brings up to a NULL spot, then return the index as -1
     if (hashTable[index] == NULL) {
@@ -101,15 +100,14 @@ int HashTable::hashFunctionGet(int customerID){
 }
     // -----------------------------------setInTable-------------------------------------	
   // Function to set Customer object in hashTable[]
-	void HashTable::setInTable(string customerID, Customer * customer){
+void HashTable::setInTable(Customer * customer){
     int index = 0;
 
     //Create a new CustomerNode
     CustomerNode * newCustomer = new CustomerNode;
     newCustomer->headCustomer = customer;
 
-    //found stoi() on internet, not sure if it actually works
-    index = hashFunctionSet(stoi(customerID));
+    index = hashFunctionSet(customer->getIdNum());
 
     newCustomer->hashValue = index;
 

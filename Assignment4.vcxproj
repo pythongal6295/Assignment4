@@ -133,6 +133,7 @@
     <ClCompile Include="businessLogic.cpp" />
     <ClCompile Include="classics.cpp" />
     <ClCompile Include="comedy.cpp" />
+    <ClCompile Include="customer.cpp" />
     <ClCompile Include="drama.cpp" />
     <ClCompile Include="driver.cpp" />
     <ClCompile Include="hashTable.cpp" />

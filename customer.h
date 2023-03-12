@@ -1,7 +1,5 @@
 // ---------------------------------------------- customer.h ----------------------------------------------------
 // Kelly M. Kauffman			CSS502 A
-// Jessica Lee Chan
-// Maria Ixchel Arias Cruz
 // Brenda S. Vega Contreras 
 // Creation Date : 2/25/23
 // Date of Last Modification: 2/25/23
@@ -42,7 +40,7 @@ Customer();
 
 // -----------------------------------Customer()-----------------------------------
 // Parameterized constructor for Movie class from a istream object
-Customer(istream&);
+Customer(ifstream&);
 
 // -----------------------------------~Customer()-----------------------------------
 // Destructor for class Customer 
@@ -57,10 +55,10 @@ void displayHistory();
 // Output Customer information 4 digit ID number, last name and first name.  
 void displayCustomer();
 
-
+//I don't think we need this since everything is getting set in the constructor
 // -----------------------------------setCustomerInfo-----------------------------------
 // Set customer information from a istream object
-bool setCustomerInfo(istream& input);
+//bool setCustomerInfo(istream& input);
 
 // -----------------------------------getIDNum------------------------------------------
 // Accessor - get the idNum of an object customer 
