@@ -19,7 +19,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "hashTable.h"
+//#include "hashTable.h"
 #include "movieFactory.h"
 //#include "transaction.h"
 #include "transactionFactory.h"
@@ -54,13 +54,13 @@ public:
 
 private:
 
-	HashTable* customerHashTable;	//hash table with all customers
+	//HashTable* customerHashTable;	//hash table with all customers
 	//BinTree* comediesBST;    //BST of comedies
 	//BinTree* dramasBST;		  //BST of dramas
 	//BinTree* classicsBST;		//BST of classics
 
-	MovieFactory movieFactory; //instance of MovieFactory to create movie objects
-	TransactionFactory transactionFactory; //instance of TransactionFactory to create transaction objects
+	//MovieFactory movieFactory; //instance of MovieFactory to create movie objects (Remove)
+	//TransactionFactory transactionFactory; //instance of TransactionFactory to create transaction objects (Remove)
 };
 
 #endif

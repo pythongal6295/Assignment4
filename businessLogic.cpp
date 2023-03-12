@@ -6,7 +6,7 @@
 // Default constructor
 BusinessLogic::BusinessLogic()
 {
-	customerHashTable = new HashTable();	//hash table with all customers
+	//customerHashTable = new HashTable();	//hash table with all customers
 	//comediesBST = new BinTree();    //BST of comedies
 	//dramasBST = new BinTree();		  //BST of dramas
 	//classicsBST = new BinTree();		//BST of classics
@@ -26,37 +26,35 @@ void BusinessLogic::loadMovies(ifstream& infile)
 	Movie* newMovie;
 
 	for (;;) {
-		//infile >> movieType;
-		string garbage;
-		ifstream temp;
+		// Get type of movie
 		getline(infile, movieType, ',');
-		// If movieType is comedy, classic or drama insert information in binary tree node
-		if (movieType == "F" || movieType == "C" || movieType == "D") {
-			newMovie = movieFactory.createMovieObject(movieType[0], infile);
 
-			switch (movieType[0]) {
-			case 'F':
-				//comediesBST->insert(newMovie);
-				break;
-			case 'C':
-				//classicsBST->insert(newMovie);
-				break;
-			case 'D':
-				//dramasBST->insert(newMovie);
-				break;
-			}
-		} else {	// Empty current line to get next movieType in file
-			getline(infile,garbage);	//	TO IMPROVE
+		// Create node newMovie to insert in BST. If invalid movie type, newMovie is set to NULL.
+		newMovie = MovieFactory::createMovieObject(movieType[0], infile);
+
+		// If movieType is comedy, classic or drama insert node newMovie in binary tree
+		switch (movieType[0]) {
+		case 'F':
+			//comediesBST->insert(newMovie);
+			break;
+		case 'C':
+			//classicsBST->insert(newMovie);
+			break;
+		case 'D':
+			//dramasBST->insert(newMovie);
+			break;
+		default: // If movieType is unknown, do nothing. newMovie is set to NULL in MovieFactory
+			break;
 		}
-		// If movieType is unknown, then read next line in file if not empty
-		if (infile.eof()) break;		// Stop if no more lines of data
+
+		if (infile.eof()) break;		// Stop if no more lines of data in file
 	}
 }
 
 // -----------------------------------loadCustomers----------------------------------
 // Sets Custumer info in hash table using HashTable::setInTable(string) and an object
 // of type Customer
-void BusinessLogic::loadCustomers(ifstream&)
+void BusinessLogic::loadCustomers(ifstream& infile)
 {
 
 }
@@ -67,19 +65,22 @@ void BusinessLogic::loadCustomers(ifstream&)
 void BusinessLogic::loadCommands(ifstream& infile)
 {
 	char transaction;
+	string garbage;
 	Transaction* newTransaction;
 
 	for (;;) {
 		infile >> transaction;
 		// If transaction type is borrow, return, show inventory or show client history, do transaction
 		if (transaction == 'B' || transaction == 'R' || transaction == 'I' || transaction == 'H') {
-			newTransaction = transactionFactory.createTransactionObject(transaction, infile);
+			newTransaction = TransactionFactory::createTransactionObject(transaction, infile);
 			newTransaction->doTransaction();
 			delete newTransaction;
 			newTransaction = nullptr;
-
 		}
-		// If transaction type is unknown, then read next line in file if not empty
+		// If transaction type is unknown, empty current line
+		else {
+			getline(infile, garbage);	//	TO IMPROVE
+		}
 		if (infile.eof()) break;		// Stop if no more lines of data
 	}
 }
