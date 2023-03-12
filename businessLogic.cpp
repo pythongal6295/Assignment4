@@ -1,7 +1,7 @@
 #include "businessLogic.h"
-#include <iostream>
-#include <fstream>
-#include <string>
+//#include <iostream>
+//#include <fstream>
+//#include <string>
 
 // Default constructor
 BusinessLogic::BusinessLogic()
@@ -14,6 +14,7 @@ BusinessLogic::BusinessLogic()
 
 BusinessLogic::~BusinessLogic()
 {
+
 }
 
 // -----------------------------------loadMovies-------------------------------------
