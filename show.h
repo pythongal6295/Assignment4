@@ -30,10 +30,10 @@ public:
 	//Default destructor for Show class
 	~Show();
 
-	void doTransaction();
+	virtual void doTransaction();
 
 private:
-	void setData(ifstream&);
+	virtual void setData(ifstream&);
 
 };
 

@@ -30,7 +30,7 @@ public:
 
 	// -----------------------------------MovieFactory()-----------------------------------
 	// Default constructor for MovieFactory class
-	MovieFactory();
+	//MovieFactory();
 
 	// ----------------------------------createMovieObject----------------------------------
 	// Creates new movie genre object with switch, using first letter from current 

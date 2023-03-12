@@ -24,12 +24,6 @@
     <ClCompile Include="nodedata.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="movieFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="hashTable.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="businessLogic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -51,6 +45,24 @@
     <ClCompile Include="driver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\source\repos\CSS 502\Assignment_4\Assignment_4\Assignment_4_Driver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="classics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="comedy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="drama.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="movieFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="movie.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bintree.h">
@@ -62,28 +74,10 @@
     <ClInclude Include="businessLogic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="classics.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="comedy.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="customer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="drama.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="hashTable.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="history.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="movie.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="movieFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="return.h">
@@ -99,6 +93,21 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="nodedata.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="classics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="comedy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="drama.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="movie.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="movieFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

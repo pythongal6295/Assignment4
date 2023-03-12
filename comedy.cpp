@@ -20,7 +20,10 @@
 //Default constructor for Comedy 
 Comedy::Comedy()
 {
-
+	releaseYear = 0;
+	stock = 0;
+	title = "";
+	director = "";
 }
 
 ////Paramaterized constructor for Comedy 
@@ -44,15 +47,19 @@ Comedy::Comedy(ifstream& infile)
 	infile >> releaseYear;
 }
 
-bool Comedy::operator==(const Comedy& rhs) const
+Comedy::~Comedy()
 {
-	if (director == rhs.director && title == rhs.title && releaseYear == rhs.releaseYear) {
-		return true;
-	}
-	return false;
 }
 
-bool Comedy::operator>(const Comedy&) const
-{
-	return true;
-}
+//bool Comedy::operator==(const Comedy& rhs) const
+//{
+//	/*if (director == rhs.director && title == rhs.title && releaseYear == rhs.releaseYear) {
+//		return true;
+//	}*/
+//	return false;
+//}
+//
+//bool Comedy::operator>(const Comedy&) const
+//{
+//	return true;
+//}

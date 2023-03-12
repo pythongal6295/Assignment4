@@ -42,17 +42,21 @@ Drama::Drama()
 
 // -----------------------------------Drama()-----------------------------------
 // Constructor with parameter for Drama class
-Drama::Drama(ifstream& infile)
+Drama::Drama(ifstream& infile):Drama()
 {
 	infile >> stock >> director >> title >> releaseYear;
 }
 
-bool Drama::operator==(const Drama&) const
+Drama::~Drama()
 {
-	return false;
 }
 
-bool Drama::operator>(const Drama&) const
-{
-	return false;
-}
+//bool Drama::operator==(const Drama&) const
+//{
+//	return false;
+//}
+//
+//bool Drama::operator>(const Drama&) const
+//{
+//	return false;
+//}

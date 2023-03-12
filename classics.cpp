@@ -26,11 +26,11 @@ Classics::Classics()
 	//stock = 0;
 	title = "";
 	director = "";
-	firstNameMajorAct = "";
-	lastNameMajorAct = "";
+	firstName = "";
+	lastName = "";
 }
 
-////Paramaterized constructor for Comedy 
+////Paramaterized constructor for Classics 
 //Classics::Classics(string movieTitle, string movieDirector, int movieMonth, int movieYear, int currStock, string majorActor)
 //{
 //	//set up the comedy movie node for the BST
@@ -62,15 +62,19 @@ Classics::Classics(ifstream& infile)
 	// infile >> stock;
 	getline(infile, director, ',');
 	getline(infile, title, ',');
-	infile >> firstNameMajorAct >> lastNameMajorAct >> releaseMonth >> releaseYear;
+	infile >> firstName >> lastName >> releaseMonth >> releaseYear;
 }
 
-bool Classics::operator==(const Classics&) const
+Classics::~Classics()
 {
-	return false;
 }
 
-bool Classics::operator>(const Classics&) const
-{
-	return false;
-}
+//bool Classics::operator==(const Classics&) const
+//{
+//	return false;
+//}
+//
+//bool Classics::operator>(const Classics&) const
+//{
+//	return false;
+//}

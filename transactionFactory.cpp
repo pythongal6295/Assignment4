@@ -1,11 +1,12 @@
 #include "transactionFactory.h"
 
+
 // ----------------------------------createTransactionObject----------------------------------
 // Creates new transaction object with switch, using first letter from current 
 // string line in data4commands.txt (BusinessLogic::loadCommands())
 Transaction* TransactionFactory::createTransactionObject(char command, ifstream& infile)
 {
-	Transaction* selection=nullptr;
+	Transaction* selection = nullptr;
 	//char command;
 	//infile >> command; //Set command to first char in file
 

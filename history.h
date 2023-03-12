@@ -33,10 +33,10 @@ public:
 	//Default destructor for History class
 	~History();
 
-	void doTransaction();
+	virtual void doTransaction();
 
 private:
-	void setData(ifstream&);
+	virtual void setData(ifstream&);
 
 	int idNum;
 };
