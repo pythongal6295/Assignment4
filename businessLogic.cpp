@@ -6,7 +6,7 @@
 // Default constructor
 BusinessLogic::BusinessLogic()
 {
-	////customerHashTable = new HashTable();	//hash table with all customers
+	customerHashTable = new HashTable();	//hash table with all customers
 	//comediesBST = new BinTree();    //BST of comedies
 	//dramasBST = new BinTree();		  //BST of dramas
 	//classicsBST = new BinTree();		//BST of classics
@@ -53,14 +53,17 @@ void BusinessLogic::loadMovies(ifstream& infile)
 	}
 }
 
+// -----------------------------------loadCustomers----------------------------------
+// Sets Custumer info in hash table using HashTable::setInTable(string) and an object
+// of type Customer
 void BusinessLogic::loadCustomers(ifstream&)
 {
 
 }
 
 // -----------------------------------loadCommands-----------------------------------
-	  // Reads each command line from file
-	  // Uses public command functions of BusinessLogic ()
+// Reads each command line from file
+// Uses public command functions of BusinessLogic ()
 void BusinessLogic::loadCommands(ifstream& infile)
 {
 	char transaction;
