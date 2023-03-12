@@ -21,36 +21,57 @@
 //Default constructor for Comedy 
 Classics::Classics()
 {
-
+	month = 0;
+	year = 0;
+	stock = 0;
+	title = "";
+	director = "";
+	firstName = "";
+	lastName = "";
 }
 
-//Paramaterized constructor for Comedy 
-Classics::Classics(string movieTitle, string movieDirector, int movieMonth, int movieYear, int currStock, string actor)
+//Paramaterized constructor for Classics 
+//Classics::Classics(string movieTitle, string movieDirector, int movieMonth, int movieYear, int currStock, string actor)
+//{
+//	//set up the comedy movie node for the BST
+//	/*ClassicsBST* classicsMovie = new ClassicsBST;
+//	classicsMovie->title = movieTitle;
+//	classicsMovie->director = movieDirector;
+//	classicsMovie->year = movieYear;
+//	classicsMovie->month = movieMonth;
+//	classicsMovie->majorActor = majorActor;
+//	classicsMovie->stock = currStock;
+//	classicsMovie->left = NULL;
+//	classicsMovie->right = NULL;*/
+// 
+//	//if we don't use the structure, then just set the private attributes
+//	title = movieTitle;
+//	director = movieDirector;
+//	year = movieYear;
+//	month = movieMonth;
+//	majorActor = actor;
+//	stock = currStock;
+//}
+
+// -----------------------------------Classics-----------------------------------
+// Parametrized constructor for Classics, ifstream parameter type
+Classics::Classics(ifstream& infile)
 {
-	//set up the comedy movie node for the BST
-	/*ClassicsBST* classicsMovie = new ClassicsBST;
-	classicsMovie->title = movieTitle;
-	classicsMovie->director = movieDirector;
-	classicsMovie->year = movieYear;
-	classicsMovie->month = movieMonth;
-	classicsMovie->majorActor = majorActor;
-	classicsMovie->stock = currStock;
-	classicsMovie->left = NULL;
-	classicsMovie->right = NULL;*/
+	string temp;
 
-	//if we don't use the structure, then just set the private attributes
-	title = movieTitle;
-	director = movieDirector;
-	year = movieYear;
-	month = movieMonth;
-	majorActor = actor;
-	stock = currStock;
+	getline(infile, temp, ',');
+	stock = stoi(temp);
+	getline(infile, director, ',');
+	director.erase(0, 1);//Removing front blank space
+	getline(infile, title, ',');
+	title.erase(0, 1);//Removing front blank space
+	infile >> firstName >> lastName >> month >> year;
+	getline(infile, temp);
 }
 
-// -----------------------------------~Classics()-----------------------------------
-// Destructor for Classics
 Classics::~Classics()
 {
+
 }
 
 // -----------------------------------display-----------------------------------
@@ -104,7 +125,7 @@ string Classics::getDirector()
 // Returns the name of the major actor of the movie
 string Classics::getMajorActor()
 {
-	return majorActor;
+	return firstName+" "+lastName;
 }
 // -----------------------------------setStock-----------------------------------
 // Sets a new value for the stock depending on borrow/rent actions
@@ -112,5 +133,15 @@ string Classics::getMajorActor()
 void Classics::setStock(int newStock)
 {
 	stock = newStock;
+	//stock += newStock;	// Add newStock to current stock
 }
 
+//bool Classics::operator==(const Classics&) const
+//{
+//	return false;
+//}
+//
+//bool Classics::operator>(const Classics&) const
+//{
+//	return false;
+//}

@@ -26,7 +26,7 @@
   }
 
   // ---------------------------------- ~HashTable--------------------------------------
-  HashTable::HashTable()
+  HashTable::~HashTable()
   {
       for (int i = 0; i < SIZE_HT; i++) {
           //delete each customer node

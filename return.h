@@ -20,17 +20,26 @@
 
 using namespace std;
 
-class Return: public Transaction
+class Return : public Transaction
 {
 public:
-// Default constructor for Return class
- Return();
-// Default destructor for Show class
-~Return();
+	// Default constructor for Return class
+	Return();
 
-void doTransaction();
-void setData(ifstream&);
+	// Constructor with parameter for Return class
+	Return(ifstream&);
 
+	// Default destructor for Show class
+	~Return();
+
+	virtual void doTransaction();
+
+private:
+	virtual void setData(ifstream&);
+
+	int idNum, releaseYear, releaseMonth;
+	char mediaType, movieType;
+	string movieTitle, movieDirector, majorActor;
 };
 
 #endif

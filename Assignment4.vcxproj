@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\source\repos\CSS 502\Assignment_4\Assignment_4\Assignment_4_Driver.cpp" />
     <ClCompile Include="bintree.cpp" />
     <ClCompile Include="borrow.cpp" />
     <ClCompile Include="businessLogic.cpp" />
@@ -135,8 +136,12 @@
     <ClCompile Include="drama.cpp" />
     <ClCompile Include="driver.cpp" />
     <ClCompile Include="hashTable.cpp" />
+    <ClCompile Include="history.cpp" />
+    <ClCompile Include="movie.cpp" />
     <ClCompile Include="movieFactory.cpp" />
     <ClCompile Include="nodedata.cpp" />
+    <ClCompile Include="return.cpp" />
+    <ClCompile Include="show.cpp" />
     <ClCompile Include="transaction.cpp" />
     <ClCompile Include="transactionFactory.cpp" />
   </ItemGroup>

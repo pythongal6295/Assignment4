@@ -17,24 +17,30 @@
 #include <iostream>
 #include <fstream>
 #include "transaction.h"
+
 using namespace std;
 
-class Borrow:public Transaction
+class Borrow :public Transaction
 {
 public:
 	// Default constructor for Borrow class  
 	Borrow();
 
+	// Constructor with parameter for Borrow class
+	Borrow(ifstream&);
+
 	// Default destructor for Borrow class
 	~Borrow();
 
 	virtual void doTransaction();
-	virtual void setData(ifstream&);
 
 private:
-	int customerID, releaseYear, releaseMonth;
+	virtual void setData(ifstream&);
+
+	bool addNode;
+	int idNum, releaseYear, releaseMonth;
 	char mediaType, movieType;
-	string movieTitle, movieDirector, majorActor;
+	string movieTitle, movieDirector, majorActor, garbage;
 
 };
 #endif

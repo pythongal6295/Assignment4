@@ -23,15 +23,17 @@ using namespace std;
 class Show : public Transaction
 {
 public:
-    // -----------------------------------Show()-----------------------------------
-  // Default constructor for Show class
-  Show();
+	// -----------------------------------Show()-----------------------------------
+	// Default constructor for Show class
+	Show();
 
-  //Default destructor for Show class
-  ~Show();
+	//Default destructor for Show class
+	~Show();
 
-  void doTransaction();
-  void setData(ifstream&);
+	virtual void doTransaction();
+
+private:
+	virtual void setData(ifstream&);
 
 };
 

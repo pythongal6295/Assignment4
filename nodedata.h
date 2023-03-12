@@ -45,6 +45,7 @@ public:
 
 private:
 	string data;
+
 };
 
 #endif
