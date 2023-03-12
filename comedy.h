@@ -29,11 +29,11 @@ public:
 	//Default constructor for Comedy 
 	Comedy();
 
-	//Paramaterized constructor for Comedy 
+	//Paramaterized constructor for Comedy, multiple data parameter
 	//Comedy(string title, string director, int year, int currStock);
 
 	// -----------------------------------Comedy-----------------------------------
-	// Constructor with parameter for Comedy 
+	// Paramaterized constructor for Comedy, ifstream parameter type
 	Comedy(ifstream&);
 
 	// -----------------------------------~Comedy()-----------------------------------
@@ -43,6 +43,10 @@ public:
 	// -----------------------------------display-----------------------------------
 	// Outputs to the screen all of the details of the movie (Year, Title, Director, Stock)
 	void display();
+
+	// -----------------------------------getYear-----------------------------------
+	// Returns the year of the movie
+	int getYear();
 
 	// -----------------------------------getTitle-----------------------------------
 	// Accessor - get the movieTitle of an object Comedy.
@@ -72,20 +76,13 @@ public:
 
 
 private:
+	// NOTE: I gave the same format of Clasics to Comedy and Drama
 
-	// -----------------------------------struct ComedyBST-----------------------------------
-	// The structure represents a node that describes a comedy movie.
-	// The created node is added to the Comedy binary search tree.
-	// BST sorted by title, then year it was released
-	/*struct ComedyBST
-	{*/
-		int releaseYear;  //year of specific comedy movie
-		int stock;  //stock of specific comedy movie
-		string title;  //title of specific comedy movie
-		string director;  //director of specific comedy movie
-		//ComedyBST* right;  //pointer to right child in BST
-		//ComedyBST* left;  //pointer to left child in BST
-	//};
+	int year;  //year of specific comedy movie
+	int stock;  //stock of specific comedy movie
+	string title;  //title of specific comedy movie
+	string director;  //director of specific comedy movie
+
 
 };
 

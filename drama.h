@@ -73,21 +73,11 @@ public:
 
 private:
 
-	// -----------------------------------struct DramaBST-----------------------------------
-	// The structure represent a node of type drama.
-	// The created node is added to the Drama binary search tree.
-	// BST sorted by Director then by Title 
-
-	/*struct DramaBST
-	{*/
-	int releaseMonth; // month of specific movie
-	int releaseYear;  // year of specific drama movie
+	int month; // month of specific movie
+	int year;  // year of specific drama movie
 	int stock; // stock of specific drama movie
 	string title;  // title of specific drama movie
 	string director; // director of specific drama movie
-	//DramaBST* right;  // pointer to right child in BST
-	//DramaBST* left;  // pointer to left child in BST
-	//};
 
 };
 #endif

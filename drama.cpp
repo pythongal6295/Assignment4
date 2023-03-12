@@ -20,8 +20,8 @@
 //Default constructor for Drama 
 Drama::Drama()
 {
-	releaseMonth = 0;
-	releaseYear = 0;
+	month = 0;
+	year = 0;
 	stock = 0;
 	title = "";
 	director = "";
@@ -42,7 +42,7 @@ Drama::Drama()
 
 // -----------------------------------Drama()-----------------------------------
 // Constructor with parameter for Drama class
-Drama::Drama(ifstream& infile):Drama()
+Drama::Drama(ifstream& infile) :Drama()
 {
 	//infile >> stock >> director >> title >> releaseYear;
 	string temp;
@@ -52,14 +52,49 @@ Drama::Drama(ifstream& infile):Drama()
 	director.erase(0, 1);//Removing front blank space
 	getline(infile, title, ',');
 	title.erase(0, 1);//Removing front blank space
-	infile >> releaseYear;
+	infile >> year;
 	getline(infile, temp);
-
-	
 }
 
 Drama::~Drama()
 {
+}
+
+// -----------------------------------getYear-----------------------------------
+// Returns the year of the movie
+int Drama::getYear()
+{
+	return year;
+}
+
+// -----------------------------------getTitle-----------------------------------
+// Returns the title of the movie
+string Drama::getTitle()
+{
+	return title;
+}
+
+// -----------------------------------getStock-----------------------------------
+// Returns the stock of the movie
+int Drama::getStock()
+{
+	return stock;
+}
+
+// -----------------------------------getDirector-----------------------------------
+// Returns the name of the directory of the movie
+string Drama::getDirector()
+{
+	return director;
+}
+
+// -----------------------------------setStock-----------------------------------
+// Sets a new value for the stock depending on borrow/rent actions
+// Parameter: int - the new stock value
+void Drama::setStock(int newStock)
+{
+	stock = newStock;
+	//stock += newStock;	// Add newStock to current stock
 }
 
 //bool Drama::operator==(const Drama&) const
