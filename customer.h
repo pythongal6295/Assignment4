@@ -23,11 +23,11 @@ using namespace std;
 // -----------------------------------struct History-----------------------------------
 // The structure represent a node of type History.
 // The created node is added to the transactions LL.
-struct History
+struct customerHistory
 {
 	Movie* currentMovie;	// Pointer to the movie that was borrowed or returned
 	string typeOfTransaction; // Borrowing or returning item
-	History* next;	// Pointer to previous transaction (pointing to next History item in LL)
+	customerHistory* next;	// Pointer to previous transaction (pointing to next History item in LL)
 };
 
 class Customer
@@ -77,8 +77,8 @@ private:
 int idNum; //Specific customer ID number
 string lastName; //Specific customer last name
 string firstName; //Specific customer first name
-History* lastTransaction;	// Pointer to last borrowed or returned movie (history) (transaction at the front of LL)
-list<History> customerHistory; //Linked List of specific customer's history transactions
+customerHistory* lastTransaction;	// Pointer to last borrowed or returned movie (history) (transaction at the front of LL)
+list<customerHistory> customerHistory; //Linked List of specific customer's history transactions
 };
 
 #endif

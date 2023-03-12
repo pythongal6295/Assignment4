@@ -21,20 +21,20 @@ using namespace std;
 
 int main()
 {
-	// Save movies in infileMov
-	ifstream infileMov("data4movies.txt");
-	if (!infileMov) {
-		cout << "File could not be opened." << endl;
-		return 1;
-	}
+	//// Save movies in infileMov
+	//ifstream infileMov("data4movies.txt");
+	//if (!infileMov) {
+	//	cout << "File could not be opened." << endl;
+	//	return 1;
+	//}
 
-	// Save customers in infileCus
-	ifstream infileCus("data4customers.txt");
-	if (!infileCus) {
-		cout << "File could not be opened." << endl;
-		return 1;
-	}
-	
+	//// Save customers in infileCus
+	//ifstream infileCus("data4customers.txt");
+	//if (!infileCus) {
+	//	cout << "File could not be opened." << endl;
+	//	return 1;
+	//}
+
 	// Save commands in infileCom
 	ifstream infileCom("data4commands.txt");
 	if (!infileCom) {
@@ -44,8 +44,8 @@ int main()
 
 	BusinessLogic movieStore;
 
-	movieStore.loadMovies(infileMov);
-	movieStore.loadCustomers(infileMov);
+	//movieStore.loadMovies(infileMov);
+	//movieStore.loadCustomers(infileMov);
 	movieStore.loadCommands(infileCom);	// Read commands line by line in BusinessLogic::loadCommands()
 
 
