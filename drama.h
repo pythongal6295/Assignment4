@@ -24,9 +24,9 @@ using namespace std;
 class Drama : public Movie
 {
 public:
-// -----------------------------------Drama()-----------------------------------
-//Default constructor for Drama 
-  Drama();
+	// -----------------------------------Drama()-----------------------------------
+	// Default constructor for drama 
+	Drama();
 
 	//Paramaterized constructor for Drama
 	Drama(string title, string director, int year, int currStock);
