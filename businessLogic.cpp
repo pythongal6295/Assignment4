@@ -33,9 +33,23 @@ void BusinessLogic::loadMovies(ifstream& infile)
 	}
 }
 
-void BusinessLogic::loadCustomers(ifstream&)
+void BusinessLogic::loadCustomers(ifstream& infile)
 {
+	//check if file can be opened
+	if (!infile) {
+		cout << "File could not be opened." << endl;
+	}
 
+	//create a new customer;
+	else {
+		for (;;) {
+			Customer c(infile);
+			//Add customer to hash table
+			customerHashTable.setInTable(&c);
+
+			if (infile.eof()) break;		// Stop if no more lines of data
+		}
+	}
 }
 
 // -----------------------------------loadCommands-----------------------------------

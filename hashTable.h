@@ -45,7 +45,7 @@ public:
 
   // -----------------------------------setInTable-------------------------------------	
   // Function to set Customer object in hashTable[]
-	void setInTable(string, Customer *);	
+	void setInTable(Customer *);	
 
   // ----------------------------------getFromTable------------------------------------
 	// Function to get a Customer from hash table using customer ID

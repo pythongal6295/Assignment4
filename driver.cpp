@@ -4,8 +4,8 @@
 #include <iostream>
 #include <fstream>
 
-BusinessLogic movieStore = new BusinessLogic;
+BusinessLogic movieStore;
 
-movieStore.loadMovies();
+movieStore.loadCustomers();
 movieStore.loadCustomers();
 movieStore.loadCommands();
