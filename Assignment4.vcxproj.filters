@@ -116,9 +116,6 @@
     <ClInclude Include="movieFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="hashTable.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="data4commands.txt">
