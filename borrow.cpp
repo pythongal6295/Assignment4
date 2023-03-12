@@ -35,23 +35,22 @@ void Borrow::doTransaction()
 void Borrow::setData(ifstream& infile)
 {
 	// If movieType is comedy, classic or drama, save movie information
-	if (movieType == 'F' || movieType == 'C' || movieType == 'D') {
-		switch (movieType) {
-		case 'F':
-			// Store location string in NodeData array
-			getline(infile, movieTitle,',');
-			infile >> releaseYear;
-			break;
-		case 'C':
-			infile >> releaseMonth >> releaseYear;
-			getline(infile, majorActor, ',');
-			break;
-		case 'D':
-			getline(infile, movieDirector, ',');
-			getline(infile, movieTitle, ',');
-			break;
-		}
-	} else {	// Else movieType is unknown,
+	//if (movieType == 'F' || movieType == 'C' || movieType == 'D') {
+	switch (movieType) {
+	case 'F':
+		// Store location string in NodeData array
+		getline(infile, movieTitle, ',');
+		infile >> releaseYear;
+		break;
+	case 'C':
+		infile >> releaseMonth >> releaseYear;
+		getline(infile, majorActor, ',');
+		break;
+	case 'D':
+		getline(infile, movieDirector, ',');
+		getline(infile, movieTitle, ',');
+		break;
+	default:
 		cout << "Invalid video code";
 		getline(infile, garbage);
 		//break;

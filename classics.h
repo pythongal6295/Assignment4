@@ -46,13 +46,9 @@ public:
 	// Outputs to the screen all of the details of the movie (Year, Title, Director, Stock)
 	void display();
 
-// -----------------------------------getYear-----------------------------------
-// Returns the year of the movie
-int getMonth();
-
-// -----------------------------------getMonth-----------------------------------
-// Returns the year of the movie
-int getYear();
+	// -----------------------------------getYear-----------------------------------
+	// Returns the year of the movie
+	int getMonth();
 
 	// -----------------------------------getTitle-----------------------------------
 	// Returns the title of the movie
@@ -62,18 +58,17 @@ int getYear();
 	// Returns the stock of the movie
 	int getStock();
 
-// -----------------------------------getDirector-----------------------------------
-// Returns the name of the directory of the movie
-string getDirector();
+	// -----------------------------------getStock-----------------------------------
+	// Returns the stock of the movie
+	int getStock();
 
-// -----------------------------------getMajorActor-----------------------------------
-// Returns the name of the major actor of the movie
-string getMajorActor();
+	// -----------------------------------getDirector-----------------------------------
+	// Returns the name of the directory of the movie
+	string getDirector();
 
-// -----------------------------------setStock-----------------------------------
-// Sets a new value for the stock depending on borrow/rent actions
-// Parameter: int - the new stock value
-void setStock(int);
+	// -----------------------------------getMajorActor-----------------------------------
+	// Returns the name of the major actor of the movie
+	string getMajorActor();
 
 	// -----------------------------------insert-----------------------------------
 	// This movie object inserts itself into the Classics binary search tree
