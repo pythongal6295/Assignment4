@@ -66,17 +66,17 @@ public:
 	//// --------------------------------------------------------------------------------
 	//const BinTree& operator=(const BinTree&);
 
-	// --------------------------------------------------------------------------------
-	// Overload of operator==
-	// Define two trees to be equal if they have the same data and same structure.
-	// --------------------------------------------------------------------------------
-	bool operator==(const BinTree&) const;
+	//// --------------------------------------------------------------------------------
+	//// Overload of operator==
+	//// Define two trees to be equal if they have the same data and same structure.
+	//// --------------------------------------------------------------------------------
+	//bool operator==(const BinTree&) const;
 
-	// --------------------------------------------------------------------------------
-	// Overload of operator!=
-	// Determine if two binary treeas are not equal.
-	// --------------------------------------------------------------------------------
-	bool operator!=(const BinTree&) const;
+	//// --------------------------------------------------------------------------------
+	//// Overload of operator!=
+	//// Determine if two binary treeas are not equal.
+	//// --------------------------------------------------------------------------------
+	//bool operator!=(const BinTree&) const;
 
 	//// --------------------------------------------------------------------------------
 	//// Retrieve function

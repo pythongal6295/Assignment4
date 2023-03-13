@@ -50,11 +50,12 @@ Comedy::Comedy(ifstream& infile)
 	title.erase(0, 1);//Removing front blank space
 	infile >> year;
 	getline(infile, temp);
+
+	//sortF = title + ' ' + to_string(year);
+	setSort(title + ' ' + to_string(year));
 }
 
-Comedy::~Comedy()
-{
-}
+Comedy::~Comedy() {}
 
 // -----------------------------------getYear-----------------------------------
 // Returns the year of the movie
@@ -93,17 +94,3 @@ void Comedy::setStock(int newStock)
 	//stock += newStock;	// Add newStock to current stock
 }
 
-
-
-//bool Comedy::operator==(const Comedy& rhs) const
-//{
-//	/*if (director == rhs.director && title == rhs.title && releaseYear == rhs.releaseYear) {
-//		return true;
-//	}*/
-//	return false;
-//}
-//
-//bool Comedy::operator>(const Comedy&) const
-//{
-//	return true;
-//}

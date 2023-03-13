@@ -32,7 +32,7 @@ public:
 
 	// -----------------------------------Movie()-----------------------------------
 	// Destructor for Movie class
-	~Movie();
+	virtual ~Movie();
 
 	// -----------------------------------display-----------------------------------
 	// Outputs to the screen all of the details of the movie (Year, Title, Director, Stock)
@@ -59,17 +59,58 @@ public:
 	// Parameter: int - the new stock value
 	void setStock(int);
 
+	// VERSION 1
+	// -----------------------------------setSort-----------------------------------
+	// Sets private variable sort
+	void setSort(string);
+
+	// -----------------------------------getSort()-----------------------------------
+	// Gets variable sort
+	string getSort();
+
 	// -----------------------------------insert-----------------------------------
 	  // Sort using the data structure which has all movies, it's being build for the first time. 
 	  // Delared as "abstract class". 
 	  // Parameters are string (remaining current command line from data4movies.txt)
 	//virtual void insert(ifstream&) = 0;
 
-	// What do you think of this?
-	/////////////*virtual bool operator==(const Movie&) const = 0;
-	////////////virtual bool operator>(const Movie&) const = 0;*/
+	/*// VERSION 2
+	// -----------------------------------Operator==---------------------------------
+	// Overloading == operator
+	virtual bool operator==(const Movie&) const = 0;
 
-	//private:
+	// -----------------------------------Operator!=---------------------------------
+	// Overloading != operator
+	virtual bool operator!=(const Movie&) const = 0;
+
+	// -----------------------------------Operator>----------------------------------
+	// Overloading > operator
+	virtual bool operator>(const Movie&) const = 0;
+
+	// -----------------------------------Operator<----------------------------------
+	// Overloading < operator
+	virtual bool operator<(const Movie&) const = 0;
+	*/
+
+	// -----------------------------------Operator==---------------------------------
+	// Overloading == operator
+	virtual bool operator==(const Movie&) const;
+
+	// -----------------------------------Operator!=---------------------------------
+	// Overloading != operator
+	virtual bool operator!=(const Movie&) const;
+
+	// -----------------------------------Operator>----------------------------------
+	// Overloading > operator
+	virtual bool operator>(const Movie&) const;
+
+	// -----------------------------------Operator<----------------------------------
+	// Overloading < operator
+	virtual bool operator<(const Movie&) const;
+
+private:
+	string sort; // V2: string that contains director+title
+
 	//	// Properties of Movie Class
 	//	string movieTitle; //title of specific movie
 	//	string movieDirector; //director of specific movie

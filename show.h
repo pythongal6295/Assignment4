@@ -27,6 +27,7 @@ public:
 	// Default constructor for Show class
 	Show();
 
+	// -----------------------------------~Show()----------------------------------
 	//Default destructor for Show class
 	~Show();
 

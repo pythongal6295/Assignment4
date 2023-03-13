@@ -37,9 +37,10 @@ public:
 private:
 	virtual void setData(ifstream&);
 
+	bool doAction;
 	int idNum, releaseYear, releaseMonth;
 	char mediaType, movieType;
-	string movieTitle, movieDirector, majorActor;
+	string movieTitle, movieDirector, majorActor, garbage;
 };
 
 #endif

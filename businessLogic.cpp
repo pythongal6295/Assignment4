@@ -1,20 +1,19 @@
 #include "businessLogic.h"
-//#include <iostream>
-//#include <fstream>
-//#include <string>
 
 // Default constructor
 BusinessLogic::BusinessLogic()
 {
 	customerHashTable = new HashTable();	//hash table with all customers
-	//comediesBST = new BinTree();    //BST of comedies
-	//dramasBST = new BinTree();		  //BST of dramas
-	//classicsBST = new BinTree();		//BST of classics
+	comediesBST = new BinTree();    //BST of comedies
+	dramasBST = new BinTree();		  //BST of dramas
+	classicsBST = new BinTree();		//BST of classics
 }
 
 BusinessLogic::~BusinessLogic()
 {
-
+	delete comediesBST;
+	delete dramasBST;
+	delete classicsBST;
 }
 
 // -----------------------------------loadMovies-------------------------------------
@@ -36,13 +35,13 @@ void BusinessLogic::loadMovies(ifstream& infile)
 		// If movieType is comedy, classic or drama insert node newMovie in binary tree
 		switch (movieType[0]) {
 		case 'F':
-			//comediesBST->insert(newMovie);
+			comediesBST->insert(newMovie);
 			break;
 		case 'C':
-			//classicsBST->insert(newMovie);
+			classicsBST->insert(newMovie);
 			break;
 		case 'D':
-			//dramasBST->insert(newMovie);
+			dramasBST->insert(newMovie);
 			break;
 		default: // If movieType is unknown, do nothing. newMovie is set to NULL in MovieFactory
 			break;
@@ -95,6 +94,7 @@ void BusinessLogic::loadCommands(ifstream& infile)
 		// If transaction type is unknown, empty current line
 		else {
 			getline(infile, garbage);	//	TO IMPROVE
+			cout << "Invalid action code" << endl;
 		}
 		if (infile.eof()) break;		// Stop if no more lines of data
 	}

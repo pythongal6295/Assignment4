@@ -22,6 +22,7 @@
 // ---------------------------------------------------------------------------------------------------------------
 
 #include "bintree.h"
+#include "movie.h"
 
 // ----------------------------Default constructor---------------------------------
 // Creates an empty tree.
@@ -447,7 +448,7 @@ BinTree::~BinTree()
 //	removeHelper(root);
 //	root = NULL;	// Set root to NULL after removing all tree nodes.
 //}
-//
+
 // ----------------------------------removeHelper----------------------------------
 // Helper method to empty a binary search tree using postorder traversal 
 // (left, right, visit).
@@ -475,8 +476,8 @@ void BinTree::removeHelper(NodeBST* toRemove)
 // --------------------------------------------------------------------------------
 bool BinTree::insert(Movie*& newData)
 {
-	return true;
-	////////return insertRecursive(root, newData);
+	//return true;
+	return insertRecursive(root, newData);
 }
 
  //--------------------------insertRecursive---------------------------------------
@@ -484,30 +485,33 @@ bool BinTree::insert(Movie*& newData)
  //Preconditions: NodeData* previously created to be inserted in BinTree.
  //Postconditions: BinTree has a new NodeBST.
  //--------------------------------------------------------------------------------
-//bool BinTree::insertRecursive(NodeBST*& curNode, Movie*& newData)
-//{
-//	//// If newData is NULL stop there
-//	//if (newData == NULL) {
-//	//	return false;
-//	//}
-//	//// If an empty node is found insert at current root node
-//	//if (curNode == NULL) {
-//	//	curNode = new NodeBST;
-//	//	curNode->item = newData;
-//	//	curNode->left = NULL;
-//	//	curNode->right = NULL;
-//	//	return true;
-//	//}
-//	//// Check for duplicates
-//	//else if (*newData == *curNode->item) {
-//	//	return false;
-//	//}
-//	//// If item to be inserted is less than current node then go left
-//	//else if (*curNode->item > *newData) {			
-//	//	return insertRecursive(curNode->left, newData);
-//	//}
-//	//// If item to be inserted is greater than current node then go right
-//	//else {
-//	//	return insertRecursive(curNode->right, newData);
-//	//}
-//}
+bool BinTree::insertRecursive(NodeBST*& curNode, Movie*& newData)
+{
+	// If newData is NULL stop there
+	if (newData == NULL) {
+		return false;
+	}
+	// If an empty node is found insert at current root node
+	if (curNode == NULL) {
+		curNode = new NodeBST;
+		curNode->item = newData;
+		curNode->left = NULL;
+		curNode->right = NULL;
+		return true;
+	}
+
+	// How to compare two same movies with different major actors for classics?
+	
+	// Check for duplicates
+	else if (*newData == *curNode->item) {
+		return false;
+	}
+	// If item to be inserted is less than current node then go left
+	else if (*curNode->item > *newData) {			
+		return insertRecursive(curNode->left, newData);
+	}
+	// If item to be inserted is greater than current node then go right
+	else {
+		return insertRecursive(curNode->right, newData);
+	}
+}

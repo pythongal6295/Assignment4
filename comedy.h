@@ -38,7 +38,7 @@ public:
 
 	// -----------------------------------~Comedy()-----------------------------------
 	// Destructor for class Comedy 
-	~Comedy();
+	virtual ~Comedy();
 
 	// -----------------------------------display-----------------------------------
 	// Outputs to the screen all of the details of the movie (Year, Title, Director, Stock)
@@ -76,6 +76,8 @@ public:
 
 
 private:
+	//string sortF; //title+year released
+
 	// NOTE: I gave the same format of Clasics to Comedy and Drama
 
 	int year;  //year of specific comedy movie

@@ -24,7 +24,6 @@ using namespace std;
 
 class Classics : public Movie
 {
-
 public:
 	// -----------------------------------Classics()-----------------------------------
 	// Default constructor for Classics class
@@ -40,7 +39,7 @@ public:
 
 	// -----------------------------------~Classics()-----------------------------------
 	// Destructor for Classics
-	~Classics();
+	virtual ~Classics();
 
 	// -----------------------------------display-----------------------------------
 	// Outputs to the screen all of the details of the movie (Release Date, Title, Director, Stock, Major Actor)
@@ -78,9 +77,35 @@ public:
 	// -----------------------------------insert-----------------------------------
 	// This movie object inserts itself into the Classics binary search tree
 	//parameters: string - remaining current command line from data4movies.txt
-	void insert(ifstream&);
+	//void insert(ifstream&);
+
+	//// -----------------------------------Operator==---------------------------------
+	//// Overloading == operator
+	//virtual bool operator==(const Classics&) const;
+
+	//// -----------------------------------Operator!=---------------------------------
+	//// Overloading != operator
+	//virtual bool operator!=(const Classics&) const;
+
+	//// -----------------------------------Operator>----------------------------------
+	//// Overloading > operator
+	//virtual bool operator>(const Classics&) const;
+
+	//// -----------------------------------Operator<----------------------------------
+	//// Overloading < operator
+	//virtual bool operator<(const Classics&) const;
+	//
+	//// Struct of ll node to find same movie in stock
+	//struct listNode
+	//{
+	//	Classics* item;
+	//	listNode* next;
+	//};
+
 
 private:
+	//listNode* head;
+	//string sortC; // V1
 
 	// Describes a node composed of information about the classics movie object.
 	// The created node is added to the Classics binary search tree
@@ -104,6 +129,7 @@ private:
 	string director;  //director of specific classics movie
 	string firstName; //Major actor's first name
 	string lastName; //Major actor's last name
+	string releaseDate;
 	//string majorActor;
 
 	// Overload of operators == and > if implemented for nodeBST in BinTree

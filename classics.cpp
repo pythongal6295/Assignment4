@@ -67,12 +67,12 @@ Classics::Classics(ifstream& infile)
 	title.erase(0, 1);//Removing front blank space
 	infile >> firstName >> lastName >> month >> year;
 	getline(infile, temp);
+	releaseDate = to_string(year) + ' ' + to_string(month);
+
+	setSort(releaseDate + ' ' + firstName + ' ' + lastName);
 }
 
-Classics::~Classics()
-{
-
-}
+Classics::~Classics() {}
 
 // -----------------------------------display-----------------------------------
 // Outputs to the screen all of the details of the movie (Release Date, Title, Director, Stock, Major Actor)
@@ -125,7 +125,7 @@ string Classics::getDirector()
 // Returns the name of the major actor of the movie
 string Classics::getMajorActor()
 {
-	return firstName+" "+lastName;
+	return firstName + " " + lastName;
 }
 // -----------------------------------setStock-----------------------------------
 // Sets a new value for the stock depending on borrow/rent actions
@@ -136,12 +136,39 @@ void Classics::setStock(int newStock)
 	//stock += newStock;	// Add newStock to current stock
 }
 
-//bool Classics::operator==(const Classics&) const
+//// -----------------------------------Operator==---------------------------------
+//// Overloading == operator
+//bool Classics::operator==(const Classics &rhs) const
+//{
+//	if (director==rhs.director && title==rhs.title && releaseDate==rhs.releaseDate) {
+//
+//	}
+//
+//	//director
+//	//title
+//	//release day
+//	return false;
+//}
+//
+//// -----------------------------------Operator!=---------------------------------
+//// Overloading != operator
+//bool Classics::operator!=(const Movie&) const
 //{
 //	return false;
 //}
 //
-//bool Classics::operator>(const Classics&) const
+//// -----------------------------------Operator>----------------------------------
+//// Overloading > operator
+//bool Classics::operator>(const Movie&) const
 //{
 //	return false;
 //}
+//
+//// -----------------------------------Operator<----------------------------------
+//// Overloading < operator
+//bool Classics::operator<(const Movie&) const
+//{
+//	return false;
+//}
+
+

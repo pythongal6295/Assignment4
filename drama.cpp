@@ -54,11 +54,12 @@ Drama::Drama(ifstream& infile) :Drama()
 	title.erase(0, 1);//Removing front blank space
 	infile >> year;
 	getline(infile, temp);
+
+	//sortD = director + ' ' + title;
+	setSort(director + ' ' + title);
 }
 
-Drama::~Drama()
-{
-}
+Drama::~Drama() {}
 
 // -----------------------------------getYear-----------------------------------
 // Returns the year of the movie
@@ -96,13 +97,58 @@ void Drama::setStock(int newStock)
 	stock = newStock;
 	//stock += newStock;	// Add newStock to current stock
 }
-
-//bool Drama::operator==(const Drama&) const
-//{
-//	return false;
-//}
 //
-//bool Drama::operator>(const Drama&) const
+//// VERSION 2
+//// -----------------------------------getSort-----------------------------------
+//// Returns the string to be sorted
+//string Drama::getSort()
 //{
-//	return false;
+//	return sort;
 //}
+
+/*
+// VERSION 1
+
+// -----------------------------------Operator==---------------------------------
+// Overloading == operator
+bool Drama::operator==(const Drama& rhs) const
+{
+	//if ((director == rhs.director) && (title == rhs.title)) { return true; }
+	// If same director and title, lhs Drama is same than rhs Drama
+	return (director == rhs.director) && (title == rhs.title);
+}
+
+// -----------------------------------Operator!=---------------------------------
+// Overloading != operator
+bool Drama::operator!=(const Drama& rhs) const
+{
+	return !(*this == rhs);
+}
+
+// -----------------------------------Operator>----------------------------------
+// Overloading > operator
+bool Drama::operator>(const Drama& rhs) const
+{
+	// If alphabetical order of lhs Director > rhs Director, no matter the year lhs is bigger
+	if (director > rhs.director) {
+		return true;
+	} else if ((director == rhs.director) && (year > rhs.year)) {	// If same director and lhs year > rhs year
+		return true;
+	}
+	// Return false in any other case
+	return false;
+}
+
+// -----------------------------------Operator<----------------------------------
+// Overloading < operator
+bool Drama::operator<(const Drama& rhs) const
+{
+	// Return true if lhs not == nor > than rhs
+	if (*this != rhs) {
+		return !(*this > rhs);
+	};
+	// Return false if lhs == rhs
+	return false;
+}
+*/
+
