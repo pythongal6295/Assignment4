@@ -29,7 +29,11 @@ class TransactionFactory
 public:
 	// -----------------------------------TransactionFactory()-----------------------------------
 	// Default constructor for TransactionFactory class
-	//TransactionFactory();
+	TransactionFactory();
+
+	// -----------------------------------~TransactionFactory()-----------------------------------
+	// Destructor for TransactionFactory class
+	~TransactionFactory();
 
 	// ----------------------------------createTransactionObject----------------------------------
 	// Creates new transaction object with switch, using first letter from current 
