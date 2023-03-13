@@ -11,6 +11,7 @@ Show::~Show()
 
 void Show::doTransaction()
 {
+	
 }
 
 void Show::setData(ifstream& infile)

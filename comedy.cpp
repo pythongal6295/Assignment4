@@ -53,6 +53,7 @@ Comedy::Comedy(ifstream& infile)
 
 	//sortF = title + ' ' + to_string(year);
 	setSort(title + ' ' + to_string(year));
+	setDisplay(title + ',' + to_string(year) + ',' + director + ',' + to_string(stock));
 }
 
 Comedy::~Comedy() {}

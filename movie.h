@@ -24,6 +24,7 @@ using namespace std;
 
 class Movie
 {
+	friend ostream& operator<<(ostream&, const Movie&);
 public:
 
 	// -----------------------------------Movie()-----------------------------------
@@ -36,7 +37,10 @@ public:
 
 	// -----------------------------------display-----------------------------------
 	// Outputs to the screen all of the details of the movie (Year, Title, Director, Stock)
-	void display();
+	//virtual void display()=0;
+
+	// ----------------------------------setDisplay---------------------------------
+	void setDisplay(string);
 
 	// -----------------------------------getYear-----------------------------------
 	// Returns the year of the movie
@@ -50,7 +54,7 @@ public:
 	// Returns the stock of the movie
 	int getStock();
 
-	// -----------------------------------getDirector-----------------------------------
+	// ----------------------------------getDirector---------------------------------
 	// Returns the name of the directory of the movie
 	string getDirector();
 
@@ -64,11 +68,11 @@ public:
 	// Sets private variable sort
 	void setSort(string);
 
-	// -----------------------------------getSort()-----------------------------------
+	// ----------------------------------getSort()----------------------------------
 	// Gets variable sort
 	string getSort();
 
-	// -----------------------------------insert-----------------------------------
+	// ------------------------------------insert------------------------------------
 	  // Sort using the data structure which has all movies, it's being build for the first time. 
 	  // Delared as "abstract class". 
 	  // Parameters are string (remaining current command line from data4movies.txt)
@@ -110,6 +114,7 @@ public:
 
 private:
 	string sort; // V2: string that contains director+title
+	string toDisplay;
 
 	//	// Properties of Movie Class
 	//	string movieTitle; //title of specific movie

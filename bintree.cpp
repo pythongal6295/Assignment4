@@ -57,40 +57,40 @@ BinTree::~BinTree()
 	root = NULL;
 }
 
-//// -----------------------------------operator<<-----------------------------------
-//// Method to display the tree using inorder traversal helper.
-//// Preconditions: A BinTree object has been previously created.
-//// Postconditions: BinTree remains unchanged.
-//// --------------------------------------------------------------------------------
-//ostream& operator<<(ostream& output, const BinTree& curTree)
-//{
-//	// If tree is NOT empty, print out all nodes
-//	if (curTree.root != NULL) {
-//		// Traverse the tree in order and return ordered element through output
-//		curTree.inorderHelper(curTree.root, output);
-//	}
-//	// Else print out empty string
-//	output << "" << endl;
-//	return output;
-//}
-//
-//// -----------------------------inorderHelper--------------------------------------
-//// Function to traverse the binary search tree inorder (left, visit, right).
-//// Preconditions: A BinTree object has been previously created.
-//// Postconditions: Variable of type ostream contains the order in which each 
-//// NodeData is going to be printed in console.
-//// --------------------------------------------------------------------------------
-//void BinTree::inorderHelper(NodeBST* curNode, ostream& output) const
-//{
-//	// If the tree is empty, return
-//	if (curNode == NULL) {
-//		return;
-//	}
-//	// Else traverse the tree and append current node item to output
-//	inorderHelper(curNode->left, output);
-//	output << *curNode->item << " ";
-//	inorderHelper(curNode->right, output);
-//}
+// -----------------------------------operator<<-----------------------------------
+// Method to display the tree using inorder traversal helper.
+// Preconditions: A BinTree object has been previously created.
+// Postconditions: BinTree remains unchanged.
+// --------------------------------------------------------------------------------
+ostream& operator<<(ostream& output, const BinTree& curTree)
+{
+	// If tree is NOT empty, print out all nodes
+	if (curTree.root != NULL) {
+		// Traverse the tree in order and return ordered element through output
+		curTree.inorderHelper(curTree.root, output);
+	}
+	// Else print out empty string
+	output << "" << endl;
+	return output;
+}
+
+// -----------------------------inorderHelper--------------------------------------
+// Function to traverse the binary search tree inorder (left, visit, right).
+// Preconditions: A BinTree object has been previously created.
+// Postconditions: Variable of type ostream contains the order in which each 
+// NodeData is going to be printed in console.
+// --------------------------------------------------------------------------------
+void BinTree::inorderHelper(NodeBST* curNode, ostream& output) const
+{
+	// If the tree is empty, return
+	if (curNode == NULL) {
+		return;
+	}
+	// Else traverse the tree and append current node item to output
+	inorderHelper(curNode->left, output);
+	output << *curNode->item << endl;
+	inorderHelper(curNode->right, output);
+}
 //
 //// --------------------------------operator=---------------------------------------
 //// Overloaded assignment operator. Makes a deep copy of right hand side BST.
@@ -214,39 +214,39 @@ BinTree::~BinTree()
 // Postconditions: The 2nd parameter NodeData may initially be garbage. If the object 
 // is found, it will point to the actual object in the BinTree.
 // --------------------------------------------------------------------------------
-//bool BinTree::retrieve(const NodeData& objToFind, NodeData*& foundPtr)
-//{
-//	return retrieveRecursive(root, objToFind, foundPtr);
-//}
-//
-//// -------------------------------retrieveRecursive--------------------------------
-//// Helper function for retrieve(). Uses recursion to find a given object in a binary 
-//// search tree.
-//// Preconditions: NodeData object to be found and BinTree object to be traversed have 
-//// been previously created. BinTree must be a binary search tree.
-//// Postconditions: The 3rd parameter NodeData may initially be garbage. If the object 
-//// is found, it will point to the actual object in the BinTree.
-//// --------------------------------------------------------------------------------
-//bool BinTree::retrieveRecursive(NodeBST* curNode, const NodeData& objToFind, NodeData*& foundPtr)
-//{
-//	// If tree is empty
-//	if (curNode == NULL) {
-//		return false;
-//	}
-//	// If object is found then return and set foundPtr to the node's pointer
-//	else if (objToFind == *curNode->item) {
-//		foundPtr = curNode->item;
-//		return true;
-//	}
-//	// If the object is smaller than the current node, move left
-//	else if (objToFind < *curNode->item) {
-//		return retrieveRecursive(curNode->left, objToFind, foundPtr);
-//	}
-//	// If the object is bigger than the current node, move right
-//	else {
-//		return retrieveRecursive(curNode->right, objToFind, foundPtr);
-//	}
-//}
+bool BinTree::retrieve(const Movie& objToFind, Movie*& foundPtr)
+{
+	return retrieveRecursive(root, objToFind, foundPtr);
+}
+
+// -------------------------------retrieveRecursive--------------------------------
+// Helper function for retrieve(). Uses recursion to find a given object in a binary 
+// search tree.
+// Preconditions: NodeData object to be found and BinTree object to be traversed have 
+// been previously created. BinTree must be a binary search tree.
+// Postconditions: The 3rd parameter NodeData may initially be garbage. If the object 
+// is found, it will point to the actual object in the BinTree.
+// --------------------------------------------------------------------------------
+bool BinTree::retrieveRecursive(NodeBST* curNode, const Movie& objToFind, Movie*& foundPtr)
+{
+	// If tree is empty
+	if (curNode == NULL) {
+		return false;
+	}
+	// If object is found then return and set foundPtr to the node's pointer
+	else if (objToFind == *curNode->item) {
+		foundPtr = curNode->item;
+		return true;
+	}
+	// If the object is smaller than the current node, move left
+	else if (objToFind < *curNode->item) {
+		return retrieveRecursive(curNode->left, objToFind, foundPtr);
+	}
+	// If the object is bigger than the current node, move right
+	else {
+		return retrieveRecursive(curNode->right, objToFind, foundPtr);
+	}
+}
 
 //// -------------------------------getHeight----------------------------------------
 //// Function to find the height of a given value in the tree. Uses findNodeRecursive()
@@ -504,6 +504,11 @@ bool BinTree::insertRecursive(NodeBST*& curNode, Movie*& newData)
 	
 	// Check for duplicates
 	else if (*newData == *curNode->item) {
+		//// If same movie, add both objecst into one
+		//curNode->item->setStock(newData->getStock() + curNode->item->getStock()); // Add both stocks
+		//delete newData;
+		//newData = nullptr;
+		//
 		return false;
 	}
 	// If item to be inserted is less than current node then go left

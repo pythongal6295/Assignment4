@@ -42,7 +42,8 @@ public:
 
 	// -----------------------------------display-----------------------------------
 	// Outputs to the screen all of the details of the movie (Year, Title, Director, Stock)
-	void display();
+	//void display();
+	string display();
 
 	// -----------------------------------getYear-----------------------------------
 	// Returns the year of the movie

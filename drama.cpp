@@ -57,6 +57,7 @@ Drama::Drama(ifstream& infile) :Drama()
 
 	//sortD = director + ' ' + title;
 	setSort(director + ' ' + title);
+	setDisplay(director + ',' + title + ',' + to_string(year) + ',' +  to_string(stock));
 }
 
 Drama::~Drama() {}

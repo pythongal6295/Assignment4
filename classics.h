@@ -130,7 +130,7 @@ private:
 	string firstName; //Major actor's first name
 	string lastName; //Major actor's last name
 	string releaseDate;
-	//string majorActor;
+	string majorActor;
 
 	// Overload of operators == and > if implemented for nodeBST in BinTree
 	//bool operator==(const Classics&) const;

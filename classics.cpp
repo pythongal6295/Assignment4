@@ -68,23 +68,25 @@ Classics::Classics(ifstream& infile)
 	infile >> firstName >> lastName >> month >> year;
 	getline(infile, temp);
 	releaseDate = to_string(year) + ' ' + to_string(month);
+	majorActor = firstName + ' ' + lastName;
 
-	setSort(releaseDate + ' ' + firstName + ' ' + lastName);
+	setSort(releaseDate + ' ' + majorActor);
+	setDisplay(releaseDate + ',' + majorActor + ',' + title + ',' + director + ',' + to_string(stock));
 }
 
 Classics::~Classics() {}
 
 // -----------------------------------display-----------------------------------
 // Outputs to the screen all of the details of the movie (Release Date, Title, Director, Stock, Major Actor)
-void Classics::display()
-{
-	cout << "*********************************************************" << endl;
-	cout << "Title: " << getTitle() << endl;
-	cout << "Release Date: " << getMonth() << " " << getYear() << endl;
-	cout << "Major Actor: " << getMajorActor() << endl;
-	cout << "Director: " << getDirector() << endl;
-	cout << "Stock: " << getStock() << endl;
-}
+//void Classics::display()
+//{
+//	cout << "*********************************************************" << endl;
+//	cout << "Title: " << getTitle() << endl;
+//	cout << "Release Date: " << getMonth() << " " << getYear() << endl;
+//	cout << "Major Actor: " << getMajorActor() << endl;
+//	cout << "Director: " << getDirector() << endl;
+//	cout << "Stock: " << getStock() << endl;
+//}
 
 // -----------------------------------getMonth-----------------------------------
 // Returns the year of the movie
@@ -125,7 +127,7 @@ string Classics::getDirector()
 // Returns the name of the major actor of the movie
 string Classics::getMajorActor()
 {
-	return firstName + " " + lastName;
+	return majorActor;
 }
 // -----------------------------------setStock-----------------------------------
 // Sets a new value for the stock depending on borrow/rent actions
