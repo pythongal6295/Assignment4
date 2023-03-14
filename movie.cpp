@@ -1,6 +1,6 @@
 #include "movie.h"
 
-Movie::Movie() {}
+Movie::Movie():stock(0) {}
 
 Movie::~Movie() {}
 
@@ -9,6 +9,34 @@ Movie::~Movie() {}
 void Movie::setDisplay(string input)
 {
 	toDisplay = input;
+}
+
+// ---------------------------------borrowMovie()--------------------------------
+bool Movie::borrowMovie()
+{
+	if (stock != 0) {
+		stock--;
+		return true;
+	}
+	return false;
+}
+
+// ---------------------------------returnMovie()--------------------------------
+void Movie::returnMovie()
+{
+	stock++;
+}
+
+void Movie::setStock(int input)
+{
+	stock += input;
+}
+
+// -----------------------------------getStock-----------------------------------
+// Returns the stock of the movie
+int Movie::getStock()
+{
+	return stock;
 }
 
 // -----------------------------------setSort-----------------------------------
@@ -48,6 +76,6 @@ bool Movie::operator<(const Movie& rhs) const
 //-------------------------- operator<< --------------------------------------
 ostream& operator<<(ostream& output, const Movie& nd)
 {
-	output << nd.toDisplay;
+	output << nd.toDisplay +to_string(nd.stock);
 	return output;
 }

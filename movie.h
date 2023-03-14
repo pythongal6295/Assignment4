@@ -42,13 +42,18 @@ public:
 	// ----------------------------------setDisplay---------------------------------
 	void setDisplay(string);
 
-	// -----------------------------------getYear-----------------------------------
-	// Returns the year of the movie
-	int getYear();
+	//// -----------------------------------getYear-----------------------------------
+	//// Returns the year of the movie
+	//int getYear();
 
 	// -----------------------------------getTitle-----------------------------------
 	// Returns the title of the movie
 	string getTitle();
+
+	// -----------------------------------setStock-----------------------------------
+	// Sets a new value for the stock depending on borrow/rent actions
+	// Parameter: int - the new stock value
+	virtual void setStock(int);
 
 	// -----------------------------------getStock-----------------------------------
 	// Returns the stock of the movie
@@ -58,10 +63,12 @@ public:
 	// Returns the name of the directory of the movie
 	string getDirector();
 
-	// -----------------------------------setStock-----------------------------------
-	// Sets a new value for the stock depending on borrow/rent actions
-	// Parameter: int - the new stock value
-	void setStock(int);
+
+	// ---------------------------------borrowMovie()--------------------------------
+	bool borrowMovie();
+
+	// ---------------------------------returnMovie()--------------------------------
+	void returnMovie();
 
 	// VERSION 1
 	// -----------------------------------setSort-----------------------------------
@@ -113,6 +120,7 @@ public:
 	virtual bool operator<(const Movie&) const;
 
 private:
+	int stock;
 	string sort; // V2: string that contains director+title
 	string toDisplay;
 

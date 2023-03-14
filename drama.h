@@ -43,25 +43,25 @@ public:
 	// Outputs to the screen all of the details of the movie (Year, Title, Director, Stock)
 	void display();
 
-	// -----------------------------------getYear-----------------------------------
-	// Accessor - get the movieYear of an object Drama.
-	int getYear();
+	//// -----------------------------------getYear-----------------------------------
+	//// Accessor - get the movieYear of an object Drama.
+	//int getYear();
 
-	// -----------------------------------getTitle-----------------------------------
-	// Accessor - get the movieTitle of an object Drama.
-	string getTitle();
+	//// -----------------------------------getTitle-----------------------------------
+	//// Accessor - get the movieTitle of an object Drama.
+	//string getTitle();
 
-	// -----------------------------------getStock-----------------------------------
-	// Accessor - Get the number of copies available of a drama Movie.
-	int getStock();
+	//// -----------------------------------getStock-----------------------------------
+	//// Accessor - Get the number of copies available of a drama Movie.
+	//int getStock();
 
-	// -----------------------------------getDirector--------------------------------
-	// Accessor - get the movieDirector of a Drama movie.
-	string getDirector();
+	//// -----------------------------------getDirector--------------------------------
+	//// Accessor - get the movieDirector of a Drama movie.
+	//string getDirector();
 
-	// -----------------------------------setStock-----------------------------------
-	// Mutator -  Modify data member stock after a command.
-	void setStock(int);
+	//// -----------------------------------setStock-----------------------------------
+	//// Mutator -  Modify data member stock after a command.
+	//bool setStock();
 
 	// -----------------------------------insert-------------------------------------
 	// Insert a new object of type Drama in a BST.
@@ -97,7 +97,7 @@ private:
 	//string sortD; // Director+title
 	int month; // month of specific movie
 	int year;  // year of specific drama movie
-	int stock; // stock of specific drama movie
+	//int stock; // stock of specific drama movie
 	string title;  // title of specific drama movie
 	string director; // director of specific drama movie
 

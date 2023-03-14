@@ -22,32 +22,18 @@ Drama::Drama()
 {
 	month = 0;
 	year = 0;
-	stock = 0;
 	title = "";
 	director = "";
 }
 
-////Paramaterized constructor for Drama 
-//Drama::Drama(string movieTitle, string movieDirector, int movieYear, int currStock)
-//{
-//	//set up the comedy movie node for the BST
-//	DramaBST* dramaMovie = new DramaBST;
-//	dramaMovie->title = movieTitle;
-//	dramaMovie->director = movieDirector;
-//	dramaMovie->year = movieYear;
-//	dramaMovie->stock = currStock;
-//	dramaMovie->left = NULL;
-//	dramaMovie->right = NULL;
-//}
-
 // -----------------------------------Drama()-----------------------------------
-// Constructor with parameter for Drama class
+// Paramaterized constructor for Drama 
 Drama::Drama(ifstream& infile) :Drama()
 {
-	//infile >> stock >> director >> title >> releaseYear;
 	string temp;
+
 	getline(infile, temp, ',');
-	stock = stoi(temp);
+	setStock(stoi(temp));
 	getline(infile, director, ',');
 	director.erase(0, 1);//Removing front blank space
 	getline(infile, title, ',');
@@ -55,49 +41,57 @@ Drama::Drama(ifstream& infile) :Drama()
 	infile >> year;
 	getline(infile, temp);
 
-	//sortD = director + ' ' + title;
 	setSort(director + ' ' + title);
-	setDisplay(director + ',' + title + ',' + to_string(year) + ',' +  to_string(stock));
+	setDisplay(director + ',' + title + ',' + to_string(year) + ',');
 }
 
 Drama::~Drama() {}
 
-// -----------------------------------getYear-----------------------------------
-// Returns the year of the movie
-int Drama::getYear()
-{
-	return year;
-}
+//// -----------------------------------getYear-----------------------------------
+//// Returns the year of the movie
+//int Drama::getYear()
+//{
+//	return year;
+//}
+//
+//// -----------------------------------getTitle-----------------------------------
+//// Returns the title of the movie
+//string Drama::getTitle()
+//{
+//	return title;
+//}
+//
+//// -----------------------------------getStock-----------------------------------
+//// Returns the stock of the movie
+//int Drama::getStock()
+//{
+//	return stock;
+//}
+//
+//// -----------------------------------getDirector-----------------------------------
+//// Returns the name of the directory of the movie
+//string Drama::getDirector()
+//{
+//	return director;
+//}
+//
+//// -----------------------------------setStock-----------------------------------
+//// Sets a new value for the stock depending on borrow/rent actions
+//// Parameter: int - the new stock value
+//bool Drama::setStock()
+//{
+//	if (stock != 0) {
+//		stock--;
+//		return true;
+//	}
+//	return false;
+//}
 
-// -----------------------------------getTitle-----------------------------------
-// Returns the title of the movie
-string Drama::getTitle()
-{
-	return title;
-}
-
-// -----------------------------------getStock-----------------------------------
-// Returns the stock of the movie
-int Drama::getStock()
-{
-	return stock;
-}
-
-// -----------------------------------getDirector-----------------------------------
-// Returns the name of the directory of the movie
-string Drama::getDirector()
-{
-	return director;
-}
-
-// -----------------------------------setStock-----------------------------------
-// Sets a new value for the stock depending on borrow/rent actions
-// Parameter: int - the new stock value
-void Drama::setStock(int newStock)
-{
-	stock = newStock;
-	//stock += newStock;	// Add newStock to current stock
-}
+//void Drama::setStock(int newStock)
+//{
+//	stock = newStock;
+//	//stock += newStock;	// Add newStock to current stock
+//}
 //
 //// VERSION 2
 //// -----------------------------------getSort-----------------------------------

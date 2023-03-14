@@ -27,7 +27,10 @@ public:
 	Return();
 
 	// Constructor with parameter for Return class
-	Return(ifstream&);
+	//Return(ifstream&);
+
+	// Constructor with parameter for Borrow class
+	Return(ifstream&, BinTree*&, BinTree*&, BinTree*&);//Still missing hashtable
 
 	// Default destructor for Show class
 	~Return();
@@ -37,10 +40,15 @@ public:
 private:
 	virtual void setData(ifstream&);
 
+	BinTree* bstComedies;
+	BinTree* bstDramas;
+	BinTree* bstClassics;
+
+	Movie movieToFind;
 	bool doAction;
 	int idNum, releaseYear, releaseMonth;
 	char mediaType, movieType;
-	string movieTitle, movieDirector, majorActor, garbage;
+	string movieTitle, movieDirector, majorActor, garbage, stringToFind;
 };
 
 #endif

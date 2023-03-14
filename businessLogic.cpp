@@ -82,13 +82,10 @@ void BusinessLogic::loadCommands(ifstream& infile)
 	string garbage;
 	Transaction* newTransaction;
 
-	//cout<<*classicsBST;
-
 	for (;;) {
 		infile >> transaction;
 		// If transaction type is borrow, return, show inventory or show client history, do transaction
 		if (transaction == 'B' || transaction == 'R' || transaction == 'I' || transaction == 'H') {
-			//newTransaction = TransactionFactory::createTransactionObject(transaction, infile);
 			newTransaction = TransactionFactory::createTransactionObject(transaction, infile, comediesBST, dramasBST, classicsBST);
 			newTransaction->doTransaction();
 			delete newTransaction;

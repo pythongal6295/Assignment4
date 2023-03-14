@@ -45,34 +45,34 @@ public:
 	// Outputs to the screen all of the details of the movie (Release Date, Title, Director, Stock, Major Actor)
 	void display();
 
-	// -----------------------------------getMonth-----------------------------------
-	// Returns the year of the movie
-	int getMonth();
+	//// -----------------------------------getMonth-----------------------------------
+	//// Returns the year of the movie
+	//int getMonth();
 
-	// -----------------------------------getYear-----------------------------------
-	// Returns the year of the movie
-	int getYear();
+	//// -----------------------------------getYear-----------------------------------
+	//// Returns the year of the movie
+	//int getYear();
 
-	// -----------------------------------getTitle-----------------------------------
-	// Returns the title of the movie
-	string getTitle();
+	//// -----------------------------------getTitle-----------------------------------
+	//// Returns the title of the movie
+	//string getTitle();
 
-	// -----------------------------------getStock-----------------------------------
-	// Returns the stock of the movie
-	int getStock();
+	//// -----------------------------------getStock-----------------------------------
+	//// Returns the stock of the movie
+	//int getStock();
 
-	// -----------------------------------getDirector-----------------------------------
-	// Returns the name of the directory of the movie
-	string getDirector();
+	//// -----------------------------------getDirector-----------------------------------
+	//// Returns the name of the directory of the movie
+	//string getDirector();
 
-	// -----------------------------------getMajorActor-----------------------------------
-	// Returns the name of the major actor of the movie
-	string getMajorActor();
+	//// -----------------------------------getMajorActor-----------------------------------
+	//// Returns the name of the major actor of the movie
+	//string getMajorActor();
 
-	// -----------------------------------setStock-----------------------------------
-	// Sets a new value for the stock depending on borrow/rent actions
-	// Parameter: int - the new stock value
-	void setStock(int);
+	//// -----------------------------------setStock-----------------------------------
+	//// Sets a new value for the stock depending on borrow/rent actions
+	//// Parameter: int - the new stock value
+	//void setStock(int);
 
 	// -----------------------------------insert-----------------------------------
 	// This movie object inserts itself into the Classics binary search tree
@@ -82,6 +82,7 @@ public:
 	//// -----------------------------------Operator==---------------------------------
 	//// Overloading == operator
 	//virtual bool operator==(const Classics&) const;
+
 
 	//// -----------------------------------Operator!=---------------------------------
 	//// Overloading != operator
@@ -122,7 +123,7 @@ private:
 
 	//Since we have a node structure in NodeData, we may not need another node structure for each movie type
 	//Also I couldn't figure out how to do a getter with the structure
-	int stock; //stock of specific classics movie
+	//int stock; //stock of specific classics movie
 	int year;  //release year of specific classics movie
 	int month; //release month of specific classics movie
 	string title;  //title of specific classics movie
