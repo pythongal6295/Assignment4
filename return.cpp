@@ -2,7 +2,7 @@
 
 Return::Return()
 {
-	idNum = 0; 
+	idNum = 0;
 	releaseYear = 0;
 	releaseMonth = 0;
 	mediaType = '\0';
@@ -10,45 +10,93 @@ Return::Return()
 	movieTitle = "";
 	movieDirector = "";
 	majorActor = "";
+	doAction = true;
 }
 
-Return::Return(ifstream& infile):Return()
+Return::Return(ifstream& infile, BinTree*& bstF, BinTree*& bstD, BinTree*& bstC) : Return()
 {
+	doAction = true;
+
+	bstComedies = bstF;
+	bstDramas = bstD;
+	bstClassics = bstC;
+
 	infile >> idNum >> mediaType >> movieType;
-	// If invalid customerID or media type
+	// If invalid media type, no transaction is to be done
+	if (mediaType != 'D') {
+		cout << "Invalid type of media" << endl;
+		doAction = false;
+		getline(infile, garbage);
+	} else {
+		setData(infile);
+	}
+	// If invalid customerID
 }
 
-Return::~Return()
-{
-}
+Return::~Return() {}
 
 void Return::doTransaction()
 {
+	if (doAction != false) {
+		movieToFind.setSort(stringToFind);
+		Movie* p = nullptr;
+		bool found = false;
 
-}
-
-void Return::setData(ifstream& infile)
-{
-// If movieType is comedy, classic or drama, save movie information
-	if (movieType == 'F' || movieType == 'C' || movieType == 'D') {
 		switch (movieType) {
 		case 'F':
-			// Store location string in NodeData array
-			getline(infile, movieTitle, ',');
-			infile >> releaseYear;
+			found = bstComedies->retrieve(movieToFind, p);
 			break;
 		case 'C':
-			infile >> releaseMonth >> releaseYear;
-			getline(infile, majorActor, ',');
+			found = bstClassics->retrieve(movieToFind, p);
 			break;
 		case 'D':
-			getline(infile, movieDirector, ',');
-			getline(infile, movieTitle, ',');
+			found = bstDramas->retrieve(movieToFind, p);
+			break;
+		default:
 			break;
 		}
-	} else {	// Else movieType is unknown,
-		cout << "Invalid video code";
+		if (p != nullptr && found == true) {
+			//cout << "Movie to return: " << p->getSort() << " Stock: " << p->getStock() << endl;
+			p->returnMovie();	//Borrow stock -1
+			//cout << "Movie after return: " << p->getSort() << " Stock: " << p->getStock() << endl;
+			// Set transaction in customer history
+
+			// in classics go to movies with different major actors
+		} else {
+			cout << "Movie not found";
+		}
 	}
-	// If file empty stop
-	//if (infile.eof()) break;		// Stop if no more lines of data
+}
+
+// TO DO: See if data is correct for movies (wrong input)
+void Return::setData(ifstream& infile)
+{
+	// If movieType is comedy, classic or drama, save movie information
+	switch (movieType) {
+	case 'F':
+		// Store location string in NodeData array
+		getline(infile, movieTitle, ',');
+		movieTitle.erase(0, 1); // Removing front blank space
+		infile >> releaseYear;
+		stringToFind = movieTitle + ' ' + to_string(releaseYear);
+		break;
+	case 'C':
+		infile >> releaseMonth >> releaseYear;
+		getline(infile, majorActor);
+		majorActor.erase(0, 1);
+		stringToFind = to_string(releaseYear) + ' ' + to_string(releaseMonth) + ' ' + majorActor;
+		break;
+	case 'D':
+		getline(infile, movieDirector, ',');
+		movieDirector.erase(0, 1);
+		getline(infile, movieTitle, ',');
+		movieDirector.erase(0, 1);
+		stringToFind = movieDirector + ' ' + movieTitle;
+		break;
+	default:	// Else movieType is unknown
+		cout << endl << "Invalid video code" << endl;
+		getline(infile, garbage);
+		doAction = false;
+		break;
+	}
 }

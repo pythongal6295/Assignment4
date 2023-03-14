@@ -26,8 +26,11 @@ public:
 	// Default constructor for Borrow class  
 	Borrow();
 
+	//// Constructor with parameter for Borrow class
+	//Borrow(ifstream&);
+
 	// Constructor with parameter for Borrow class
-	Borrow(ifstream&);
+	Borrow(ifstream&, BinTree*&, BinTree*&, BinTree*&);//Still missing hashtable
 
 	// Default destructor for Borrow class
 	~Borrow();
@@ -37,10 +40,15 @@ public:
 private:
 	virtual void setData(ifstream&);
 
-	bool addNode;
+	BinTree* bstComedies;
+	BinTree* bstDramas;
+	BinTree* bstClassics;
+
+	Movie movieToFind;
+	bool doAction;
 	int idNum, releaseYear, releaseMonth;
 	char mediaType, movieType;
-	string movieTitle, movieDirector, majorActor, garbage;
+	string movieTitle, movieDirector, majorActor, garbage, releaseDate, stringToFind;
 
 };
 #endif

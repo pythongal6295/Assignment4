@@ -60,10 +60,10 @@
     <ClCompile Include="movie.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="hashTable.cpp">
+    <ClCompile Include="customer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="customer.cpp">
+    <ClCompile Include="hashTable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

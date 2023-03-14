@@ -27,14 +27,21 @@ public:
 	// Default constructor for Show class
 	Show();
 
+	// -----------------------------------Show()-----------------------------------
+	// Parametrized constructor for Show class
+	Show(BinTree*&, BinTree*&, BinTree*&);
+
+	// -----------------------------------~Show()----------------------------------
 	//Default destructor for Show class
 	~Show();
 
 	virtual void doTransaction();
 
 private:
+	BinTree* bstComedies;
+	BinTree* bstDramas;
+	BinTree* bstClassics;
 	virtual void setData(ifstream&);
-
 };
 
 #endif

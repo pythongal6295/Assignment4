@@ -22,7 +22,7 @@
 #include "movieFactory.h"
 //#include "transaction.h"
 #include "transactionFactory.h"
-//#include "bintree.h"
+#include "bintree.h"
 
 
 using namespace std;
@@ -54,9 +54,9 @@ public:
 private:
 
 	HashTable* customerHashTable;	//hash table with all customers
-	//BinTree* comediesBST;    //BST of comedies
-	//BinTree* dramasBST;		  //BST of dramas
-	//BinTree* classicsBST;		//BST of classics
+	BinTree* comediesBST;    //BST of comedies
+	BinTree* dramasBST;		  //BST of dramas
+	BinTree* classicsBST;		//BST of classics
 
 	//MovieFactory movieFactory; //instance of MovieFactory to create movie objects (Remove)
 	//TransactionFactory transactionFactory; //instance of TransactionFactory to create transaction objects (Remove)

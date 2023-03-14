@@ -33,6 +33,7 @@ Movie* MovieFactory::createMovieObject(char movieType, ifstream& infile)
 		break;
 	default:	// If movieType is invalid, set pointer to NULL
 		getline(infile, garbage);	//	TO IMPROVE
+		cout <<endl<< "Invalid movie code" << endl;
 		break;
 	}
 	return selection;
