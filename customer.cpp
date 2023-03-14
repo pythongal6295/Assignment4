@@ -1,11 +1,29 @@
+// ---------------------------------------------- customer.cpp ----------------------------------------------------
+// Kelly M. Kauffman			CSS502 A
+// Brenda S. Vega Contreras 
+// Creation Date : 3/12/23
+// Date of Last Modification: 2/25/23
+// ---------------------------------------------------------------------------------------------------------------
+// Purpose: Header file for Customer class
+// ---------------------------------------------------------------------------------------------------------------
+// Notes on specifications, special algorithms, and assumptions:
+//  -
+// Assumptions:
+//
+// ---------------------------------------------------------------------------------------------------------------
+
 #include "customer.h"
 #include <string>
 #include <iostream>
 #include <fstream>
+
 // -----------------------------------Customer()-----------------------------------
 // Default constructor for Movie class
 Customer::Customer()
 {
+	idNum = 0;
+	firstName = "";
+	lastName = "";
 }
 
 // Parameterized constructor for Movie class from a istream object
@@ -61,6 +79,9 @@ void Customer::displayHistory()
 
 	//run through the history linked list
 	//print each attribute from the history struct
+	cout << getFirstName() << " " << getLastName() << "'s Transaction History" << endl;
+	for (list<customerHistory>::iterator it = historyList.begin(); it != historyList.end(); ++it)
+		cout << ' ' << *it;
 
 }
 
@@ -72,6 +93,19 @@ void Customer::displayCustomer()
 	cout << idNum << endl;
 	cout << firstName << endl;
 	cout << lastName << endl;
+}
+// -----------------------------------inserHistoryNode-----------------------------------
+// insert new history node to LL with information from history class, pointer to movie, type of transaction
+void Customer::insertHistoryNode(Movie* movie, string transactionType)
+{
+	//customerHistory *historyNode = new customerHistory;
+
+	historyNode.currentMovie = movie;
+	historyNode.typeOfTransaction = transactionType;
+
+	historyList.push_front(historyNode);
+	
+	
 }
 
 // -----------------------------------getIDNum------------------------------------------
@@ -91,4 +125,27 @@ string Customer::getFirstName()
 string Customer::getLastName()
 {
 	return lastName;
+}
+
+//---------------------------------Friend operator <<-----------------------------
+//Prints out a HistoryNode
+ostream& operator<<(ostream& output, const customerHistory& ch)
+{
+	string transaction = "";
+
+	if (ch.typeOfTransaction == "B") {
+		transaction = "Borrowed";
+	}
+
+	else if (ch.typeOfTransaction == "R") {
+		transaction = "Returned";
+	}
+
+	else {
+		transaction = "unknown";
+	}
+	
+	cout << transaction << ch.typeOfTransaction;
+
+	return output;
 }
