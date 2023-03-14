@@ -34,7 +34,7 @@ Borrow::Borrow(ifstream& infile, BinTree*& bstF, BinTree*& bstD, BinTree*& bstC)
 	infile >> idNum >> mediaType >> movieType;
 	// If invalid media type, no transaction is to be done
 	if (mediaType != 'D') {
-		cout << endl << "Invalid type of media" << endl;
+		cout << "Invalid type of media" << endl;
 		doAction = false;
 		getline(infile, garbage);
 	} else {
@@ -71,9 +71,9 @@ void Borrow::doTransaction()
 			break;
 		}
 		if (p != nullptr && found == true) {
-			cout << "Movie to borrow: " << p->getSort() << " Stock: " << p->getStock() << endl;
+			//cout << "Movie to borrow: " << p->getSort() << " Stock: " << p->getStock() << endl;
 			stockAvailable = p->borrowMovie();	//Borrow stock -1
-			cout << "Movie after borrow: " << p->getSort() << " Stock: " << p->getStock() << endl;
+			//cout << "Movie after borrow: " << p->getSort() << " Stock: " << p->getStock() << endl;
 			// Set transaction in customer history
 			if (stockAvailable == false) {
 				cout << "Movie out of stock" << endl;

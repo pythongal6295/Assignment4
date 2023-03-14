@@ -24,7 +24,7 @@ Return::Return(ifstream& infile, BinTree*& bstF, BinTree*& bstD, BinTree*& bstC)
 	infile >> idNum >> mediaType >> movieType;
 	// If invalid media type, no transaction is to be done
 	if (mediaType != 'D') {
-		cout << endl << "Invalid type of media" << endl;
+		cout << "Invalid type of media" << endl;
 		doAction = false;
 		getline(infile, garbage);
 	} else {
@@ -56,11 +56,11 @@ void Return::doTransaction()
 			break;
 		}
 		if (p != nullptr && found == true) {
-			cout << "Movie to return: " << p->getSort() << " Stock: " << p->getStock() << endl;
+			//cout << "Movie to return: " << p->getSort() << " Stock: " << p->getStock() << endl;
 			p->returnMovie();	//Borrow stock -1
-			cout << "Movie after return: " << p->getSort() << " Stock: " << p->getStock() << endl;
+			//cout << "Movie after return: " << p->getSort() << " Stock: " << p->getStock() << endl;
 			// Set transaction in customer history
-			
+
 			// in classics go to movies with different major actors
 		} else {
 			cout << "Movie not found";
