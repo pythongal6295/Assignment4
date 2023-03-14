@@ -16,7 +16,7 @@ Borrow::Borrow(ifstream& infile) :Borrow()
 	setData(infile);
 	// If invalid customerID or media type
 	if (mediaType != 'D') {
-		cout << "Invalid type of media" << endl;
+		cout << endl << "Invalid type of media" << endl;
 		doAction = false;
 		getline(infile, garbage);
 	}
@@ -58,7 +58,7 @@ void Borrow::setData(ifstream& infile)
 		movieDirector.erase(0, 1);
 		break;
 	default:
-		cout << "Invalid video code" << endl;
+		cout << endl << "Invalid video code" << endl;
 		getline(infile, garbage);
 		break;
 	}

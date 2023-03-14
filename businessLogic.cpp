@@ -82,11 +82,14 @@ void BusinessLogic::loadCommands(ifstream& infile)
 	string garbage;
 	Transaction* newTransaction;
 
+	//cout<<*classicsBST;
+
 	for (;;) {
 		infile >> transaction;
 		// If transaction type is borrow, return, show inventory or show client history, do transaction
 		if (transaction == 'B' || transaction == 'R' || transaction == 'I' || transaction == 'H') {
-			newTransaction = TransactionFactory::createTransactionObject(transaction, infile);
+			//newTransaction = TransactionFactory::createTransactionObject(transaction, infile);
+			newTransaction = TransactionFactory::createTransactionObject(transaction, infile, comediesBST, dramasBST, classicsBST);
 			newTransaction->doTransaction();
 			delete newTransaction;
 			newTransaction = nullptr;
@@ -94,7 +97,7 @@ void BusinessLogic::loadCommands(ifstream& infile)
 		// If transaction type is unknown, empty current line
 		else {
 			getline(infile, garbage);	//	TO IMPROVE
-			cout << "Invalid action code" << endl;
+			cout << endl << "Invalid action code" << endl;
 		}
 		if (infile.eof()) break;		// Stop if no more lines of data
 	}

@@ -19,7 +19,7 @@ Return::Return(ifstream& infile) :Return()
 	setData(infile);
 	// If invalid customerID or media type
 	if (mediaType != 'D') {
-		cout << "Invalid type of media" << endl;
+		cout << endl << "Invalid type of media" << endl;
 		getline(infile, garbage);
 		doAction = false;
 	}
@@ -57,7 +57,7 @@ void Return::setData(ifstream& infile)
 		movieDirector.erase(0, 1);
 		break;
 	default:
-		cout << "Invalid video code" << endl;
+		cout << endl << "Invalid video code" << endl;
 		getline(infile, garbage);
 		doAction = false;
 		break;

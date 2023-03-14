@@ -17,6 +17,9 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include "bintree.h"
+#include"hashTable.h"
+
 using namespace std;
 
 class Transaction
@@ -26,6 +29,7 @@ public:
 	// Default constructor for Transaction class
 	Transaction();
 
+	// ----------------------------------~Transaction()-----------------------------------
 	//Default deconstructor for Transaction class
 	~Transaction();
 
