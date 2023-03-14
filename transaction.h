@@ -17,8 +17,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "bintree.h"
-#include"hashTable.h"
+
+#include "businessLogic.h";
 
 using namespace std;
 

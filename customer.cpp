@@ -104,8 +104,6 @@ void Customer::insertHistoryNode(Movie* movie, string transactionType)
 	historyNode.typeOfTransaction = transactionType;
 
 	historyList.push_front(historyNode);
-	
-	
 }
 
 // -----------------------------------getIDNum------------------------------------------
