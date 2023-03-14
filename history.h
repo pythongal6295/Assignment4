@@ -28,7 +28,7 @@ public:
 	History();
 
 	// Constructor with parameter for History class
-	History(ifstream&);
+	History(ifstream&, HashTable*&);
 
 	//Default destructor for History class
 	~History();
@@ -39,6 +39,7 @@ private:
 	virtual void setData(ifstream&);
 
 	int idNum;
+	HashTable* customerTable;
 };
 
 #endif

@@ -49,7 +49,7 @@ public:
 
   // ----------------------------------getFromTable------------------------------------
 	// Function to get a Customer from hash table using customer ID
-	Customer* getFromTable(string);	
+	Customer* getFromTable(int);	
 
 private:
   // ----------------------------------hashFunctions------------------------------------

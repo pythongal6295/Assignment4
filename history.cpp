@@ -16,12 +16,13 @@
 
 History::History()
 {
-	idNum = 0;
+	idNum = "";
 }
 
-History::History(ifstream& infile):History()
+History::History(ifstream& infile, HashTable*& clients):History()
 {
 	infile >> idNum;
+	customerTable = clients;
 }
 
 History::~History()
@@ -30,9 +31,9 @@ History::~History()
 
 void History::doTransaction(HashTable* customerTable)
 {
-	//look up customer in hashtable
-
-	//call displayHistory
+	Customer* currentCustomer;
+	currentCustomer = customerTable->getFromTable(idNum);
+	currentCustomer->displayHistory();
 }
 
 void History::setData(ifstream& infile)

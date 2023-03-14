@@ -24,6 +24,7 @@ using namespace std;
 
 class Movie
 {
+	friend ostream& operator<<(ostream&, const Movie&);
 public:
 
 	// -----------------------------------Movie()-----------------------------------
@@ -32,44 +33,97 @@ public:
 
 	// -----------------------------------Movie()-----------------------------------
 	// Destructor for Movie class
-	~Movie();
+	virtual ~Movie();
 
 	// -----------------------------------display-----------------------------------
 	// Outputs to the screen all of the details of the movie (Year, Title, Director, Stock)
-	void display();
+	//virtual void display()=0;
 
-	// -----------------------------------getYear-----------------------------------
-	// Returns the year of the movie
-	int getYear();
+	// ----------------------------------setDisplay---------------------------------
+	void setDisplay(string);
+
+	//// -----------------------------------getYear-----------------------------------
+	//// Returns the year of the movie
+	//int getYear();
 
 	// -----------------------------------getTitle-----------------------------------
 	// Returns the title of the movie
 	string getTitle();
 
+	// -----------------------------------setStock-----------------------------------
+	// Sets a new value for the stock depending on borrow/rent actions
+	// Parameter: int - the new stock value
+	virtual void setStock(int);
+
 	// -----------------------------------getStock-----------------------------------
 	// Returns the stock of the movie
 	int getStock();
 
-	// -----------------------------------getDirector-----------------------------------
+	// ----------------------------------getDirector---------------------------------
 	// Returns the name of the directory of the movie
 	string getDirector();
 
-	// -----------------------------------setStock-----------------------------------
-	// Sets a new value for the stock depending on borrow/rent actions
-	// Parameter: int - the new stock value
-	void setStock(int);
 
-	// -----------------------------------insert-----------------------------------
+	// ---------------------------------borrowMovie()--------------------------------
+	bool borrowMovie();
+
+	// ---------------------------------returnMovie()--------------------------------
+	void returnMovie();
+
+	// VERSION 1
+	// -----------------------------------setSort-----------------------------------
+	// Sets private variable sort
+	void setSort(string);
+
+	// ----------------------------------getSort()----------------------------------
+	// Gets variable sort
+	string getSort();
+
+	// ------------------------------------insert------------------------------------
 	  // Sort using the data structure which has all movies, it's being build for the first time. 
 	  // Delared as "abstract class". 
 	  // Parameters are string (remaining current command line from data4movies.txt)
 	//virtual void insert(ifstream&) = 0;
 
-	// What do you think of this?
-	/////////////*virtual bool operator==(const Movie&) const = 0;
-	////////////virtual bool operator>(const Movie&) const = 0;*/
+	/*// VERSION 2
+	// -----------------------------------Operator==---------------------------------
+	// Overloading == operator
+	virtual bool operator==(const Movie&) const = 0;
 
-	//private:
+	// -----------------------------------Operator!=---------------------------------
+	// Overloading != operator
+	virtual bool operator!=(const Movie&) const = 0;
+
+	// -----------------------------------Operator>----------------------------------
+	// Overloading > operator
+	virtual bool operator>(const Movie&) const = 0;
+
+	// -----------------------------------Operator<----------------------------------
+	// Overloading < operator
+	virtual bool operator<(const Movie&) const = 0;
+	*/
+
+	// -----------------------------------Operator==---------------------------------
+	// Overloading == operator
+	virtual bool operator==(const Movie&) const;
+
+	// -----------------------------------Operator!=---------------------------------
+	// Overloading != operator
+	virtual bool operator!=(const Movie&) const;
+
+	// -----------------------------------Operator>----------------------------------
+	// Overloading > operator
+	virtual bool operator>(const Movie&) const;
+
+	// -----------------------------------Operator<----------------------------------
+	// Overloading < operator
+	virtual bool operator<(const Movie&) const;
+
+private:
+	int stock;
+	string sort; // V2: string that contains director+title
+	string toDisplay;
+
 	//	// Properties of Movie Class
 	//	string movieTitle; //title of specific movie
 	//	string movieDirector; //director of specific movie

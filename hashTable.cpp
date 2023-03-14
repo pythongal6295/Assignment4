@@ -104,25 +104,30 @@ int HashTable::hashFunctionGet(int customerID){
 void HashTable::setInTable(Customer * customer){
     int index = 0;
 
-    //Create a new CustomerNode
-    CustomerNode * newCustomer = new CustomerNode;
-    newCustomer->headCustomer = customer;
+    //If the customer is not empty, then add to the hash table
+    if (customer->getIdNum() != 0 && customer->getFirstName() != "" && customer->getLastName() != "") {
 
-    index = hashFunctionSet(customer->getIdNum());
+        //Create a new CustomerNode
+        CustomerNode* newCustomer = new CustomerNode;
+        newCustomer->headCustomer = customer;
 
-    newCustomer->hashValue = index;
+        index = hashFunctionSet(customer->getIdNum());
 
-    hashTable[index] = newCustomer;
+        newCustomer->hashValue = index;
+
+        hashTable[index] = newCustomer;
+
+    }
     
   }
 
   // ----------------------------------getFromTable------------------------------------
 	// Function to get a Customer from hash table using customer ID
   //return: Return a customer pointer or NULL if a customer doesn't exist
-	Customer* HashTable::getFromTable(string customerID){
+	Customer* HashTable::getFromTable(int customerID){
     int index = 0;
     
-    index = hashFunctionGet(stoi(customerID));
+    index = hashFunctionGet(customerID);
 
     if (index != -1) {
       return hashTable[index]->headCustomer;

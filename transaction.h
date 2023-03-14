@@ -17,6 +17,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+
 #include "businessLogic.h";
 
 using namespace std;
@@ -28,6 +29,7 @@ public:
 	// Default constructor for Transaction class
 	Transaction();
 
+	// ----------------------------------~Transaction()-----------------------------------
 	//Default deconstructor for Transaction class
 	~Transaction();
 

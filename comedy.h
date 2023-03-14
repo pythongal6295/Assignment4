@@ -38,31 +38,32 @@ public:
 
 	// -----------------------------------~Comedy()-----------------------------------
 	// Destructor for class Comedy 
-	~Comedy();
+	virtual ~Comedy();
 
 	// -----------------------------------display-----------------------------------
 	// Outputs to the screen all of the details of the movie (Year, Title, Director, Stock)
-	void display();
+	//void display();
+	string display();
 
-	// -----------------------------------getYear-----------------------------------
-	// Returns the year of the movie
-	int getYear();
+	//// -----------------------------------getYear-----------------------------------
+	//// Returns the year of the movie
+	//int getYear();
 
-	// -----------------------------------getTitle-----------------------------------
-	// Accessor - get the movieTitle of an object Comedy.
-	string getTitle();
+	//// -----------------------------------getTitle-----------------------------------
+	//// Accessor - get the movieTitle of an object Comedy.
+	//string getTitle();
 
-	// -----------------------------------getStock-----------------------------------
-	// Accessor - Get the number of copies available of a Comedy Movie.
-	int getStock();
+	//// -----------------------------------getStock-----------------------------------
+	//// Accessor - Get the number of copies available of a Comedy Movie.
+	//int getStock();
 
-	// -----------------------------------getDirector-----------------------------------
-	// Accessor - get the movieDirector of a Comedy movie.
-	string getDirector();
+	//// -----------------------------------getDirector-----------------------------------
+	//// Accessor - get the movieDirector of a Comedy movie.
+	//string getDirector();
 
-	// -----------------------------------setStock-----------------------------------
-	// Mutator -  Modify data member stock after a command.
-	void setStock(int);
+	//// -----------------------------------setStock-----------------------------------
+	//// Mutator -  Modify data member stock after a command.
+	//void setStock(int);
 
 	// -----------------------------------insert-----------------------------------
 	// Insert a new object of type Comedy in a BST.
@@ -76,10 +77,12 @@ public:
 
 
 private:
+	//string sortF; //title+year released
+
 	// NOTE: I gave the same format of Clasics to Comedy and Drama
 
 	int year;  //year of specific comedy movie
-	int stock;  //stock of specific comedy movie
+	//int stock;  //stock of specific comedy movie
 	string title;  //title of specific comedy movie
 	string director;  //director of specific comedy movie
 
