@@ -32,7 +32,7 @@ int main()
 	}
 
 	movieStore.loadCustomers(infile1);
-	//movieStore.loadMovies(infile2);
-	//movieStore.loadCommands(infile3);
+	movieStore.loadMovies(infile2);
+	movieStore.loadCommands(infile3);
 
 }

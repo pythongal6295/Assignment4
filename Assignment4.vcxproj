@@ -134,6 +134,7 @@
     <ClCompile Include="comedy.cpp" />
     <ClCompile Include="customer.cpp" />
     <ClCompile Include="drama.cpp" />
+    <ClCompile Include="driver.cpp" />
     <ClCompile Include="hashTable.cpp" />
     <ClCompile Include="history.cpp" />
     <ClCompile Include="movie.cpp" />
