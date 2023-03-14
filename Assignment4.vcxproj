@@ -127,7 +127,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\source\repos\CSS 502\Assignment_4\Assignment_4\Assignment_4_Driver.cpp" />
     <ClCompile Include="bintree.cpp" />
     <ClCompile Include="borrow.cpp" />
     <ClCompile Include="businessLogic.cpp" />

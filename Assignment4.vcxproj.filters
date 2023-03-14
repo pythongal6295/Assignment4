@@ -45,9 +45,6 @@
     <ClCompile Include="driver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\source\repos\CSS 502\Assignment_4\Assignment_4\Assignment_4_Driver.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="classics.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

@@ -6,7 +6,7 @@
 // Default constructor
 BusinessLogic::BusinessLogic()
 {
-	//customerHashTable = new HashTable();	//hash table with all customers
+	customerHashTable = new HashTable();	//hash table with all customers
 	//comediesBST = new BinTree();    //BST of comedies
 	//dramasBST = new BinTree();		  //BST of dramas
 	//classicsBST = new BinTree();		//BST of classics
@@ -58,21 +58,20 @@ void BusinessLogic::loadMovies(ifstream& infile)
 // of type Customer
 void BusinessLogic::loadCustomers(ifstream& infile)
 {
-	//check if file can be opened
-	if (!infile) {
-		cout << "File could not be opened." << endl;
-	}
+	////check if file can be opened
+	//if (!infile) {
+	//	cout << "File could not be opened." << endl;
+	//}
 
 	//create a new customer;
-	else {
-		for (;;) {
-			Customer c(infile);
-			//Add customer to hash table
-			customerHashTable.setInTable(&c);
+	for (;;) {
+		Customer c(infile);
+		//Add customer to hash table
+		customerHashTable->setInTable(&c);
 
-			if (infile.eof()) break;		// Stop if no more lines of data
-		}
+		if (infile.eof()) break;		// Stop if no more lines of data
 	}
+	
 }
 
 // -----------------------------------loadCommands-----------------------------------

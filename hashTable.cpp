@@ -50,7 +50,8 @@ int HashTable::hashFunctionSet(int customerID){
 
   //check if there is an open spot in the array or if the customer ID at the current index matches the one passed into this function
   //Do we need to check if there is a duplicate Customer ID?
-  while (hashTable[index] != NULL || hashTable[index]->headCustomer->getIdNum() != customerID) {
+  /*while (hashTable[index] != NULL || hashTable[index]->headCustomer->getIdNum() != customerID) {*/
+  while (hashTable[index] != NULL) {
     collisionNum++;
     index = (prevIndex + collisionNum * (7 - (customerID % 7))) % 39; 
   }
