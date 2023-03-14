@@ -17,6 +17,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include "businessLogic.h";
+
 using namespace std;
 
 class Transaction

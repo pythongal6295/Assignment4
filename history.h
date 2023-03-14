@@ -33,7 +33,7 @@ public:
 	//Default destructor for History class
 	~History();
 
-	virtual void doTransaction();
+	virtual void doTransaction(HashTable *);
 
 private:
 	virtual void setData(ifstream&);
