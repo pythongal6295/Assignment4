@@ -134,18 +134,18 @@ ostream& operator<<(ostream& output, const customerHistory& ch)
 	string transaction = "";
 
 	if (ch.typeOfTransaction == "B") {
-		transaction = "Borrowed";
+		transaction = "Borrowed ";
 	}
 
 	else if (ch.typeOfTransaction == "R") {
-		transaction = "Returned";
+		transaction = "Returned ";
 	}
 
 	else {
 		transaction = "unknown";
 	}
 	
-	cout << transaction << ch.typeOfTransaction;
+	cout << transaction << ch.currentMovie << endl;
 
 	return output;
 }
