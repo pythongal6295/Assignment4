@@ -14,6 +14,7 @@ BusinessLogic::~BusinessLogic()
 	delete comediesBST;
 	delete dramasBST;
 	delete classicsBST;
+	delete customerHashTable;
 }
 
 // -----------------------------------loadMovies-------------------------------------
@@ -62,11 +63,13 @@ void BusinessLogic::loadCustomers(ifstream& infile)
 	//	cout << "File could not be opened." << endl;
 	//}
 
+	Customer* c;
+
 	//create a new customer;
 	for (;;) {
-		Customer c(infile);
+		c = new Customer(infile);
 		//Add customer to hash table
-		customerHashTable->setInTable(&c);
+		customerHashTable->setInTable(c);
 
 		if (infile.eof()) break;		// Stop if no more lines of data
 	}

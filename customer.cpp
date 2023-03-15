@@ -30,38 +30,8 @@ Customer::Customer()
 Customer::Customer(ifstream& infile)
 {
 	infile >> idNum;
-	infile >> firstName;
 	infile >> lastName;
-
-	//string s;
-	////saves ID, first name, and last name from line in file
-	//string customerDetails[3];
-	//string temp = "";
-	//char space = ' ';
-	//int arrayCount = 0;
-
-	////get next line from file to build a new customer
-	//getline(infile, s);
-
-	////parse the data from the line
-	//for (int i = 0; i < s.length(); i++) {
-	//	if (s[i] != space) {
-	//		temp += s[i];
-	//	}
-
-	//	else {
-	//		customerDetails[arrayCount] = temp;
-	//		arrayCount++;
-	//		temp.clear();
-	//	}
-
-	//	customerDetails[arrayCount + 1] = temp;
-	//}
-
-	//	//set the customer properties based on what was parsed from the file
-
-	//	idNum = stoi(customerDetails[0]);
-
+	infile >> firstName;
 
 }
 
@@ -80,8 +50,11 @@ void Customer::displayHistory()
 	//run through the history linked list
 	//print each attribute from the history struct
 	cout << getFirstName() << " " << getLastName() << "'s Transaction History" << endl;
-	for (list<customerHistory>::iterator it = historyList.begin(); it != historyList.end(); ++it)
+	for (list<customerHistory*>::iterator it = historyList.begin(); it != historyList.end(); ++it) {
+		cout << "Test" << endl;
 		cout << ' ' << *it;
+	}
+		
 
 }
 
@@ -91,19 +64,21 @@ void Customer::displayCustomer()
 {
 	cout << "***********************************" << endl;
 	cout << idNum << endl;
-	cout << firstName << endl;
 	cout << lastName << endl;
+	cout << firstName << endl;
 }
 // -----------------------------------inserHistoryNode-----------------------------------
 // insert new history node to LL with information from history class, pointer to movie, type of transaction
 void Customer::insertHistoryNode(Movie* movie, string transactionType)
 {
-	//customerHistory *historyNode = new customerHistory;
+	customerHistory *historyNode = new customerHistory;
 
-	historyNode.currentMovie = movie;
-	historyNode.typeOfTransaction = transactionType;
+	historyNode->currentMovie = movie;
+	historyNode->typeOfTransaction = transactionType;
 
 	historyList.push_front(historyNode);
+	//cout << "List size = " << historyList.size() << endl;
+	//cout << "Printing newest history node movie" << historyList.front()->currentMovie;
 	
 	
 }

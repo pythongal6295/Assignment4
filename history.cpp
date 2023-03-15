@@ -2,7 +2,8 @@
 
 History::History()
 {
-	idNum = "";
+	idNum = 0;
+	//customerTable = nullptr;
 }
 
 History::History(ifstream& infile, HashTable*& clients):History()

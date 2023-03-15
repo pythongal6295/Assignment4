@@ -29,14 +29,14 @@ struct customerHistory
 	string typeOfTransaction; // Borrowing or returning item
 	//customerHistory* next;	// Pointer to previous transaction (pointing to next History item in LL)
 
-	//---------------------------------Friend operator <<-----------------------------
-	//Prints out a HistoryNode
-	friend ostream& operator<<(ostream&, const customerHistory&);
+
 };
 
 class Customer
 {
-
+	//---------------------------------Friend operator <<-----------------------------
+//Prints out a HistoryNode
+	friend ostream& operator<<(ostream&, const customerHistory&);
 
 
 public:
@@ -85,7 +85,7 @@ int idNum; //Specific customer ID number
 string lastName; //Specific customer last name
 string firstName; //Specific customer first name
 //customerHistory* lastTransaction;	// Pointer to last borrowed or returned movie (history) (transaction at the front of LL)
-list<customerHistory> historyList; //Linked List of specific customer's history transactions
+list<customerHistory*> historyList; //Linked List of specific customer's history transactions
 customerHistory historyNode; 
 };
 
