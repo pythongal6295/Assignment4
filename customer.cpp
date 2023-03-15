@@ -87,7 +87,7 @@ void Customer::displayCustomer()
 	cout << lastName << endl;
 }
 
-//---------------------------------displayTransaction()------------------------------------
+//---------------------------------displayHistoryNode()------------------------------------
 //Prints out a HistoryNode
 void Customer::displayHistoryNode(const customerHistory* ch)
 {
