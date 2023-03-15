@@ -19,6 +19,8 @@
 #include <string>
 
 #include "businessLogic.h";
+#include "bintree.h"
+#include "hashTable.h"
 
 using namespace std;
 

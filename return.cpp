@@ -11,26 +11,38 @@ Return::Return()
 	movieDirector = "";
 	majorActor = "";
 	doAction = true;
+	curCustomer = nullptr;
 }
 
-Return::Return(ifstream& infile, BinTree*& bstF, BinTree*& bstD, BinTree*& bstC) : Return()
+//Return::Return(ifstream& infile, BinTree*& bstF, BinTree*& bstD, BinTree*& bstC) : Return()
+Return::Return(ifstream& infile, BinTree*& bstF, BinTree*& bstD, BinTree*& bstC, HashTable*& ht) : Return()
 {
 	doAction = true;
 
+	clientsHashTable = ht;
 	bstComedies = bstF;
 	bstDramas = bstD;
 	bstClassics = bstC;
 
 	infile >> idNum >> mediaType >> movieType;
-	// If invalid media type, no transaction is to be done
-	if (mediaType != 'D') {
-		cout << "Invalid type of media" << endl;
+
+	curCustomer = ht->getFromTable(to_string(idNum));
+
+	// If valid customerID
+	if (curCustomer != NULL) {
+		// If invalid media type, no transaction is to be done
+		if (mediaType != 'D') {
+			cout << "Invalid type of media" << endl;
+			doAction = false;
+			getline(infile, garbage);
+		} else {
+			setData(infile);
+		}
+	} else {	// If invalid customerID
+		cout << "Invalid customer ID" << endl;
 		doAction = false;
 		getline(infile, garbage);
-	} else {
-		setData(infile);
 	}
-	// If invalid customerID
 }
 
 Return::~Return() {}
@@ -59,7 +71,8 @@ void Return::doTransaction()
 			//cout << "Movie to return: " << p->getSort() << " Stock: " << p->getStock() << endl;
 			p->returnMovie();	//Borrow stock -1
 			//cout << "Movie after return: " << p->getSort() << " Stock: " << p->getStock() << endl;
-			// Set transaction in customer history
+				// Set transaction in customer history
+			curCustomer->insertHistoryNode(p, movieType); // We can modify parameter to receive char insted of string (Note)
 
 			// in classics go to movies with different major actors
 		} else {
