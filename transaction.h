@@ -18,7 +18,7 @@
 #include <fstream>
 #include <string>
 #include "bintree.h"
-#include"hashTable.h"
+#include "hashTable.h"
 
 using namespace std;
 

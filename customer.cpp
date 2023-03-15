@@ -96,7 +96,7 @@ void Customer::displayCustomer()
 }
 // -----------------------------------inserHistoryNode-----------------------------------
 // insert new history node to LL with information from history class, pointer to movie, type of transaction
-void Customer::insertHistoryNode(Movie* movie, string transactionType)
+void Customer::insertHistoryNode(Movie* movie, char transactionType)
 {
 	//customerHistory *historyNode = new customerHistory;
 
@@ -133,11 +133,11 @@ ostream& operator<<(ostream& output, const customerHistory& ch)
 {
 	string transaction = "";
 
-	if (ch.typeOfTransaction == "B") {
+	if (ch.typeOfTransaction == 'B') {
 		transaction = "Borrowed";
 	}
 
-	else if (ch.typeOfTransaction == "R") {
+	else if (ch.typeOfTransaction == 'R') {
 		transaction = "Returned";
 	}
 

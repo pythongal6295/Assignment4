@@ -61,12 +61,15 @@ void BusinessLogic::loadCustomers(ifstream& infile)
 	//if (!infile) {
 	//	cout << "File could not be opened." << endl;
 	//}
+	Customer * c;
 
 	//create a new customer;
 	for (;;) {
-		Customer c(infile);
+		//Customer c(infile);
+		c = new Customer(infile);
 		//Add customer to hash table
-		customerHashTable->setInTable(&c);
+		//customerHashTable->setInTable(&c);
+		customerHashTable->setInTable(c);
 
 		if (infile.eof()) break;		// Stop if no more lines of data
 	}
@@ -86,7 +89,7 @@ void BusinessLogic::loadCommands(ifstream& infile)
 		infile >> transaction;
 		// If transaction type is borrow, return, show inventory or show client history, do transaction
 		if (transaction == 'B' || transaction == 'R' || transaction == 'I' || transaction == 'H') {
-			newTransaction = TransactionFactory::createTransactionObject(transaction, infile, comediesBST, dramasBST, classicsBST);
+			newTransaction = TransactionFactory::createTransactionObject(transaction, infile, comediesBST, dramasBST, classicsBST, customerHashTable);
 			newTransaction->doTransaction();
 			delete newTransaction;
 			newTransaction = nullptr;

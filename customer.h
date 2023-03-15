@@ -26,7 +26,8 @@ using namespace std;
 struct customerHistory
 {
 	Movie* currentMovie;	// Pointer to the movie that was borrowed or returned
-	string typeOfTransaction; // Borrowing or returning item
+	char typeOfTransaction; // Borrowing or returning item
+	//string typeOfTransaction; // Borrowing or returning item
 	//customerHistory* next;	// Pointer to previous transaction (pointing to next History item in LL)
 
 	//---------------------------------Friend operator <<-----------------------------
@@ -65,7 +66,7 @@ void displayCustomer();
 
 // -----------------------------------inserHistoryNode-----------------------------------
 // insert new history node to LL with information from history class, pointer to movie, type of transaction
- void insertHistoryNode(Movie *, string);
+ void insertHistoryNode(Movie *, char);
 
 // -----------------------------------getIDNum------------------------------------------
 // Accessor - get the idNum of an object customer 
