@@ -38,9 +38,12 @@ History::~History()
 // Carry out printing customer history for the rental store
 void History::doTransaction()
 {
-	Customer* currentCustomer;
-	currentCustomer = customerTable->getFromTable(idNum);
-	currentCustomer->displayHistory();
+	if (idNum!=0) {	// Does 0000 is also 0?
+		Customer* currentCustomer;
+		currentCustomer = customerTable->getFromTable(idNum);
+		currentCustomer->displayHistory();
+	}
+	
 }
 
 // -----------------------------------setData-----------------------------------

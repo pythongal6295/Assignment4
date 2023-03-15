@@ -79,14 +79,16 @@ void BusinessLogic::loadCustomers(ifstream& infile)
 	//}
 	Customer * c;
 
-	//create a new customer;
+	// Create a new customer;
 	for (;;) {
-		//Customer c(infile);
 		c = new Customer(infile);
-		//Add customer to hash table
-		//customerHashTable->setInTable(&c);
-		customerHashTable->setInTable(c);
-
+		if (c->getIdNum() == 0 && c->getFirstName() == "" && c->getLastName() == "") {
+			delete c;
+			c = nullptr;
+		} else {
+			// Add customer to hash table
+			customerHashTable->setInTable(c);
+		}
 		if (infile.eof()) break;		// Stop if no more lines of data
 	}
 	
