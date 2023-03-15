@@ -79,6 +79,18 @@ public:
 	// Gets variable sort
 	string getSort();
 
+	// ----------------------------------setMovieInfo()----------------------------------
+	// Sets movieInfo
+	void setMovieInfo(string, char);
+
+	// ----------------------------------getMovieInfo()----------------------------------
+	// Gets movieInfo
+	string getMovieInfo();
+
+	// ----------------------------------getGenre()----------------------------------
+	// Gets type of movie (C,F or D)
+	char getGenre();
+
 	// ------------------------------------insert------------------------------------
 	  // Sort using the data structure which has all movies, it's being build for the first time. 
 	  // Delared as "abstract class". 
@@ -123,6 +135,8 @@ private:
 	int stock;
 	string sort; // V2: string that contains director+title
 	string toDisplay;
+	string movieInfo;
+	char movieType;
 
 	//	// Properties of Movie Class
 	//	string movieTitle; //title of specific movie
