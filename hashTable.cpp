@@ -122,10 +122,10 @@ void HashTable::setInTable(Customer * customer){
   // ----------------------------------getFromTable------------------------------------
 	// Function to get a Customer from hash table using customer ID
   //return: Return a customer pointer or NULL if a customer doesn't exist
-	Customer* HashTable::getFromTable(string customerID){
+	Customer* HashTable::getFromTable(int customerID){
     int index = 0;
     
-    index = hashFunctionGet(stoi(customerID));
+    index = hashFunctionGet(customerID);
 
 	if (index != -1) {
 		return hashTable[index]->headCustomer;

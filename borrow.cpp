@@ -26,7 +26,7 @@ Borrow::Borrow(ifstream& infile, BinTree*& bstF, BinTree*& bstD, BinTree*& bstC,
 
 	infile >> idNum >> mediaType >> movieType;
 
-	curCustomer = ht->getFromTable(to_string(idNum));
+	curCustomer = ht->getFromTable(idNum);
 
 	// If valid customerID
 	if (curCustomer != NULL) {
@@ -78,7 +78,7 @@ void Borrow::doTransaction()
 				cout << "Movie out of stock" << endl;
 			} else {
 				// Set transaction in customer history
-				curCustomer->insertHistoryNode(p, movieType); // We can modify parameter to receive char insted of string (Note)
+				curCustomer->insertHistoryNode(p, 'R'); 
 			}
 			// In classics go to movies with different major actors
 		} else {
