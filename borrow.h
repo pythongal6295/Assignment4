@@ -30,7 +30,8 @@ public:
 	//Borrow(ifstream&);
 
 	// Constructor with parameter for Borrow class
-	Borrow(ifstream&, BinTree*&, BinTree*&, BinTree*&);//Still missing hashtable
+	//Borrow(ifstream&, BinTree*&, BinTree*&, BinTree*&);//Still missing hashtable
+	Borrow(ifstream&, BinTree*&, BinTree*&, BinTree*&, HashTable*&);//Still missing hashtable
 
 	// Default destructor for Borrow class
 	~Borrow();
@@ -40,9 +41,12 @@ public:
 private:
 	virtual void setData(ifstream&);
 
+	HashTable* clientsHashTable;
 	BinTree* bstComedies;
 	BinTree* bstDramas;
 	BinTree* bstClassics;
+
+	Customer* curCustomer;
 
 	Movie movieToFind;
 	bool doAction;

@@ -7,47 +7,46 @@ Borrow::Borrow()
 	mediaType = '\0', movieType = '\0';
 	movieTitle = "", movieDirector = "", releaseDate = "";
 	doAction = true;
+	clientsHashTable = nullptr;
+	bstComedies = nullptr;
+	bstDramas = nullptr;
+	bstClassics = nullptr;
+	curCustomer = nullptr;
 }
 
-//// Constructor with parameter for Borrow class
-//Borrow::Borrow(ifstream& infile) :Borrow()
-//{
-//	infile >> idNum >> mediaType >> movieType;
-//	setData(infile);
-//	// If invalid customerID or media type
-//	if (mediaType != 'D') {
-//		cout << endl << "Invalid type of media" << endl;
-//		doAction = false;
-//		getline(infile, garbage);
-//	}
-//}
-
 // Constructor with parameter for Borrow class
-Borrow::Borrow(ifstream& infile, BinTree*& bstF, BinTree*& bstD, BinTree*& bstC) :Borrow()
+//Borrow::Borrow(ifstream& infile, BinTree*& bstF, BinTree*& bstD, BinTree*& bstC) :Borrow()
+Borrow::Borrow(ifstream& infile, BinTree*& bstF, BinTree*& bstD, BinTree*& bstC, HashTable*& ht) :Borrow()
 {
 	doAction = true;
-
+	clientsHashTable = ht;
 	bstComedies = bstF;
 	bstDramas = bstD;
 	bstClassics = bstC;
 
 	infile >> idNum >> mediaType >> movieType;
-	// If invalid media type, no transaction is to be done
-	if (mediaType != 'D') {
-		cout << "Invalid type of media" << endl;
+
+	curCustomer = ht->getFromTable(idNum);
+
+	// If valid customerID
+	if (curCustomer != NULL) {
+		// If invalid media type, no transaction is to be done
+		if (mediaType != 'D') {
+			cout << "Invalid type of media" << endl;
+			doAction = false;
+			getline(infile, garbage);
+		} else {
+			setData(infile);
+		}
+	} else {	// If invalid customer ID
+		cout << "Invalid customer ID" << endl;
 		doAction = false;
 		getline(infile, garbage);
-	} else {
-		setData(infile);
 	}
-
-	// If invalid customerID
-
 }
 
 // Default destructor for Borrow class
 Borrow::~Borrow() {}
-
 
 void Borrow::doTransaction()
 {
@@ -74,9 +73,12 @@ void Borrow::doTransaction()
 			//cout << "Movie to borrow: " << p->getSort() << " Stock: " << p->getStock() << endl;
 			stockAvailable = p->borrowMovie();	//Borrow stock -1
 			//cout << "Movie after borrow: " << p->getSort() << " Stock: " << p->getStock() << endl;
-			// Set transaction in customer history
+
 			if (stockAvailable == false) {
 				cout << "Movie out of stock" << endl;
+			} else {
+				// Set transaction in customer history
+				curCustomer->insertHistoryNode(p, 'R'); 
 			}
 			// In classics go to movies with different major actors
 		} else {

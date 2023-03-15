@@ -24,10 +24,11 @@ Customer::Customer()
 	idNum = 0;
 	firstName = "";
 	lastName = "";
+	//historyNode = nullptr;
 }
 
 // Parameterized constructor for Movie class from a istream object
-Customer::Customer(ifstream& infile)
+Customer::Customer(ifstream& infile) :Customer()
 {
 	infile >> idNum;
 	infile >> firstName;
@@ -70,6 +71,7 @@ Customer::Customer(ifstream& infile)
 // Deallocates dinamic memory to the heap
 Customer::~Customer()
 {
+	// Deallocate memory used for historyNode
 }
 
 // -----------------------------------displayHistory-----------------------------------
@@ -80,8 +82,9 @@ void Customer::displayHistory()
 	//run through the history linked list
 	//print each attribute from the history struct
 	cout << getFirstName() << " " << getLastName() << "'s Transaction History" << endl;
-	for (list<customerHistory>::iterator it = historyList.begin(); it != historyList.end(); ++it)
+	for (list<customerHistory*>::iterator it = historyList.begin(); it != historyList.end(); ++it)
 		cout << ' ' << *it;
+
 
 }
 
@@ -96,12 +99,14 @@ void Customer::displayCustomer()
 }
 // -----------------------------------inserHistoryNode-----------------------------------
 // insert new history node to LL with information from history class, pointer to movie, type of transaction
-void Customer::insertHistoryNode(Movie* movie, string transactionType)
+void Customer::insertHistoryNode(Movie* movie, char transactionType)
 {
 	//customerHistory *historyNode = new customerHistory;
 
-	historyNode.currentMovie = movie;
-	historyNode.typeOfTransaction = transactionType;
+	customerHistory* historyNode = new customerHistory();
+
+	historyNode->currentMovie = movie;
+	historyNode->typeOfTransaction = transactionType;
 
 	historyList.push_front(historyNode);
 }
@@ -127,23 +132,23 @@ string Customer::getLastName()
 
 //---------------------------------Friend operator <<-----------------------------
 //Prints out a HistoryNode
-ostream& operator<<(ostream& output, const customerHistory& ch)
+ostream& operator<<(ostream& output, const customerHistory*& ch)
 {
 	string transaction = "";
 
-	if (ch.typeOfTransaction == "B") {
-		transaction = "Borrowed ";
+	if (ch->typeOfTransaction == 'B') {
+		transaction = "Borrowed";
 	}
 
-	else if (ch.typeOfTransaction == "R") {
-		transaction = "Returned ";
+	else if (ch->typeOfTransaction == 'R') {
+		transaction = "Returned";
 	}
 
 	else {
 		transaction = "unknown";
 	}
-	
-	cout << transaction << ch.currentMovie << endl;
+
+	cout << transaction << ch->currentMovie << endl;
 
 	return output;
 }

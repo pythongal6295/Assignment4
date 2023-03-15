@@ -24,11 +24,10 @@ Transaction* TransactionFactory::createTransactionObject(char command, ifstream&
 	// Create a new object with the data in the first line of infile
 	switch (command) {
 	case 'B':
-		selection = new Borrow(infile, bstF, bstD, bstC);
+		selection = new Borrow(infile, bstF, bstD, bstC, clients);
 		break;
 	case 'R':
-		//selection = new Return(infile);
-		selection = new Return(infile, bstF, bstD, bstC);
+		selection = new Return(infile, bstF, bstD, bstC, clients);
 		break;
 	case 'I':
 		selection = new Show(bstF, bstD, bstC);

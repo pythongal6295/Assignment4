@@ -16,7 +16,8 @@
 
 History::History()
 {
-	idNum = "";
+	idNum = 0;
+	customerTable = nullptr;
 }
 
 History::History(ifstream& infile, HashTable*& clients):History()
@@ -29,7 +30,7 @@ History::~History()
 {
 }
 
-void History::doTransaction(HashTable* customerTable)
+void History::doTransaction()
 {
 	Customer* currentCustomer;
 	currentCustomer = customerTable->getFromTable(idNum);
