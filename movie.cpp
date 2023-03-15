@@ -1,7 +1,25 @@
+// ---------------------------------------------- movie.cpp ----------------------------------------------------
+// Kelly M. Kauffman			CSS502 A
+// Brenda S. Vega Contreras 
+// Creation Date : 2/25/23
+// Date of Last Modification: 3/16/23
+// ---------------------------------------------------------------------------------------------------------------
+// Purpose: Implementation file for base class Movie
+// ---------------------------------------------------------------------------------------------------------------
+// Notes on specifications, special algorithms, and assumptions:
+//  -Movie is the base class for Drama, Comedy and Classics classes
+// Assumptions:
+//
+// ---------------------------------------------------------------------------------------------------------------
+
 #include "movie.h"
 
+// -----------------------------------Movie()-----------------------------------
+// Default constructor for Movie class
 Movie::Movie():stock(0) {}
 
+// ----------------------------------- ~Movie()-----------------------------------
+// Destructor for Movie class
 Movie::~Movie() {}
 
 // -----------------------------------display-----------------------------------

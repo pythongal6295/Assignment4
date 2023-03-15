@@ -2,7 +2,7 @@
 // Kelly M. Kauffman			CSS502 A
 // Brenda S. Vega Contreras 
 // Creation Date : 3/9/23
-// Date of Last Modification: 2/25/23
+// Date of Last Modification: 3/16/23
 // ---------------------------------------------------------------------------------------------------------------
 // Purpose: Header file for base class Transaction
 // ---------------------------------------------------------------------------------------------------------------
@@ -38,10 +38,10 @@ public:
 	// -----------------------------------doTransaction-----------------------------------
 	// Carry out a transaction (command) for the rental store
 	// Declared as "abstract class". 
-	// Parameters are 
 	virtual void doTransaction() = 0;
 
 private:
+
 	// -----------------------------------setData-----------------------------------
 	// Sort using the data structure which has all movies, it's being build for the first time. 
 	// Delared as "abstract class". 

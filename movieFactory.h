@@ -1,10 +1,8 @@
 // ---------------------------------------------- movieFactory.h ----------------------------------------------------
 // Kelly M. Kauffman			CSS502 A
-// Jessica Lee Chan
-// Maria Ixchel Arias Cruz
 // Brenda S. Vega Contreras 
 // Creation Date : 2/25/23
-// Date of Last Modification: 2/25/23
+// Date of Last Modification: 3/16/23
 // ---------------------------------------------------------------------------------------------------------------
 // Purpose: Header file for MovieFactory class
 // ---------------------------------------------------------------------------------------------------------------

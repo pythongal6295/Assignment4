@@ -2,7 +2,7 @@
 // Kelly M. Kauffman			CSS502 A
 // Brenda S. Vega Contreras 
 // Creation Date : 2/25/23
-// Date of Last Modification: 3/9/23
+// Date of Last Modification: 3/16/23
 // ---------------------------------------------------------------------------------------------------------------
 // Purpose: Header file for class Show. Displays the inventory for all movies.
 // ---------------------------------------------------------------------------------------------------------------
@@ -35,12 +35,19 @@ public:
 	//Default destructor for Show class
 	~Show();
 
+	// -----------------------------------doTransaction-----------------------------------
+	// Show current inventory for the rental store
 	virtual void doTransaction();
 
 private:
-	BinTree* bstComedies;
-	BinTree* bstDramas;
-	BinTree* bstClassics;
+	BinTree* bstComedies;	//binary tree for comedy movies
+	BinTree* bstDramas;		//binary tree for drama movies
+	BinTree* bstClassics;	//binary tree for classics movies
+
+	// -----------------------------------setData-----------------------------------
+	// Sort using the data structure which has all movies, it's being build for the first time. 
+	// Parameters are string (remaining current command line from data4movies.txt)
+	// Not needed for this class
 	virtual void setData(ifstream&);
 };
 

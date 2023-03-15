@@ -1,3 +1,17 @@
+// ---------------------------------------------- borrow.cpp ----------------------------------------------------
+// Kelly M. Kauffman			CSS502 A
+// Brenda S. Vega Contreras 
+// Creation Date : 3/9/23
+// Date of Last Modification: 3/16/23
+// ---------------------------------------------------------------------------------------------------------------
+// Purpose: Implementation file for class Borrow. Handles borrowing of a movie
+// ---------------------------------------------------------------------------------------------------------------
+// Notes on specifications, special algorithms, and assumptions:
+//  -Borrow is the child class of Transaction
+// Assumptions:
+//
+// ---------------------------------------------------------------------------------------------------------------
+
 #include "borrow.h"
 
 // Default constructor for Borrow class
