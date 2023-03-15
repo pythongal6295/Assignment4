@@ -60,7 +60,7 @@ void Customer::displayHistory()
 	//run through the history linked list
 	//print each attribute from the history struct
 	cout << "***********************************" << endl;
-	cout << getFirstName() << " " << getLastName() << "'s Transaction History" << endl;
+	cout << getIdNum() << " " << getFirstName() << " " << getLastName() << "'s Transaction History" << endl;
 	for (list<customerHistory*>::iterator it = historyList.begin(); it != historyList.end(); ++it) {
 		customerHistory* test = *it;
 
