@@ -2,7 +2,7 @@
 // Kelly M. Kauffman			CSS502 A
 // Brenda S. Vega Contreras 
 // Creation Date : 3/9/23
-// Date of Last Modification: 2/25/23
+// Date of Last Modification: 3/16/23
 // ---------------------------------------------------------------------------------------------------------------
 // Purpose: Header file for class Borrow. Handles borrowing of a movie
 // ---------------------------------------------------------------------------------------------------------------
@@ -41,14 +41,14 @@ public:
 private:
 	virtual void setData(ifstream&);
 
-	HashTable* clientsHashTable;
-	BinTree* bstComedies;
-	BinTree* bstDramas;
-	BinTree* bstClassics;
+	HashTable* clientsHashTable;	//hash table of customers
+	BinTree* bstComedies;	//binary tree of comedy movies
+	BinTree* bstDramas;		//binary tree of drama movies
+	BinTree* bstClassics;	//binary tree of classics movies
 
-	Customer* curCustomer;
+	Customer* curCustomer;	//pointer to customer borrowing the movie
 
-	Movie movieToFind;
+	Movie movieToFind;	//movie being borrowed
 	bool doAction;
 	int idNum, releaseYear, releaseMonth;
 	char mediaType, movieType;

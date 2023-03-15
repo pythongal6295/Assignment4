@@ -1,5 +1,20 @@
+// ---------------------------------------------- return.cpp ----------------------------------------------------
+// Kelly M. Kauffman			CSS502 A
+// Brenda S. Vega Contreras 
+// Creation Date : 2/25/23
+// Date of Last Modification: 3/16/23
+// ---------------------------------------------------------------------------------------------------------------
+// Purpose: Implementation file for class Return. Handles return of a movie
+// ---------------------------------------------------------------------------------------------------------------
+// Notes on specifications, special algorithms, and assumptions:
+//  -Return is the child class of Transaction
+// Assumptions:
+//
+// ---------------------------------------------------------------------------------------------------------------
+
 #include "return.h"
 
+// Default constructor for Return class
 Return::Return()
 {
 	idNum = 0;
@@ -45,8 +60,11 @@ Return::Return(ifstream& infile, BinTree*& bstF, BinTree*& bstD, BinTree*& bstC,
 	}
 }
 
+// Default destructor for Return class
 Return::~Return() {}
 
+// -----------------------------------doTransaction-----------------------------------
+// Carry out a return for the rental store
 void Return::doTransaction()
 {
 	if (doAction != false) {

@@ -2,14 +2,14 @@
 // Kelly M. Kauffman			CSS502 A
 // Brenda S. Vega Contreras 
 // Creation Date : 2/25/23
-// Date of Last Modification: 2/25/23
+// Date of Last Modification: 3/16/23
 // ---------------------------------------------------------------------------------------------------------------
 // Purpose: Header file for BusinessLogic class of the inventory tracking system of a movie rental store
 // ---------------------------------------------------------------------------------------------------------------
 // Notes on specifications, special algorithms, and assumptions:
 // 
 // Assumptions:
-//
+//	-All text files are in the correct format
 // ---------------------------------------------------------------------------------------------------------------
 #ifndef BUSINESSLOGIC_H
 #define BUSINESSLOGIC_H

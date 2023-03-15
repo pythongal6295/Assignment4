@@ -2,14 +2,16 @@
 // Kelly M. Kauffman			CSS502 A
 // Brenda S. Vega Contreras 
 // Creation Date : 3/12/23
-// Date of Last Modification: 2/25/23
+// Date of Last Modification: 3/16/23
 // ---------------------------------------------------------------------------------------------------------------
-// Purpose: Header file for Customer class
+// Purpose: Implementation file for Customer class
 // ---------------------------------------------------------------------------------------------------------------
 // Notes on specifications, special algorithms, and assumptions:
-//  -
+//  -Each history transaction for the customer is stored as a node in a linked list
+//  -The node is defined as a customerHistory structure
+// 
 // Assumptions:
-//
+//	-Data from the customer text file is in the correct format and data type
 // ---------------------------------------------------------------------------------------------------------------
 
 #include "customer.h"
@@ -34,36 +36,6 @@ Customer::Customer(ifstream& infile) :Customer()
 	infile >> firstName;
 	infile >> lastName;
 
-	//string s;
-	////saves ID, first name, and last name from line in file
-	//string customerDetails[3];
-	//string temp = "";
-	//char space = ' ';
-	//int arrayCount = 0;
-
-	////get next line from file to build a new customer
-	//getline(infile, s);
-
-	////parse the data from the line
-	//for (int i = 0; i < s.length(); i++) {
-	//	if (s[i] != space) {
-	//		temp += s[i];
-	//	}
-
-	//	else {
-	//		customerDetails[arrayCount] = temp;
-	//		arrayCount++;
-	//		temp.clear();
-	//	}
-
-	//	customerDetails[arrayCount + 1] = temp;
-	//}
-
-	//	//set the customer properties based on what was parsed from the file
-
-	//	idNum = stoi(customerDetails[0]);
-
-
 }
 
 // -----------------------------------~Customer()-----------------------------------
@@ -71,7 +43,13 @@ Customer::Customer(ifstream& infile) :Customer()
 // Deallocates dinamic memory to the heap
 Customer::~Customer()
 {
+	customerHistory* tempHistoryNode;
+
 	// Deallocate memory used for historyNode
+	for (list<customerHistory*>::iterator it = historyList.begin(); it != historyList.end(); ++it) {
+		tempHistoryNode = *it;
+		delete tempHistoryNode;
+	}
 }
 
 // -----------------------------------displayHistory-----------------------------------
@@ -84,8 +62,6 @@ void Customer::displayHistory()
 	cout << getFirstName() << " " << getLastName() << "'s Transaction History" << endl;
 	for (list<customerHistory*>::iterator it = historyList.begin(); it != historyList.end(); ++it)
 		cout << ' ' << *it;
-
-
 }
 
 // -----------------------------------void displayCustomer-----------------------------------
@@ -130,25 +106,25 @@ string Customer::getLastName()
 	return lastName;
 }
 
-//---------------------------------Friend operator <<-----------------------------
-//Prints out a HistoryNode
-ostream& operator<<(ostream& output, const customerHistory*& ch)
-{
-	string transaction = "";
-
-	if (ch->typeOfTransaction == 'B') {
-		transaction = "Borrowed";
-	}
-
-	else if (ch->typeOfTransaction == 'R') {
-		transaction = "Returned";
-	}
-
-	else {
-		transaction = "unknown";
-	}
-
-	cout << transaction << ch->currentMovie << endl;
-
-	return output;
-}
+////---------------------------------Friend operator <<-----------------------------
+////Prints out a HistoryNode
+//ostream& operator<<(ostream& output, const customerHistory*& ch)
+//{
+//	string transaction = "";
+//
+//	if (ch->typeOfTransaction == 'B') {
+//		transaction = "Borrowed";
+//	}
+//
+//	else if (ch->typeOfTransaction == 'R') {
+//		transaction = "Returned";
+//	}
+//
+//	else {
+//		transaction = "unknown";
+//	}
+//
+//	cout << transaction << ch->currentMovie << endl;
+//
+//	return output;
+//}

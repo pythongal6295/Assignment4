@@ -2,14 +2,16 @@
 // Kelly M. Kauffman			CSS502 A
 // Brenda S. Vega Contreras 
 // Creation Date : 2/25/23
-// Date of Last Modification: 2/25/23
+// Date of Last Modification: 3/16/23
 // ---------------------------------------------------------------------------------------------------------------
 // Purpose: Header file for Customer class
 // ---------------------------------------------------------------------------------------------------------------
 // Notes on specifications, special algorithms, and assumptions:
-//  -
+//  -Each history transaction for the customer is stored as a node in a linked list
+//  -The node is defined as a customerHistory structure
+// 
 // Assumptions:
-//
+//	-Data from the customer text file is in the correct format and data type
 // ---------------------------------------------------------------------------------------------------------------
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
@@ -30,9 +32,9 @@ struct customerHistory
 	//string typeOfTransaction; // Borrowing or returning item
 	//customerHistory* next;	// Pointer to previous transaction (pointing to next History item in LL)
 
-	//---------------------------------Friend operator <<-----------------------------
-	//Prints out a HistoryNode
-	friend ostream& operator<<(ostream&, const customerHistory*&);
+	////---------------------------------Friend operator <<-----------------------------
+	////Prints out a HistoryNode
+	//friend ostream& operator<<(ostream&, const customerHistory*&);
 };
 
 

@@ -2,7 +2,7 @@
 // Kelly M. Kauffman			CSS502 A
 // Brenda S. Vega Contreras 
 // Creation Date : 2/25/23
-// Date of Last Modification: 2/25/23
+// Date of Last Modification: 3/16/23
 // ---------------------------------------------------------------------------------------------------------------
 // Purpose: Header file for class Return. Handles return of a movie
 // ---------------------------------------------------------------------------------------------------------------
@@ -29,26 +29,30 @@ public:
 	// Constructor with parameter for Return class
 	//Return(ifstream&);
 
-	// Constructor with parameter for Borrow class
+	// Constructor with parameter for Return class
 	//Return(ifstream&, BinTree*&, BinTree*&, BinTree*&);//Still missing hashtable
 	Return(ifstream&, BinTree*&, BinTree*&, BinTree*&, HashTable*&);//Still missing hashtable
 
-	// Default destructor for Show class
+	// Default destructor for Return class
 	~Return();
 
+	// -----------------------------------doTransaction-----------------------------------
+	// Carry out a return for the rental store
 	virtual void doTransaction();
 
 private:
+	// -----------------------------------setData-----------------------------------
+	// Sort using the data structure which has all movies, it's being build for the first time. 
 	virtual void setData(ifstream&);
 
-	HashTable* clientsHashTable;
-	BinTree* bstComedies;
-	BinTree* bstDramas;
-	BinTree* bstClassics;
+	HashTable* clientsHashTable;	//hash table of customers
+	BinTree* bstComedies;		//binary tree that stores comedy movies
+	BinTree* bstDramas;			//binary tree that stores drama movies
+	BinTree* bstClassics;		//binary tree that stores classics movies
 
-	Customer* curCustomer;
+	Customer* curCustomer;		//customer that is renting
 
-	Movie movieToFind;
+	Movie movieToFind;			//movie that is being rented
 	bool doAction;
 	int idNum, releaseYear, releaseMonth;
 	char mediaType, movieType;
