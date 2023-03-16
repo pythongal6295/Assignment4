@@ -14,7 +14,7 @@
 
 #include "movie.h"
 
-Movie::Movie() :stock(0), movieType('\0') {}
+Movie::Movie() :stock(0), movieType('\0'), actionCode('\0') {}
 
 // ----------------------------------- ~Movie()-----------------------------------
 // Destructor for Movie class

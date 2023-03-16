@@ -80,8 +80,10 @@ void Borrow::doTransaction()
 			inStock = bstClassics->retrieve(movieToFind, p); // if return 1 do another search only with title, year and director
 			// If found but not in stock, find same movie with different major actor
 			if (inStock == 0) {
+				//searchByInfo = p->getMovieInfo();//to_string(releaseYear) + ' ' + to_string(releaseMonth) + ' ' + p->getTitle() + ' ' + p->getDirector();
 				// Compare release date, title and director instead of comparing release date and major actor.
-				movieToFind.setMovieInfo(searchByInfo, 'C');
+				//movieToFind.setMovieInfo(searchByInfo, 'C');
+				movieToFind.setMovieInfo(p->getMovieInfo() , 'C');
 				// If instock is 1 movie was found, if not found it's -1
 				inStock = bstClassics->retrieve(movieToFind, p);
 			}
@@ -128,7 +130,7 @@ void Borrow::setData(ifstream& infile)
 		getline(infile, majorActor);
 		majorActor.erase(0, 1);
 		stringToFind = to_string(releaseYear) + ' ' + to_string(releaseMonth) + ' ' + majorActor;
-		searchByInfo = to_string(releaseYear) + ' ' + to_string(releaseMonth) + ' ' + movieTitle + ' ' + movieDirector;
+		//searchByInfo = to_string(releaseYear) + ' ' + to_string(releaseMonth) + ' ' + movieTitle + ' ' + movieDirector;
 		break;
 	case 'D':
 		getline(infile, movieDirector, ',');

@@ -245,6 +245,7 @@ int BinTree::retrieveRecursive(NodeBST* curNode, const Movie& objToFind, Movie*&
 			return 1;
 		}
 		// If found, but not in stock. Return 0 to search with another major actor
+		foundPtr = curNode->item;
 		return 0;
 	}
 	// If the object is smaller than the current node, move left
