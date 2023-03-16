@@ -32,6 +32,8 @@ public:
 	// Default constructor for Classics class
 	Classics();
 
+	Classics(string);
+
 	// -----------------------------------Classics-----------------------------------
 	// Parametrized constructor for Classics, ifstream parameter type
 	Classics(ifstream&);
@@ -39,6 +41,23 @@ public:
 	// -----------------------------------~Classics()-----------------------------------
 	// Destructor for Classics
 	virtual ~Classics();
+
+	// -----------------------------------Operator==---------------------------------
+// Overloading == operator
+	bool operator==(const Movie&) const;
+
+	// -----------------------------------Operator!=---------------------------------
+	// Overloading != operator
+	bool operator!=(const Movie&) const;
+
+	// -----------------------------------Operator>----------------------------------
+	// Overloading > operator
+	bool operator>(const Movie&) const;
+
+	// -----------------------------------Operator<----------------------------------
+	// Overloading < operator
+	bool operator<(const Movie&) const;
+
 
 private:
 	// Information of classic movie
@@ -50,6 +69,8 @@ private:
 	string lastName;	// Major actor's last name
 	string releaseDate; // Year and month when the movie was released
 	string majorActor;	// Major actor of specific classics movie
+
+	string sort;
 
 };
 #endif

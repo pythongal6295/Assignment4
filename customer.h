@@ -83,7 +83,7 @@ private:
 	int idNum; //Specific customer ID number
 	string lastName; //Specific customer last name
 	string firstName; //Specific customer first name
-	list<customerHistory*> historyList; //Linked List of specific customer's history transactions
+	list<customerHistory*> * historyList; //Linked List of specific customer's history transactions
 };
 
 #endif

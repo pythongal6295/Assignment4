@@ -16,6 +16,7 @@
 // ---------------------------------------------------------------------------------------------------------------
 
 #include "borrow.h"
+//#include "classics.h"
 
 // -----------------------------------Borrow()-----------------------------------
 // Default constructor for Borrow class
@@ -75,8 +76,8 @@ void Borrow::doTransaction()
 {
 	// If command codes are correct (true), execute transaction
 	if (doAction != false) {
-		movieToFind.setSort(stringToFind);	// Set movie to be found
-		movieToFind.setActionCode('B');		// Set type of action (borrow)
+		//movieToFind->setSort(stringToFind);	// Set movie to be found
+		//movieToFind->setActionCode('B');		// Set type of action (borrow)
 		Movie* p = nullptr;	// Points to movie if found in BST
 		int inStock = -2; // Set to -2 by default. 
 		// inStock = -1 not found, 0 movie found but not in stock, 1 found
@@ -87,13 +88,15 @@ void Borrow::doTransaction()
 		switch (movieType) {
 		case 'F':
 			// For classics and dramas only can get inStock = 1 (found) or 0 (not found)
-			inStock = bstComedies->retrieve(movieToFind, p);
+			movieToFind = new Comedy(stringToFind);
+			inStock = bstComedies->retrieve(*movieToFind, p);
 			break;
 		case 'C':
 			// If inStock = 0 do another search in bst only with release date, title, and director
 			// If inStock = 1 movie was found in bst
 			// If inStock = -1 movie not found in bst
-			inStock = bstClassics->retrieve(movieToFind, p); 
+			movieToFind = new Classics(stringToFind);
+			inStock = bstClassics->retrieve(*movieToFind, p); 
 			//// If found but not in stock, find same movie with different major actor
 			//if (inStock == 0) {
 			//	// Compare release date, title and director instead of comparing release date and major actor.
@@ -104,7 +107,8 @@ void Borrow::doTransaction()
 			break;
 		case 'D':
 			// For dramas only can get inStock = 1 (found) or 0 (not found)
-			inStock = bstDramas->retrieve(movieToFind, p);
+			movieToFind = new Drama(stringToFind);
+			inStock = bstDramas->retrieve(*movieToFind, p);
 			break;
 		default: // If movieType is unknown, do nothing. newMovie is set to NULL in MovieFactory
 			break;
@@ -119,6 +123,8 @@ void Borrow::doTransaction()
 				// Set transaction in customer history
 				curCustomer->insertHistoryNode(p, 'B');
 			}
+			delete movieToFind;
+			movieToFind = nullptr;
 		} else {
 			cout << "Movie not found" << endl;
 		}

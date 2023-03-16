@@ -17,6 +17,9 @@
 #include <iostream>
 #include <fstream>
 #include "transaction.h"
+#include "classics.h"
+#include "drama.h"
+#include "comedy.h"
 
 using namespace std;
 
@@ -50,7 +53,7 @@ private:
 
 	Customer* curCustomer;	// Pointer to customer borrowing the movie
 
-	Movie movieToFind;		// Movie being borrowed (Information is set in doTransaction())
+	Movie* movieToFind;		// Movie being borrowed (Information is set in doTransaction())
 	bool doAction;			// Variable which states if doTransaction can be executed or not
 	string garbage;			// String used to remove garbage information in file
 	string stringToFind;	// Movie info set in stringToFin from file

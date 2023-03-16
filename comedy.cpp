@@ -26,6 +26,11 @@ Comedy::Comedy()
 	director = "";
 }
 
+Comedy::Comedy(string sortInput) :Comedy()
+{
+	sort = sortInput;
+}
+
 // -----------------------------------Comedy-----------------------------------
 // Paramaterized constructor for Comedy, ifstream parameter type
 Comedy::Comedy(ifstream& infile)
@@ -40,7 +45,8 @@ Comedy::Comedy(ifstream& infile)
 	infile >> year;
 	getline(infile, temp);
 
-	setSort(title + ' ' + to_string(year));	// Used to sort in BST
+	sort = title + ' ' + to_string(year);
+	//setSort(title + ' ' + to_string(year));	// Used to sort in BST
 	// Sets movie information to be displayed
 	setDisplay(title + ',' + to_string(year) + ',' + director + ',');
 }
@@ -49,4 +55,35 @@ Comedy::Comedy(ifstream& infile)
 // Destructor for class Comedy 
 Comedy::~Comedy() {}
 
+//-----------------------------OVERLOADED OPERATORS------------------------------
 
+// -----------------------------------Operator==---------------------------------
+// Overloading == operator
+
+bool Comedy::operator==(const Movie& rhs) const
+{
+	const Comedy& movCom = static_cast<const Comedy&> (rhs);
+	return sort == movCom.sort;
+}
+
+// -----------------------------------Operator!=---------------------------------
+// Overloading != operator
+bool Comedy::operator!=(const Movie& rhs) const
+{
+	return !(*this == rhs);
+}
+
+// -----------------------------------Operator>----------------------------------
+// Overloading > operator
+bool Comedy::operator>(const Movie& rhs) const
+{
+	const Comedy& movCom = static_cast<const Comedy&> (rhs);
+	return (sort > movCom.sort);
+}
+
+
+bool Comedy::operator<(const Movie& rhs) const
+{
+	const Comedy& movCom = static_cast<const Comedy&> (rhs);
+	return (sort < movCom.sort);
+}

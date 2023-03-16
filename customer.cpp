@@ -27,6 +27,8 @@ Customer::Customer()
 	firstName = "";
 	lastName = "";
 	//historyNode = nullptr;
+	historyList = new list<customerHistory*>;
+
 }
 
 // Parameterized constructor for Movie class from a istream object
@@ -46,7 +48,7 @@ Customer::~Customer()
 	customerHistory* tempHistoryNode;
 
 	// Deallocate memory used for historyNode
-	for (list<customerHistory*>::iterator it = historyList.begin(); it != historyList.end(); ++it) {
+	for (list<customerHistory*>::iterator it = (*historyList).begin(); it != (*historyList).end(); ++it) {
 		tempHistoryNode = *it;
 		delete tempHistoryNode;
 	}
@@ -61,7 +63,7 @@ void Customer::displayHistory()
 	//print each attribute from the history struct
 	cout << "***********************************" << endl;
 	cout << getIdNum() << " " << getFirstName() << " " << getLastName() << "'s Transaction History" << endl;
-	for (list<customerHistory*>::iterator it = historyList.begin(); it != historyList.end(); ++it) {
+	for (list<customerHistory*>::iterator it = (*historyList).begin(); it != (*historyList).end(); ++it){
 		customerHistory* test = *it;
 
 		displayHistoryNode(test);
@@ -115,7 +117,7 @@ void Customer::insertHistoryNode(Movie* movie, char transactionType)
 	historyNode->currentMovie = movie;
 	historyNode->typeOfTransaction = transactionType;
 
-	historyList.push_front(historyNode);
+	(*historyList).push_front(historyNode);
 }
 
 // -----------------------------------getIDNum------------------------------------------
@@ -124,6 +126,7 @@ int Customer::getIdNum()
 {
 	return idNum;
 }
+
 // -----------------------------------getFirstName------------------------------------------
 string Customer::getFirstName()
 {

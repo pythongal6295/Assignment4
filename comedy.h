@@ -29,6 +29,8 @@ public:
 	//Default constructor for Comedy 
 	Comedy();
 
+	Comedy(string);
+
 	// -----------------------------------Comedy-----------------------------------
 	// Paramaterized constructor for Comedy, ifstream parameter type
 	Comedy(ifstream&);
@@ -37,11 +39,28 @@ public:
 	// Destructor for class Comedy 
 	virtual ~Comedy();
 
+	// -----------------------------------Operator==---------------------------------
+	// Overloading == operator
+	bool operator==(const Movie&) const;
+
+	// -----------------------------------Operator!=---------------------------------
+	// Overloading != operator
+	bool operator!=(const Movie&) const;
+
+	// -----------------------------------Operator>----------------------------------
+	// Overloading > operator
+	bool operator>(const Movie&) const ;
+
+	// -----------------------------------Operator<----------------------------------
+	// Overloading < operator
+	bool operator<(const Movie&) const;
+
 private:
 	// Information of comedy movie
 	int year;			// Year of specific comedy movie
 	string title;		// Title of specific comedy movie
 	string director;	// Director of specific comedy movie
+	string sort;
 
 
 };
