@@ -10,7 +10,10 @@
 //  -Movie is the base class for Classics
 //  -Sorted by release date, then Major actor
 // Assumptions:
-//
+//	If a classics object is already created for the same movie, a new classics object is created with a different
+//	major actor information.
+//	When want to borrow a classic movie but current object is out of stock, look for same movie with different
+//  major actors
 // ---------------------------------------------------------------------------------------------------------------
 #ifndef CLASSICS_H
 #define CLASSICS_H
@@ -30,10 +33,6 @@ public:
 	Classics();
 
 	// -----------------------------------Classics-----------------------------------
-	// Paramaterized constructor for Classics, multiple data parameter
-	//Classics(string title, string director, int month, int year, int currStock, string majorActor);
-
-	// -----------------------------------Classics-----------------------------------
 	// Parametrized constructor for Classics, ifstream parameter type
 	Classics(ifstream&);
 
@@ -41,24 +40,16 @@ public:
 	// Destructor for Classics
 	virtual ~Classics();
 
-	// -----------------------------------display-----------------------------------
-	// Outputs to the screen all of the details of the movie (Release Date, Title, Director, Stock, Major Actor)
-	void display();
-
-
 private:
-
-	//Since we have a node structure in NodeData, we may not need another node structure for each movie type
-	//Also I couldn't figure out how to do a getter with the structure
-	//int stock; //stock of specific classics movie
-	int year;  //release year of specific classics movie
-	int month; //release month of specific classics movie
-	string title;  //title of specific classics movie
-	string director;  //director of specific classics movie
-	string firstName; //Major actor's first name
-	string lastName; //Major actor's last name
+	// Information of classic movie
+	int year;			// Release year of specific classics movie
+	int month;			// Release month of specific classics movie
+	string title;		// Title of specific classics movie
+	string director;	// Director of specific classics movie
+	string firstName;	// Major actor's first name
+	string lastName;	// Major actor's last name
 	string releaseDate; // Year and month when the movie was released
-	string majorActor; //major actor of specific classics movie
+	string majorActor;	// Major actor of specific classics movie
 
 };
 #endif

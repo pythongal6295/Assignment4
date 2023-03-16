@@ -1,7 +1,5 @@
 // ---------------------------------------------- movie.h ----------------------------------------------------
 // Kelly M. Kauffman			CSS502 A
-// Jessica Lee Chan
-// Maria Ixchel Arias Cruz
 // Brenda S. Vega Contreras 
 // Creation Date : 2/25/23
 // Date of Last Modification: 3/16/23
@@ -24,6 +22,8 @@ using namespace std;
 
 class Movie
 {
+	//-------------------------- operator<< --------------------------------------
+	// Overloading << operator to print movie Objects
 	friend ostream& operator<<(ostream&, const Movie&);
 public:
 
@@ -36,59 +36,56 @@ public:
 	virtual ~Movie();
 
 	// ----------------------------------setDisplay---------------------------------
+	// Sets movie information in toDisplay variable to display movie information 
+	// when printing BSTs 
 	void setDisplay(string);
 
-	// -----------------------------------getTitle-----------------------------------
-	// Returns the title of the movie
-	string getTitle();
-
-	// -----------------------------------setStock-----------------------------------
+	// -----------------------------------setStock----------------------------------
 	// Sets a new value for the stock depending on borrow/rent actions
 	// Parameter: int - the new stock value
 	virtual void setStock(int);
 
-	// -----------------------------------getStock-----------------------------------
+	// -----------------------------------getStock----------------------------------
 	// Returns the stock of the movie
 	int getStock();
 
-	// ----------------------------------getDirector---------------------------------
-	// Returns the name of the directory of the movie
-	string getDirector();
-
-
-	// ---------------------------------borrowMovie()--------------------------------
+	// --------------------------------borrowMovie()--------------------------------
+	// Sets movie object's stock = stock - 1 when borrowed if stock != 0
 	bool borrowMovie();
 
-	// ---------------------------------returnMovie()--------------------------------
+	// --------------------------------returnMovie()--------------------------------
+	// Sets movie object's stock = stock + 1 when borrowed if stock != 0
 	void returnMovie();
 
 	// -----------------------------------setSort-----------------------------------
-	// Sets private variable sort
+	// Sets private variable sort. Sort is used to sort movies in BST
 	void setSort(string);
 
 	// ----------------------------------getSort()----------------------------------
-	// Gets variable sort
+	// Gets variable sort. Sort is used to sort movies in BST
 	string getSort();
 
-	// ----------------------------------setMovieInfo()----------------------------------
-	// Sets movieInfo
+	// --------------------------------setMovieInfo()--------------------------------
+	// Sets string movieInfo with movie information. Useful when borrowing classic movies
 	void setMovieInfo(string, char);
 
-	// ----------------------------------getMovieInfo()----------------------------------
-	// Gets movieInfo
+	// --------------------------------getMovieInfo()--------------------------------
+	// Gets movieInfo of movie. Used for borrowing classic movies
 	string getMovieInfo();
 
 	// ----------------------------------getGenre()----------------------------------
 	// Gets type of movie (C,F or D)
 	char getGenre();
 
-	// ----------------------------------setActionCode()----------------------------------
-	// Sets action code to borrow and return
+	// ------------------------------setActionCode()---------------------------------
+	// Sets action code to borrow 'B'. Used when borrowing classic movies
 	void setActionCode(char);
 
-	// ----------------------------------getActionCode()----------------------------------
-	// Gets action code to borrow or return
+	// -------------------------------getActionCode()--------------------------------
+	// Gets action code to borrow. Used when borrowing classic movies
 	char getActionCode();
+
+	//-----------------------------OVERLOADED OPERATORS------------------------------
 
 	// -----------------------------------Operator==---------------------------------
 	// Overloading == operator
@@ -108,12 +105,12 @@ public:
 
 private:
 	// Properties of Movie Class
-	int stock;
-	string sort; // String that contains director+title, used to sort
-	string toDisplay;
-	string movieInfo;
-	char movieType;
-	char actionCode;
+	int stock;			// Stock of a specific movie
+	string sort;		// String that contains data from specific movie type, used to sort in BST
+	string toDisplay;	// Used for printing Movie information in <<	
+	string movieInfo;	// String that containg data from movie (release date + title + director)
+	char movieType;		// Movie genre (D,C or F)
+	char actionCode;	// Set to 'B' when transaction is borrow movie
 };
 
 #endif

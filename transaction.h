@@ -26,25 +26,22 @@ class Transaction
 {
 public:
 	// -----------------------------------Transaction()-----------------------------------
-	// Default constructor for Transaction class
+	// Default constructor for Transaction class.
 	Transaction();
 
 	// ----------------------------------~Transaction()-----------------------------------
-	//Default deconstructor for Transaction class
+	//Default destructor for Transaction class.
 	~Transaction();
 
 	// -----------------------------------doTransaction-----------------------------------
-	// Carry out a transaction (command) for the rental store
+	// Carry out a transaction (command) for the rental store.
 	// Declared as "abstract class". 
 	virtual void doTransaction() = 0;
 
 private:
-
-	// -----------------------------------setData-----------------------------------
-	// Sort using the data structure which has all movies, it's being build for the first time. 
+	// -----------------------------------setData-----------------------------------------
+	// When a line is read from commands file the data is set in each transaction object.
 	// Delared as "abstract class". 
-	// Parameters are string (remaining current command line from data4movies.txt)
 	virtual void setData(ifstream&) = 0;
-
 };
 #endif

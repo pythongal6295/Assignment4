@@ -29,36 +29,36 @@ using namespace std;
 class BusinessLogic
 {
 public:
-	// BusinessLogic() Default constructor
+	// ----------------------------------BusinessLogic()----------------------------------
+	// Default constructor for BusinessLogic class
 	BusinessLogic();
-	// ~BusinessLogic() Default destructor
+
+	// ----------------------------------~BusinessLogic()---------------------------------
+	// Destructor for BusinessLogic class
 	~BusinessLogic();
 
-	// -----------------------------------loadMovies-------------------------------------
-	// Uses private data member movieFactory to use MovieFactory::createMovieObject() 
-	// public function to create a new movie genre object(Comedy, Drama or Classics). 
-	// Calls Movie::insert(string, Movie * root) to include each line from file. 
+	// ------------------------------------loadMovies-------------------------------------
+	// Uses MovieFactory::createMovieObject() to create a new movie genre object
+	// (Comedy, Drama or Classics) with information from file.
+	// Calls BinTree::insert(string, Movie * root) to insert a new movie object in BST.
 	void loadMovies(ifstream&);
 
-	// -----------------------------------loadCustomers----------------------------------
+	// ------------------------------------loadCustomers----------------------------------
 	// Sets Custumer info in hash table using HashTable::setInTable(string) and an object
 	// of type Customer
 	void loadCustomers(ifstream&);
 
-	// -----------------------------------loadCommands-----------------------------------
-	// Reads each command line from file
-	// Uses public command functions of BusinessLogic ()
+	// ------------------------------------loadCommands-----------------------------------
+	// Reads each command line from file. Uses TransactionFactory to create transaction
+	// object and execute transaction if valid command.
 	void loadCommands(ifstream&);
 
 private:
 
-	HashTable* customerHashTable;	//hash table with all customers
-	BinTree* comediesBST;    //BST of comedies
-	BinTree* dramasBST;		  //BST of dramas
-	BinTree* classicsBST;		//BST of classics
-
-	//MovieFactory movieFactory; //instance of MovieFactory to create movie objects (Remove)
-	//TransactionFactory transactionFactory; //instance of TransactionFactory to create transaction objects (Remove)
+	HashTable* customerHashTable;	// Pointer to hash table with all customers
+	BinTree* comediesBST;			// Pointer to BST of comedies
+	BinTree* dramasBST;				// Pointer to BST of dramas
+	BinTree* classicsBST;			// Pointer to BST of classics
 };
 
 #endif

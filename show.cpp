@@ -7,7 +7,8 @@
 // Purpose: Implementation file for class Show. Displays the inventory for all movies.
 // ---------------------------------------------------------------------------------------------------------------
 // Notes on specifications, special algorithms, and assumptions:
-//  -Show is the child class of Transaction
+//  -Show is the child class of Transaction.
+//	-setData() is not used for Show class.
 // Assumptions:
 //
 // ---------------------------------------------------------------------------------------------------------------
@@ -27,6 +28,7 @@ Show::Show()
 // Parametrized constructor for Show class
 Show::Show(BinTree*& bstF, BinTree*& bstD, BinTree*& bstC)
 {
+	// Set pointers to BSTs
 	bstComedies = bstF;
 	bstDramas = bstD;
 	bstClassics = bstC;
@@ -35,12 +37,11 @@ Show::Show(BinTree*& bstF, BinTree*& bstD, BinTree*& bstC)
 
 // -----------------------------------~Show()----------------------------------
 //Default destructor for Show class
-Show::~Show()
-{
-}
+Show::~Show() {}
 
-// -----------------------------------doTransaction-----------------------------------
-// Show current inventory for the rental store
+// -----------------------------------doTransaction----------------------------
+// Show current inventory for the rental store. Uses overloaded operator << for 
+// BinTree class
 void Show::doTransaction()
 {
 	cout << endl << "Comedy movies:" << endl << *bstComedies << endl;
@@ -50,7 +51,6 @@ void Show::doTransaction()
 
 // -----------------------------------setData-----------------------------------
 // Not needed for this class
-void Show::setData(ifstream& infile)
-{
-}
+// Defined as abstract in parent class.
+void Show::setData(ifstream& infile){}
 

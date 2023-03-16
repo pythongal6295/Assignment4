@@ -7,7 +7,8 @@
 // Purpose: Header file for MovieFactory class
 // ---------------------------------------------------------------------------------------------------------------
 // Notes on specifications, special algorithms, and assumptions:
-//  -
+//  - Creates 3 types of movies: Comedy, dramas or classics
+//	- If movie code is invalid, do not create a Movie object. Movie pointer set to nullptr
 // Assumptions:
 //
 // ---------------------------------------------------------------------------------------------------------------
@@ -16,15 +17,11 @@
 
 // -----------------------------------MovieFactory()-----------------------------------
 // Default constructor for MovieFactory class
-MovieFactory::MovieFactory()
-{
-}
+MovieFactory::MovieFactory() {}
 
 // -----------------------------------~MovieFactory()-----------------------------------
 // Destructor for MovieFactory class
-MovieFactory::~MovieFactory()
-{
-}
+MovieFactory::~MovieFactory() {}
 
 // ----------------------------------createMovieObject----------------------------------
 // Creates new movie genre object with switch, using first letter from current 
@@ -34,7 +31,7 @@ Movie* MovieFactory::createMovieObject(char movieType, ifstream& infile)
 	Movie* selection = nullptr;
 	string garbage;
 
-	// Create an object with all the movie information
+	// Pick movieType and create an object with all the movie information in file
 	switch (movieType) {
 	case 'F':
 		selection = new Comedy(infile);
@@ -45,8 +42,8 @@ Movie* MovieFactory::createMovieObject(char movieType, ifstream& infile)
 	case 'C':
 		selection = new Classics(infile);
 		break;
-	default:	// If movieType is invalid, set pointer to NULL
-		getline(infile, garbage);	
+	default:	// If movieType is invalid, set pointer to nullptr
+		getline(infile, garbage);
 		cout << endl << "Invalid movie code" << endl;
 		break;
 	}

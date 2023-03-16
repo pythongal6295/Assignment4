@@ -7,7 +7,7 @@
 // Purpose: Header file for class Show. Displays the inventory for all movies.
 // ---------------------------------------------------------------------------------------------------------------
 // Notes on specifications, special algorithms, and assumptions:
-//  -Show is the child class of Transaction
+//  -Show is the child class of Transaction.
 // Assumptions:
 //
 // ---------------------------------------------------------------------------------------------------------------
@@ -32,22 +32,21 @@ public:
 	Show(BinTree*&, BinTree*&, BinTree*&);
 
 	// -----------------------------------~Show()----------------------------------
-	//Default destructor for Show class
+	//Destructor for Show class
 	~Show();
 
-	// -----------------------------------doTransaction-----------------------------------
-	// Show current inventory for the rental store
+	// --------------------------------doTransaction-------------------------------
+	// Carry out printing current movies inventory for the rental store
 	virtual void doTransaction();
 
 private:
-	BinTree* bstComedies;	//binary tree for comedy movies
-	BinTree* bstDramas;		//binary tree for drama movies
-	BinTree* bstClassics;	//binary tree for classics movies
+	BinTree* bstComedies;	// Pointer to BST for comedy movies
+	BinTree* bstDramas;		// Pointer to BST for drama movies
+	BinTree* bstClassics;	// Pointer to BST for classics movies
 
-	// -----------------------------------setData-----------------------------------
-	// Sort using the data structure which has all movies, it's being build for the first time. 
-	// Parameters are string (remaining current command line from data4movies.txt)
-	// Not needed for this class
+	// -----------------------------------setData----------------------------------
+	// Not needed for this class, but has to be included.
+	// Defined as abstract in parent class.
 	virtual void setData(ifstream&);
 };
 

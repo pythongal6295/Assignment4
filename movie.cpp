@@ -14,20 +14,37 @@
 
 #include "movie.h"
 
-Movie::Movie() :stock(0), movieType('\0') {}
+// -----------------------------------Movie()-----------------------------------
+// Default constructor for Movie class
+Movie::Movie() :stock(0), movieType('\0'), actionCode('\0') {}
 
 // ----------------------------------- ~Movie()-----------------------------------
 // Destructor for Movie class
 Movie::~Movie() {}
 
-// -----------------------------------display-----------------------------------
+// ----------------------------------setDisplay-----------------------------------
 // Outputs to the screen all of the details of the movie (Year, Title, Director, Stock)
 void Movie::setDisplay(string input)
 {
 	toDisplay = input;
 }
 
+// -----------------------------------setStock-----------------------------------
+// Sets stock of the movie object
+void Movie::setStock(int input)
+{
+	stock += input;
+}
+
+// -----------------------------------getStock-----------------------------------
+// Returns the stock of the movie object
+int Movie::getStock()
+{
+	return stock;
+}
+
 // ---------------------------------borrowMovie()--------------------------------
+// Sets movie object's stock = stock - 1 when borrowed if stock != 0
 bool Movie::borrowMovie()
 {
 	if (stock != 0) {
@@ -38,78 +55,70 @@ bool Movie::borrowMovie()
 }
 
 // ---------------------------------returnMovie()--------------------------------
+// Sets movie object's stock = stock + 1 when borrowed if stock != 0
 void Movie::returnMovie()
 {
 	stock++;
 }
 
-void Movie::setStock(int input)
-{
-	stock += input;
-}
-
-// -----------------------------------getStock-----------------------------------
-// Returns the stock of the movie
-int Movie::getStock()
-{
-	return stock;
-}
-
 // -----------------------------------setSort-----------------------------------
-// Sets private variable sort
+// Sets private variable sort. Sort is used to sort movies in BST
 void Movie::setSort(string input)
 {
 	sort = input;
 }
 
 // -----------------------------------getSort()-----------------------------------
-// Gets variable sort
+// Gets variable sort. Sort is used to sort movies in BST
 string Movie::getSort()
 {
 	return sort;
 }
 
 // ----------------------------------setMovieInfo()----------------------------------
-// Gets movieInfo
-string Movie::getMovieInfo()
-{
-	return movieInfo;
-}
-
-// ----------------------------------getGenre()----------------------------------
-// Gets type of movie (C,F or D)
-char Movie::getGenre()
-{
-	return movieType;
-}
-
-// ----------------------------------setActionCode()----------------------------------
-// Sets action code to borrow and return
-void Movie::setActionCode(char code)
-{
-	actionCode = code;
-}
-
-// ----------------------------------getActionCode()----------------------------------
-// Gets action code to borrow or return
-char Movie::getActionCode()
-{
-	return actionCode;
-}
-
-// ----------------------------------setMovieInfo()----------------------------------
-// Sets movieInfo
+// Sets string movieInfo with movie information. Useful when borrowing classic movies
 void Movie::setMovieInfo(string input, char genre)
 {
 	movieInfo = input;
 	movieType = genre;
 }
 
+// ---------------------------------getMovieInfo()---------------------------------
+// Gets movieInfo of movie. Used for borrowing classic movies
+string Movie::getMovieInfo()
+{
+	return movieInfo;
+}
 
+// -----------------------------------getGenre()-----------------------------------
+// Gets type of movie (C,F or D)
+char Movie::getGenre()
+{
+	return movieType;
+}
+
+// ---------------------------------setActionCode()---------------------------------
+// Sets action code to borrow 'B'. Used when borrowing classic movies
+void Movie::setActionCode(char code)
+{
+	actionCode = code;
+}
+
+// ---------------------------------getActionCode()---------------------------------
+// Gets action code to borrow. Used when borrowing classic movies
+char Movie::getActionCode()
+{
+	return actionCode;
+}
+
+//-----------------------------OVERLOADED OPERATORS------------------------------
+
+// -----------------------------------Operator==---------------------------------
+// Overloading == operator
 
 bool Movie::operator==(const Movie& rhs) const
 {
-	// When movie is being borrowed
+	// Used When movie is being borrowed
 	if (actionCode == 'B') {
 		// If movie is a classic
 		if (movieType == 'C') {
@@ -117,33 +126,40 @@ bool Movie::operator==(const Movie& rhs) const
 			if (movieInfo == rhs.movieInfo && rhs.stock > 0) {
 				return true;
 			}
-			// If movie info same but not in stock, return false. Same for when movie info is not the same
+			// If movie info is different or the same but not in stock, return false
 			return false;
 		}
-		// If movie to borrow is a drama or a comedy
+		// If movie to borrow is a drama or a comedy, compare strings
 		return sort == rhs.sort;
 	}
 
-	// When inserting nodes to the bst of movies
+	// Used when inserting nodes to the bst of movies or returning a movie
 	return sort == rhs.sort;
 }
 
+// -----------------------------------Operator!=---------------------------------
+// Overloading != operator
 bool Movie::operator!=(const Movie& rhs) const
 {
 	return !(*this == rhs);
 }
 
+// -----------------------------------Operator>----------------------------------
+// Overloading > operator
 bool Movie::operator>(const Movie& rhs) const
 {
 	return (sort > rhs.sort);
 }
 
+// -----------------------------------Operator<----------------------------------
+// Overloading < operator
 bool Movie::operator<(const Movie& rhs) const
 {
 	return (sort < rhs.sort);
 }
 
 //-------------------------- operator<< --------------------------------------
+// Overloading << operator to print movie Objects
 ostream& operator<<(ostream& output, const Movie& nd)
 {
 	output << nd.toDisplay + to_string(nd.stock);
