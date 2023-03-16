@@ -83,6 +83,20 @@ char Movie::getGenre()
 	return movieType;
 }
 
+// ----------------------------------setActionCode()----------------------------------
+// Sets action code to borrow and return
+void Movie::setActionCode(char code)
+{
+	actionCode = code;
+}
+
+// ----------------------------------getActionCode()----------------------------------
+// Gets action code to borrow or return
+char Movie::getActionCode()
+{
+	return actionCode;
+}
+
 // ----------------------------------setMovieInfo()----------------------------------
 // Sets movieInfo
 void Movie::setMovieInfo(string input, char genre)
@@ -108,7 +122,37 @@ bool Movie::operator==(const Movie& rhs) const
 	//		return false;
 	//	}*/
 	//}
-	return (sort == rhs.sort);
+
+	//// Return 0 if item found and it's in stock
+	//if (sort == rhs.sort && rhs.stock>0) {
+	//	return true;
+	//}
+	//else if (sort == rhs.sort && rhs.stock == 0) {
+	//	return false;
+	//}
+	//else if (movieInfo == rhs.movieInfo) {
+	//	return true;
+	//}
+	//return (sort != rhs.sort);
+
+
+
+
+	// When borrowed and returned
+	if (actionCode == 'R' || actionCode == 'B') {
+		if (movieType == 'C') {
+			if (movieInfo == rhs.movieInfo && rhs.stock > 0) {
+				return true;
+			}
+			// If movie info same but not in stock, return false. Same for when movie info is not the same
+			return false;
+		}
+		return sort == rhs.sort;
+	}
+	
+	//// When inserting nodes
+
+	return sort == rhs.sort;
 }
 
 bool Movie::operator!=(const Movie& rhs) const

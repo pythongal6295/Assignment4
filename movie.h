@@ -91,6 +91,15 @@ public:
 	// Gets type of movie (C,F or D)
 	char getGenre();
 
+	// ----------------------------------setActionCode()----------------------------------
+	// Sets action code to borrow and return
+	void setActionCode(char);
+
+	// ----------------------------------getActionCode()----------------------------------
+	// Gets action code to borrow or return
+	char getActionCode();
+
+
 	// ------------------------------------insert------------------------------------
 	  // Sort using the data structure which has all movies, it's being build for the first time. 
 	  // Delared as "abstract class". 
@@ -137,6 +146,7 @@ private:
 	string toDisplay;
 	string movieInfo;
 	char movieType;
+	char actionCode;
 
 	//	// Properties of Movie Class
 	//	string movieTitle; //title of specific movie

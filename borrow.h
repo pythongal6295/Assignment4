@@ -52,7 +52,7 @@ private:
 	bool doAction;
 	int idNum, releaseYear, releaseMonth;
 	char mediaType, movieType;
-	string movieTitle, movieDirector, majorActor, garbage, releaseDate, stringToFind;
+	string movieTitle, movieDirector, majorActor, garbage, releaseDate, stringToFind, searchByInfo;
 
 };
 #endif
