@@ -94,13 +94,13 @@ void Borrow::doTransaction()
 			// If inStock = 1 movie was found in bst
 			// If inStock = -1 movie not found in bst
 			inStock = bstClassics->retrieve(movieToFind, p); 
-			// If found but not in stock, find same movie with different major actor
-			if (inStock == 0) {
-				// Compare release date, title and director instead of comparing release date and major actor.
-				movieToFind.setMovieInfo(p->getMovieInfo(), 'C');
-				// If instock is 1 movie was found, if not found it's -1
-				inStock = bstClassics->retrieve(movieToFind, p);
-			}
+			//// If found but not in stock, find same movie with different major actor
+			//if (inStock == 0) {
+			//	// Compare release date, title and director instead of comparing release date and major actor.
+			//	movieToFind.setMovieInfo(p->getMovieInfo(), 'C');
+			//	// If instock is 1 movie was found, if not found it's -1
+			//	inStock = bstClassics->retrieve(movieToFind, p);
+			//}
 			break;
 		case 'D':
 			// For dramas only can get inStock = 1 (found) or 0 (not found)
