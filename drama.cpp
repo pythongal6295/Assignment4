@@ -17,7 +17,8 @@
 #include <fstream>
 #include "drama.h"
 
-//Default constructor for Drama 
+// -----------------------------------Drama()-----------------------------------
+// Default constructor for drama 
 Drama::Drama()
 {
 	month = 0;
@@ -27,7 +28,8 @@ Drama::Drama()
 }
 
 // -----------------------------------Drama()-----------------------------------
-// Paramaterized constructor for Drama 
+// Paramaterized constructor for Drama. Sets information from file into private
+// data members
 Drama::Drama(ifstream& infile) :Drama()
 {
 	string temp;
@@ -41,7 +43,8 @@ Drama::Drama(ifstream& infile) :Drama()
 	infile >> year;
 	getline(infile, temp);
 
-	setSort(director + ' ' + title);
+	setSort(director + ' ' + title);	// Used to sort in BST
+	// Sets movie information to be displayed
 	setDisplay(director + ',' + title + ',' + to_string(year) + ',');
 }
 

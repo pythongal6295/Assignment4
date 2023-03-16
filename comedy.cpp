@@ -17,7 +17,8 @@
 #include <fstream>
 #include "comedy.h"
 
-//Default constructor for Comedy 
+// -----------------------------------Comedy()-----------------------------------
+// Default constructor for Comedy
 Comedy::Comedy()
 {
 	year = 0;
@@ -25,6 +26,8 @@ Comedy::Comedy()
 	director = "";
 }
 
+// -----------------------------------Comedy-----------------------------------
+// Paramaterized constructor for Comedy, ifstream parameter type
 Comedy::Comedy(ifstream& infile)
 {
 	string temp;
@@ -37,10 +40,13 @@ Comedy::Comedy(ifstream& infile)
 	infile >> year;
 	getline(infile, temp);
 
-	setSort(title + ' ' + to_string(year));
+	setSort(title + ' ' + to_string(year));	// Used to sort in BST
+	// Sets movie information to be displayed
 	setDisplay(title + ',' + to_string(year) + ',' + director + ',');
 }
 
+// -----------------------------------~Comedy()-----------------------------------
+// Destructor for class Comedy 
 Comedy::~Comedy() {}
 
 

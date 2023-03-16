@@ -14,6 +14,7 @@
 
 #include "return.h"
 
+// -----------------------------------Return()-----------------------------------
 // Default constructor for Return class
 Return::Return()
 {
@@ -29,11 +30,14 @@ Return::Return()
 	curCustomer = nullptr;
 }
 
-// Constructor with parameter for Return class
+// -----------------------------------Return------------------------------------
+// Parametrized constructor for Borrow class. Uses setData() if inputs are valid
+// to set Return's private data members.
 Return::Return(ifstream& infile, BinTree*& bstF, BinTree*& bstD, BinTree*& bstC, HashTable*& ht) : Return()
 {
-	doAction = true;
+	doAction = true;		// Set action as true by default to execute transaction
 
+	// Set pointers to data structures
 	clientsHashTable = ht;
 	bstComedies = bstF;
 	bstDramas = bstD;
@@ -41,26 +45,28 @@ Return::Return(ifstream& infile, BinTree*& bstF, BinTree*& bstD, BinTree*& bstC,
 
 	infile >> idNum >> mediaType >> movieType;
 
-	curCustomer = ht->getFromTable(idNum);
+	curCustomer = ht->getFromTable(idNum);	// Get pointer of customer from hashTable
 
-	// If valid customerID
+	// If valid customerID, continue
 	if (curCustomer != NULL) {
 		// If invalid media type, no transaction is to be done
 		if (mediaType != 'D') {
 			cout << "Invalid type of media" << endl;
-			doAction = false;
-			getline(infile, garbage);
+			doAction = false;			// Do not execute transaction
+			getline(infile, garbage);	// Discard information in current line
 		} else {
+			// Else, continue setting data members with information in file
 			setData(infile);
 		}
-	} else {	// If invalid customerID
+	} else {	// If invalid customer ID, discard information
 		cout << "Invalid customer ID" << endl;
-		doAction = false;
+		doAction = false;	// Do not execute transaction
 		getline(infile, garbage);
 	}
 }
 
-// Default destructor for Return class
+// -----------------------------------~Return()-----------------------------------
+// Destructor for Return class
 Return::~Return() {}
 
 // -----------------------------------doTransaction-----------------------------------
@@ -69,9 +75,10 @@ void Return::doTransaction()
 {
 	if (doAction != false) {
 		movieToFind.setSort(stringToFind);
-		Movie* p = nullptr;
+		Movie* p = nullptr;	// Points to movie if found in BST
 		bool found = false;
 
+		// Pick from what BST we're returning the movie (Comedies, classics or dramas)
 		switch (movieType) {
 		case 'F':
 			found = bstComedies->retrieve(movieToFind, p);
@@ -85,49 +92,48 @@ void Return::doTransaction()
 		default:
 			break;
 		}
+		// If movie was found, complete transaction (return movie)
 		if (p != nullptr && found == true) {
-			//cout << "Movie to return: " << p->getSort() << " Stock: " << p->getStock() << endl;
-			p->returnMovie();	//Borrow stock -1
-			//cout << "Movie after return: " << p->getSort() << " Stock: " << p->getStock() << endl;
-				// Set transaction in customer history
-			curCustomer->insertHistoryNode(p, 'R'); // We can modify parameter to receive char insted of string (Note)
-
-			// in classics go to movies with different major actors
+			p->returnMovie();	//Return (stock + 1)
+			// Set transaction in customer history
+			curCustomer->insertHistoryNode(p, 'R');
 		} else {
+			// If movie not found, do not set transaction in customer history
 			cout << "Movie not found";
 		}
 	}
 }
 
-// TO DO: See if data is correct for movies (wrong input)
+// -----------------------------------setData--------------------------------------
+// Sets data from file to variables. Wrong inputs are discarded and transaction is
+// not executed.
 void Return::setData(ifstream& infile)
 {
-	// If movieType is comedy, classic or drama, save movie information
+	// If movieType is comedy, classic or drama, save movie information in data members
 	switch (movieType) {
-	case 'F':
-		// Store location string in NodeData array
+	case 'F':	// Comedies
 		getline(infile, movieTitle, ',');
 		movieTitle.erase(0, 1); // Removing front blank space
 		infile >> releaseYear;
 		stringToFind = movieTitle + ' ' + to_string(releaseYear);
 		break;
-	case 'C':
+	case 'C':	// Classics
 		infile >> releaseMonth >> releaseYear;
 		getline(infile, majorActor);
 		majorActor.erase(0, 1);
 		stringToFind = to_string(releaseYear) + ' ' + to_string(releaseMonth) + ' ' + majorActor;
 		break;
-	case 'D':
+	case 'D':	// Dramas
 		getline(infile, movieDirector, ',');
 		movieDirector.erase(0, 1);
 		getline(infile, movieTitle, ',');
 		movieDirector.erase(0, 1);
 		stringToFind = movieDirector + ' ' + movieTitle;
 		break;
-	default:	// Else movieType is unknown
+	default:	// Unknown movie type
 		cout << endl << "Invalid video code" << endl;
-		getline(infile, garbage);
-		doAction = false;
+		getline(infile, garbage);	// Discard data from current line in file
+		doAction = false;	// Don't execute transaction
 		break;
 	}
 }

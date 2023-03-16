@@ -12,6 +12,8 @@
 // Assumptions:
 //	If a classics object is already created for the same movie, a new classics object is created with a different
 //	major actor information.
+//	When want to borrow a classic movie but current object is out of stock, look for same movie with different
+//  major actors
 // ---------------------------------------------------------------------------------------------------------------
 #ifndef CLASSICS_H
 #define CLASSICS_H
@@ -38,13 +40,8 @@ public:
 	// Destructor for Classics
 	virtual ~Classics();
 
-	// -----------------------------------display-----------------------------------
-	// Outputs to the screen all of the details of the movie (Release Date, Title, Director, Stock, Major Actor)
-	void display();
-
-
 private:
-
+	// Information of classic movie
 	int year;			// Release year of specific classics movie
 	int month;			// Release month of specific classics movie
 	string title;		// Title of specific classics movie

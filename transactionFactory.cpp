@@ -16,15 +16,11 @@
 
 // -----------------------------------TransactionFactory()-----------------------------------
 // Default constructor for TransactionFactory class
-TransactionFactory::TransactionFactory()
-{
-}
+TransactionFactory::TransactionFactory() {}
 
 // -----------------------------------~TransactionFactory()-----------------------------------
 // Destructor for TransactionFactory class
-TransactionFactory::~TransactionFactory()
-{
-}
+TransactionFactory::~TransactionFactory() {}
 
 // ----------------------------------createTransactionObject----------------------------------
 // Creates new transaction object with switch, using first letter from current 
@@ -33,7 +29,7 @@ Transaction* TransactionFactory::createTransactionObject(char command, ifstream&
 {
 	Transaction* selection = nullptr;
 
-	// Create a new object with the data in the first line of infile
+	// Create a new object with the data in the first line of infile.
 	switch (command) {
 	case 'B':
 		selection = new Borrow(infile, bstF, bstD, bstC, clients);

@@ -47,9 +47,9 @@ private:
 	virtual void setData(ifstream&);	// Sets data from file to variables
 
 	HashTable* clientsHashTable;	// Pointer to hash table of customers
-	BinTree* bstComedies;		// Pointer to binary tree of comedy movies
-	BinTree* bstDramas;			// Pointer to binary tree of drama movies
-	BinTree* bstClassics;		// Pointer to binary tree of classic movies
+	BinTree* bstComedies;		// Pointer to BST of comedy movies
+	BinTree* bstDramas;			// Pointer to BST of drama movies
+	BinTree* bstClassics;		// Pointer to BST of classic movies
 
 	Customer* curCustomer;		// Pointer to customer returning the movie
 

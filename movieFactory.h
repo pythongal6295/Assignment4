@@ -7,7 +7,8 @@
 // Purpose: Header file for MovieFactory class
 // ---------------------------------------------------------------------------------------------------------------
 // Notes on specifications, special algorithms, and assumptions:
-//  -
+//  - Creates 3 types of movies: Comedy, dramas or classics
+//	- If movie code is invalid, do not create a Movie object. Movie pointer set to nullptr
 // Assumptions:
 //
 // ---------------------------------------------------------------------------------------------------------------

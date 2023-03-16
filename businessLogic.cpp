@@ -7,23 +7,25 @@
 // Purpose: Header file for BusinessLogic class of the inventory tracking system of a movie rental store
 // ---------------------------------------------------------------------------------------------------------------
 // Notes on specifications, special algorithms, and assumptions:
-// 
+//	- User is notified of invalid inputs and current line of data in file is discarded.
 // Assumptions:
-//	-All text files are in the correct format
+//	-All text files are in the correct format.
 // ---------------------------------------------------------------------------------------------------------------
 
 #include "businessLogic.h"
 
-// Default constructor
+// -----------------------------------BusinessLogic()-------------------------------------
+// Default constructor for BusinessLogic class
 BusinessLogic::BusinessLogic()
 {
-	customerHashTable = new HashTable();	//hash table with all customers
-	comediesBST = new BinTree();    //BST of comedies
-	dramasBST = new BinTree();		  //BST of dramas
-	classicsBST = new BinTree();		//BST of classics
+	customerHashTable = new HashTable();	// Hash table with all customers
+	comediesBST = new BinTree();		// BST of comedies
+	dramasBST = new BinTree();			// BST of dramas
+	classicsBST = new BinTree();		// BST of classics
 }
 
-//Deconstructor
+// -----------------------------------~BusinessLogic()------------------------------------
+// Destructor for BusinessLogic class
 BusinessLogic::~BusinessLogic()
 {
 	delete comediesBST;
@@ -33,9 +35,9 @@ BusinessLogic::~BusinessLogic()
 }
 
 // -----------------------------------loadMovies-------------------------------------
-// Uses private data member movieFactory to use MovieFactory::createMovieObject() 
-// public function to create a new movie genre object(Comedy, Drama or Classics). 
-// Calls Movie::insert(string, Movie * root) to include each line from file. 
+// Uses MovieFactory::createMovieObject() to create a new movie genre object
+// (Comedy, Drama or Classics) with information from file.
+// Calls BinTree::insert(string, Movie * root) to insert a new movie object in BST.
 void BusinessLogic::loadMovies(ifstream& infile)
 {
 	string movieType;
@@ -48,7 +50,7 @@ void BusinessLogic::loadMovies(ifstream& infile)
 		// Create node newMovie to insert in BST. If invalid movie type, newMovie is set to NULL.
 		newMovie = MovieFactory::createMovieObject(movieType[0], infile);
 
-		// If movieType is comedy, classic or drama insert node newMovie in binary tree
+		// If movieType is comedy, classic or drama insert node with newMovie item in BST
 		switch (movieType[0]) {
 		case 'F':
 			comediesBST->insert(newMovie);
@@ -73,11 +75,7 @@ void BusinessLogic::loadMovies(ifstream& infile)
 // of type Customer
 void BusinessLogic::loadCustomers(ifstream& infile)
 {
-	////check if file can be opened
-	//if (!infile) {
-	//	cout << "File could not be opened." << endl;
-	//}
-	Customer * c;
+	Customer* c;
 
 	// Create a new customer;
 	for (;;) {
@@ -91,17 +89,17 @@ void BusinessLogic::loadCustomers(ifstream& infile)
 		}
 		if (infile.eof()) break;		// Stop if no more lines of data
 	}
-	
+
 }
 
 // -----------------------------------loadCommands-----------------------------------
-// Reads each command line from file
-// Uses public command functions of BusinessLogic ()
+// Reads each command line from file. Uses TransactionFactory to create transaction
+// object and execute transaction if valid command.
 void BusinessLogic::loadCommands(ifstream& infile)
 {
-	char transaction;
-	string garbage;
-	Transaction* newTransaction;
+	char transaction;	// Type of transaction
+	string garbage;		// Garbage from file
+	Transaction* newTransaction;	// Pointer to Transaction object created in TransactionFactory
 
 	for (;;) {
 		infile >> transaction;
@@ -112,7 +110,7 @@ void BusinessLogic::loadCommands(ifstream& infile)
 			delete newTransaction;
 			newTransaction = nullptr;
 		}
-		// If transaction type is unknown, empty current line
+		// If transaction type is unknown, discard current line from file and notify the user
 		else {
 			getline(infile, garbage);
 			cout << endl << "Invalid action code" << endl;

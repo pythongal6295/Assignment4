@@ -18,7 +18,8 @@
 #include <string>
 #include "classics.h"
 
-//Default constructor for Comedy 
+// -----------------------------------Classics()-----------------------------------
+// Default constructor for Classics class
 Classics::Classics()
 {
 	month = 0;
@@ -30,7 +31,8 @@ Classics::Classics()
 }
 
 // -----------------------------------Classics-----------------------------------
-// Parametrized constructor for Classics, ifstream parameter type
+// Parametrized constructor for Classics, ifstream parameter type.
+// Sets information from file into private data members
 Classics::Classics(ifstream& infile)
 {
 	string temp;
@@ -38,19 +40,23 @@ Classics::Classics(ifstream& infile)
 	getline(infile, temp, ',');
 	setStock(stoi(temp));
 	getline(infile, director, ',');
-	director.erase(0, 1);//Removing front blank space
+	director.erase(0, 1);	// Removing front blank space
 	getline(infile, title, ',');
-	title.erase(0, 1);//Removing front blank space
+	title.erase(0, 1);	// Removing front blank space
 	infile >> firstName >> lastName >> month >> year;
 	getline(infile, temp);
 	releaseDate = to_string(year) + ' ' + to_string(month);
 	majorActor = firstName + ' ' + lastName;
 
-	setSort(releaseDate + ' ' + majorActor);
+	setSort(releaseDate + ' ' + majorActor);	// Used for sorting in BST
+	// setMovieInfo sets variable used for classic movies in parent class Movie
 	setMovieInfo(to_string(year) + ' ' + to_string(month) + ' ' + title + ' ' + director, 'C');
+	// Sets movie information to be displayed
 	setDisplay(releaseDate + ',' + majorActor + ',' + title + ',' + director + ',');
 }
 
+// -----------------------------------~Classics()-----------------------------------
+// Destructor for Classics
 Classics::~Classics() {}
 
 

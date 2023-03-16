@@ -27,26 +27,27 @@ public:
 	// Default constructor for History class
 	History();
 
-	// Constructor with parameter for History class
+	// -----------------------------------History()-----------------------------------
+	// Parametrized constructor for History class
 	History(ifstream&, HashTable*&);
 
-	//Default destructor for History class
+	// ----------------------------------~History()-----------------------------------
+	//Destructor for History class
 	~History();
 
-	// -----------------------------------doTransaction-----------------------------------
+	// ---------------------------------doTransaction----------------------------------
 	// Carry out printing customer history for the rental store
 	virtual void doTransaction();
 
 private:
 
 	// -----------------------------------setData-----------------------------------
-	// Sort using the data structure which has all movies, it's being build for the first time. 
-	// Parameters are string (remaining current command line from data4movies.txt)
-	// Not needed for this class
+	// Not needed for this class.
+	// Defined as abstract in parent class.
 	virtual void setData(ifstream&);
 
-	int idNum;	//customer's ID number
-	HashTable* customerTable;	//hash table that stores all the customers
+	int idNum;	// Customer's ID number
+	HashTable* customerTable;	// Points to hash table that stores all the customers
 };
 
 #endif

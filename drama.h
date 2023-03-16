@@ -10,7 +10,7 @@
 //  -Movie is the base class for Drama
 //  -Sorted by director, then title
 // Assumptions:
-//
+//	
 // ---------------------------------------------------------------------------------------------------------------
 #ifndef DRAMA_H
 #define DRAMA_H
@@ -28,9 +28,6 @@ public:
 	// Default constructor for drama 
 	Drama();
 
-	//Paramaterized constructor for Drama
-	//Drama(string title, string director, int year, int currStock);
-
 	// -----------------------------------Drama()-----------------------------------
 	// Constructor with parameter for Drama class
 	Drama(ifstream&);
@@ -39,16 +36,13 @@ public:
 	// Destructor for class Drama 
 	virtual ~Drama();
 
-	// -----------------------------------display-----------------------------------
-	// Outputs to the screen all of the details of the movie (Year, Title, Director, Stock)
-	void display();
-
 
 private:
-	int month; // month of specific movie
-	int year;  // year of specific drama movie
-	string title;  // title of specific drama movie
-	string director; // director of specific drama movie
+	// Information of drama movie
+	int month;			// Month of specific movie
+	int year;			// Year of specific drama movie
+	string title;		// Title of specific drama movie
+	string director;	// Director of specific drama movie
 
 };
 #endif

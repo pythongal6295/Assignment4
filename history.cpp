@@ -8,6 +8,7 @@
 // ---------------------------------------------------------------------------------------------------------------
 // Notes on specifications, special algorithms, and assumptions:
 //  -History is the child class of Transaction
+//	-setData() not needed in this class
 // Assumptions:
 //
 // ---------------------------------------------------------------------------------------------------------------
@@ -22,32 +23,30 @@ History::History()
 	customerTable = nullptr;
 }
 
-// Constructor with parameter for History class
-History::History(ifstream& infile, HashTable*& clients):History()
+// -----------------------------------History()-----------------------------------
+// Parametrized constructor for History class
+History::History(ifstream& infile, HashTable*& clients) :History()
 {
 	infile >> idNum;
 	customerTable = clients;
 }
 
-//Default destructor for History class
-History::~History()
-{
-}
+// ----------------------------------~History()-----------------------------------
+//Destructor for History class
+History::~History() {}
 
 // -----------------------------------doTransaction-----------------------------------
 // Carry out printing customer history for the rental store
 void History::doTransaction()
 {
-	if (idNum!=0) {	// Does 0000 is also 0?
+	if (idNum != 0) {
 		Customer* currentCustomer;
 		currentCustomer = customerTable->getFromTable(idNum);
 		currentCustomer->displayHistory();
 	}
-	
 }
 
 // -----------------------------------setData-----------------------------------
-// Not needed for this class
-void History::setData(ifstream& infile)
-{
-}
+// Not needed for this class.
+// Defined as abstract in parent class.
+void History::setData(ifstream& infile) {}

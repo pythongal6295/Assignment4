@@ -33,7 +33,8 @@ Borrow::Borrow()
 }
 
 // -----------------------------------Borrow-----------------------------------
-// Parametrized constructor for Borrow class
+// Parametrized constructor for Borrow class. Uses setData() if inputs are valid
+// to set Borrow's private data members.
 Borrow::Borrow(ifstream& infile, BinTree*& bstF, BinTree*& bstD, BinTree*& bstC, HashTable*& ht) :Borrow()
 {
 	doAction = true;		// Set action as true by default to execute transaction
@@ -46,16 +47,17 @@ Borrow::Borrow(ifstream& infile, BinTree*& bstF, BinTree*& bstD, BinTree*& bstC,
 
 	infile >> idNum >> mediaType >> movieType;
 
-	curCustomer = ht->getFromTable(idNum); // Get pointer of a customer from hashTable
+	curCustomer = ht->getFromTable(idNum); // Get pointer of customer from hashTable
 
 	// If valid customerID, continue
 	if (curCustomer != NULL) {
 		// If invalid media type, no transaction is to be done
 		if (mediaType != 'D') {
 			cout << "Invalid type of media" << endl;
-			doAction = false;	// Do not execute transaction
-			getline(infile, garbage); // Discard information in current line
-		} else {	// Else, continue setting data members with information in file
+			doAction = false;			// Do not execute transaction
+			getline(infile, garbage);	// Discard information in current line
+		} else {
+			// Else, continue setting data members with information in file
 			setData(infile);
 		}
 	} else {	// If invalid customer ID, discard information
@@ -75,13 +77,13 @@ void Borrow::doTransaction()
 	if (doAction != false) {
 		movieToFind.setSort(stringToFind);	// Set movie to be found
 		movieToFind.setActionCode('B');		// Set type of action (borrow)
-		Movie* p = nullptr;	//	Points to movie if found in bst
+		Movie* p = nullptr;	// Points to movie if found in BST
 		int inStock = -2; // Set to -2 by default. 
 		// inStock = -1 not found, 0 movie found but not in stock, 1 found
 
 		bool stockAvailable = false;
 
-		// Pick from what bst we're getting the movie (Comedies, classics or dramas)
+		// Pick from what BST we're getting the movie (Comedies, classics or dramas)
 		switch (movieType) {
 		case 'F':
 			// For classics and dramas only can get inStock = 1 (found) or 0 (not found)
@@ -107,9 +109,9 @@ void Borrow::doTransaction()
 		default: // If movieType is unknown, do nothing. newMovie is set to NULL in MovieFactory
 			break;
 		}
-		// If movie was found, complete transaction (borrow)
+		// If movie was found, complete transaction (borrow movie)
 		if (inStock == 1 && p != nullptr) {
-			stockAvailable = p->borrowMovie();	//Borrow stock -1
+			stockAvailable = p->borrowMovie();	//Borrow (stock - 1)
 			// If movie is out of stock
 			if (stockAvailable == false) {
 				cout << "Movie out of stock" << endl;
@@ -125,7 +127,8 @@ void Borrow::doTransaction()
 }
 
 // -----------------------------------setData--------------------------------------
-// Sets data from file to variables. Wrong inputs are discarded
+// Sets data from file to variables. Wrong inputs are discarded and transaction is
+// not executed.
 void Borrow::setData(ifstream& infile)
 {
 	// If movieType is comedy, classic or drama, save movie information in data members
@@ -149,10 +152,10 @@ void Borrow::setData(ifstream& infile)
 		movieTitle.erase(0, 1);
 		stringToFind = movieDirector + ' ' + movieTitle;
 		break;
-	default:	// Invalid movie type
+	default:	// Unknown movie type
 		cout << endl << "Invalid video code" << endl;
 		getline(infile, garbage);	// Discard data from current line in file
-		doAction = false;
+		doAction = false;	// Don't execute transaction
 		break;
 	}
 }
