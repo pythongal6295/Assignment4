@@ -10,3 +10,4 @@
 8000 Wacky Wally
 5000 Frog Freddie
 2000 Duck Donald
+1000 Mouse Minnie

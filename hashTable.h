@@ -8,10 +8,9 @@
 // ---------------------------------------------------------------------------------------------------------------
 // Notes on specifications, special algorithms, and assumptions:
 //  -Hash table is built using an array of CustomerNode pointers
-//  -If data clustering happens when inserting a new customer in hashTable, current cell
-//   will point to a linked list with all customers and it will be added to the front of //   the linked list (new headCustomer).
+//  -Closed hashing with a double hash function is used
 // Assumptions:
-//
+//	-The movie store will have a maximum of 100 customers
 // ---------------------------------------------------------------------------------------------------------------
 #ifndef HASHTABLE_H
 #define HASHTABLE_H
@@ -21,7 +20,6 @@
 #include "customer.h"
 using namespace std;
 
-//const int SIZE_HT = 39;	// Max number of cells in hashTable
 // Set hashTable size to 223 because we're execting a maximun of 100 customers. To avoid collisions chose a prime number number > 2*#customers
 const int SIZE_HT = 223;	// Max number of cells in hashTable
 
@@ -30,8 +28,8 @@ const int SIZE_HT = 223;	// Max number of cells in hashTable
 // CustomerNode node is used to create a hash table.
 struct CustomerNode
 {
-	int hashValue;
-	Customer* headCustomer;
+	int hashValue;				//hash value/index of array calculated by hash function
+	Customer* headCustomer;		//pointer to customer object
 };
 
 class HashTable
@@ -47,18 +45,25 @@ public:
 
 	// -----------------------------------setInTable-------------------------------------	
 	// Function to set Customer object in hashTable[]
+	// Parameter: pointer to Customer object
 	void setInTable(Customer*);
 
 	// ----------------------------------getFromTable------------------------------------
 	// Function to get a Customer from hash table using customer ID
+	//Parameter: int - customer ID
+	//Return: pointer to Customer object
 	Customer* getFromTable(int);
 
 private:
 	// ----------------------------------hashFunctions------------------------------------
 	// Function that returns a hash from customer ID for adding a new customer
+	//Parameter: int - customer ID
+	//Return: int - hash
 	int hashFunctionSet(int);
 
 	// Function that returns a hash from customer ID for retrieving a customer
+	//Parameter: int - customer ID
+	//Return: int - hash
 	int hashFunctionGet(int);
 
 	CustomerNode* hashTable[SIZE_HT]; // hash table of CustomerNode* 
