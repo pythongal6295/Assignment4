@@ -23,32 +23,43 @@ using namespace std;
 class Borrow :public Transaction
 {
 public:
+	// -----------------------------------Borrow()------------------------------------
 	// Default constructor for Borrow class  
 	Borrow();
 
-	// Constructor with parameter for Borrow class
-	Borrow(ifstream&, BinTree*&, BinTree*&, BinTree*&, HashTable*&);//Still missing hashtable
+	// ------------------------------------Borrow-------------------------------------
+	// Parametrized constructor for Borrow class
+	Borrow(ifstream&, BinTree*&, BinTree*&, BinTree*&, HashTable*&);
 
-	// Default destructor for Borrow class
+	// -----------------------------------~Borrow()-----------------------------------
+	// Destructor for Borrow class
 	~Borrow();
 
+	// -----------------------------------doTransaction-------------------------------
+	// Carry out a transaction (borrow) for the rental store.
+	// Declared as "abstract class" in transaction.h. 
 	virtual void doTransaction();
 
 private:
-	virtual void setData(ifstream&);
+	virtual void setData(ifstream&);	// Sets data from file to variables
 
-	HashTable* clientsHashTable;	//hash table of customers
-	BinTree* bstComedies;	//binary tree of comedy movies
-	BinTree* bstDramas;		//binary tree of drama movies
-	BinTree* bstClassics;	//binary tree of classics movies
+	HashTable* clientsHashTable;	// Pointer to hash table of customers
+	BinTree* bstComedies;	// Pointer to binary tree of comedy movies
+	BinTree* bstDramas;		// Pointer to binary tree of drama movies
+	BinTree* bstClassics;	// Pointer to binary tree of classic movies
 
-	Customer* curCustomer;	//pointer to customer borrowing the movie
+	Customer* curCustomer;	// Pointer to customer borrowing the movie
 
-	Movie movieToFind;	//movie being borrowed
-	bool doAction;
+	Movie movieToFind;		// Movie being borrowed (Information is set in doTransaction())
+	bool doAction;			// Variable which states if doTransaction can be executed or not
+	string garbage;			// String used to remove garbage information in file
+	string stringToFind;	// Movie info set in stringToFin from file
+	string searchByInfo;	// Used by classic movie type to search for the same object in bst
+
+	// Properties of movie to borrow
 	int idNum, releaseYear, releaseMonth;
 	char mediaType, movieType;
-	string movieTitle, movieDirector, majorActor, garbage, releaseDate, stringToFind, searchByInfo;
+	string movieTitle, movieDirector, majorActor, releaseDate;
 
 };
 #endif

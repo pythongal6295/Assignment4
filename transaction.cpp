@@ -16,31 +16,8 @@
 
 // -----------------------------------Transaction()-----------------------------------
 // Default constructor for Transaction class
-Transaction::Transaction()
-{
-
-}
+Transaction::Transaction() {}
 
 // ----------------------------------~Transaction()-----------------------------------
 //Default deconstructor for Transaction class
-Transaction::~Transaction() 
-{
-
-}
-
-// -----------------------------------doTransaction-----------------------------------
-// Carry out a transaction (command) for the rental store
-// Delared as "abstract class". 
-void Transaction::doTransaction()
-{
-
-}
-
-// -----------------------------------setData-----------------------------------
-// Sort using the data structure which has all movies, it's being build for the first time. 
-// Delared as "abstract class". 
-// Parameters are string (remaining current command line from data4movies.txt)
-void Transaction::setData(ifstream&)
-{
-
-}
+Transaction::~Transaction() {}

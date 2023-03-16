@@ -108,8 +108,8 @@ public:
 
 private:
 	// Properties of Movie Class
-	int stock;
-	string sort; // String that contains director+title, used to sort
+	int stock;		// Stock of a specific movie
+	string sort;	// String that contains director+title, used to sort
 	string toDisplay;
 	string movieInfo;
 	char movieType;

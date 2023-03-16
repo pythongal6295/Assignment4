@@ -16,7 +16,6 @@
 
 #include <iostream>
 #include <fstream>
-
 #include "history.h"
 #include "borrow.h"
 #include "show.h"
@@ -38,7 +37,6 @@ public:
 	// ----------------------------------createTransactionObject----------------------------------
 	// Creates new transaction object with switch, using first letter from current 
 	// string line in data4commands.txt (BusinessLogic::loadCommands())
-	//static Transaction* createTransactionObject(char, ifstream&, BinTree*&, BinTree*&, BinTree*&);
 	static Transaction* createTransactionObject(char, ifstream&, BinTree*&, BinTree*&, BinTree*&, HashTable*&);
 };
 
