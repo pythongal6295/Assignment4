@@ -59,9 +59,22 @@ void Customer::displayHistory()
 
 	//run through the history linked list
 	//print each attribute from the history struct
-	cout << getFirstName() << " " << getLastName() << "'s Transaction History" << endl;
-	for (list<customerHistory*>::iterator it = historyList.begin(); it != historyList.end(); ++it)
-		cout << ' ' << *it;
+	cout << "***********************************" << endl;
+	cout << getIdNum() << " " << getFirstName() << " " << getLastName() << "'s Transaction History" << endl;
+	for (list<customerHistory*>::iterator it = historyList.begin(); it != historyList.end(); ++it) {
+		customerHistory* test = *it;
+
+		displayHistoryNode(test);
+
+		//cout << test;
+		//cout << test->currentMovie->getSort() << endl;
+		//cout << test->typeOfTransaction << endl;
+		//Movie input1 = **it
+	}
+	//cout << ' ' << *it;
+
+
+
 }
 
 // -----------------------------------void displayCustomer-----------------------------------
@@ -73,6 +86,24 @@ void Customer::displayCustomer()
 	cout << firstName << endl;
 	cout << lastName << endl;
 }
+
+//---------------------------------displayHistoryNode()------------------------------------
+//Prints out a HistoryNode
+void Customer::displayHistoryNode(const customerHistory* ch)
+{
+	string transaction = "";
+
+	if (ch->typeOfTransaction == 'B') {
+		transaction = "Borrowed";
+	} else if (ch->typeOfTransaction == 'R') {
+		transaction = "Returned";
+	} else {
+		transaction = "unknown";
+	}
+
+	cout << transaction << " : " << ch->currentMovie->getSort() << endl;
+}
+
 // -----------------------------------inserHistoryNode-----------------------------------
 // insert new history node to LL with information from history class, pointer to movie, type of transaction
 void Customer::insertHistoryNode(Movie* movie, char transactionType)
@@ -108,7 +139,7 @@ string Customer::getLastName()
 
 ////---------------------------------Friend operator <<-----------------------------
 ////Prints out a HistoryNode
-//ostream& operator<<(ostream& output, const customerHistory*& ch)
+//ostream& operator<<(ostream& output, const customerHistory* ch)
 //{
 //	string transaction = "";
 //
@@ -124,7 +155,7 @@ string Customer::getLastName()
 //		transaction = "unknown";
 //	}
 //
-//	cout << transaction << ch->currentMovie << endl;
+//	cout << transaction << ch->currentMovie->getSort() << endl;
 //
 //	return output;
 //}

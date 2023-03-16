@@ -27,6 +27,8 @@ using namespace std;
 // The created node is added to the transactions LL.
 struct customerHistory
 {
+	//Prints out a HistoryNode
+
 	Movie* currentMovie;	// Pointer to the movie that was borrowed or returned
 	char typeOfTransaction; // Borrowing or returning item
 	//string typeOfTransaction; // Borrowing or returning item
@@ -40,8 +42,9 @@ struct customerHistory
 
 class Customer
 {
+
 public:
-	
+
 	// -----------------------------------Customer()-----------------------------------
 	// Default constructor for Movie class
 	Customer();
@@ -62,6 +65,10 @@ public:
 	// -----------------------------------void displayCustomer-----------------------------------
 	// Output Customer information 4 digit ID number, last name and first name.  
 	void displayCustomer();
+
+	// -----------------------------------void displayTransaction-----------------------------------
+	// Output Transaction movie information
+	void displayHistoryNode(const customerHistory*);
 
 	// -----------------------------------inserHistoryNode-----------------------------------
 	// insert new history node to LL with information from history class, pointer to movie, type of transaction

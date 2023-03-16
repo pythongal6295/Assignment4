@@ -21,7 +21,9 @@
 #include "customer.h"
 using namespace std;
 
-const int SIZE_HT = 39;	// Max number of cells in hashTable
+//const int SIZE_HT = 39;	// Max number of cells in hashTable
+// Set hashTable size to 223 because we're execting a maximun of 100 customers. To avoid collisions chose a prime number number > 2*#customers
+const int SIZE_HT = 223;	// Max number of cells in hashTable
 
 // -----------------------------struct CustomerNode-------------------------------------
 // The structure represent a node of type CustomerNode.
@@ -36,30 +38,30 @@ class HashTable
 {
 public:
 
-  //------------------------------------HashTable------------------------------
-  //default constructor
-  HashTable();
+	//------------------------------------HashTable------------------------------
+	//default constructor
+	HashTable();
 
-  //deconstructor
-  ~HashTable();
+	//deconstructor
+	~HashTable();
 
-  // -----------------------------------setInTable-------------------------------------	
-  // Function to set Customer object in hashTable[]
-	void setInTable(Customer *);	
+	// -----------------------------------setInTable-------------------------------------	
+	// Function to set Customer object in hashTable[]
+	void setInTable(Customer*);
 
-  // ----------------------------------getFromTable------------------------------------
+	// ----------------------------------getFromTable------------------------------------
 	// Function to get a Customer from hash table using customer ID
-	Customer* getFromTable(int);	
+	Customer* getFromTable(int);
 
 private:
-  // ----------------------------------hashFunctions------------------------------------
+	// ----------------------------------hashFunctions------------------------------------
 	// Function that returns a hash from customer ID for adding a new customer
-	int hashFunctionSet(int);	
+	int hashFunctionSet(int);
 
 	// Function that returns a hash from customer ID for retrieving a customer
-  int hashFunctionGet(int);
+	int hashFunctionGet(int);
 
-	CustomerNode * hashTable[SIZE_HT]; // hash table of CustomerNode* 
+	CustomerNode* hashTable[SIZE_HT]; // hash table of CustomerNode* 
 };
 
 #endif

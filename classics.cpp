@@ -48,6 +48,7 @@ Classics::Classics(ifstream& infile)
 	majorActor = firstName + ' ' + lastName;
 
 	setSort(releaseDate + ' ' + majorActor);
+	setMovieInfo(title + ' ' + director + ' ' + to_string(year), 'C');
 	setDisplay(releaseDate + ',' + majorActor + ',' + title + ',' + director + ',');
 }
 

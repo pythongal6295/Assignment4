@@ -14,9 +14,7 @@
 
 #include "movie.h"
 
-// -----------------------------------Movie()-----------------------------------
-// Default constructor for Movie class
-Movie::Movie():stock(0) {}
+Movie::Movie() :stock(0), movieType('\0') {}
 
 // ----------------------------------- ~Movie()-----------------------------------
 // Destructor for Movie class
@@ -71,8 +69,45 @@ string Movie::getSort()
 	return sort;
 }
 
+// ----------------------------------setMovieInfo()----------------------------------
+// Gets movieInfo
+string Movie::getMovieInfo()
+{
+	return movieInfo;
+}
+
+// ----------------------------------getGenre()----------------------------------
+// Gets type of movie (C,F or D)
+char Movie::getGenre()
+{
+	return movieType;
+}
+
+// ----------------------------------setMovieInfo()----------------------------------
+// Sets movieInfo
+void Movie::setMovieInfo(string input, char genre)
+{
+	movieInfo = input;
+	movieType = genre;
+}
+
+
+
 bool Movie::operator==(const Movie& rhs) const
 {
+
+	//if (movieType == 'C') {
+	//	if (sort == rhs.sort && rhs.stock > 0) {
+	//		return (sort == rhs.sort);
+	//	} else if (sort == rhs.sort && rhs.stock == 0) {
+	//		return false;
+	//	} else if (sort != rhs.sort && movieInfo == rhs.movieInfo) {
+	//		return movieInfo == rhs.movieInfo;
+	//	}
+	//	/*if (sort == rhs.sort && rhs.stock==0) {
+	//		return false;
+	//	}*/
+	//}
 	return (sort == rhs.sort);
 }
 
@@ -94,6 +129,6 @@ bool Movie::operator<(const Movie& rhs) const
 //-------------------------- operator<< --------------------------------------
 ostream& operator<<(ostream& output, const Movie& nd)
 {
-	output << nd.toDisplay +to_string(nd.stock);
+	output << nd.toDisplay + to_string(nd.stock);
 	return output;
 }

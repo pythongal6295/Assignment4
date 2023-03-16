@@ -92,7 +92,7 @@ void Borrow::doTransaction()
 				cout << "Movie out of stock" << endl;
 			} else {
 				// Set transaction in customer history
-				curCustomer->insertHistoryNode(p, 'R'); 
+				curCustomer->insertHistoryNode(p, 'B'); 
 			}
 			// In classics go to movies with different major actors
 		} else {
