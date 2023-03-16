@@ -31,6 +31,10 @@ public:
 	// Default constructor for Movie class
 	Movie();
 
+	// Constructor movie with parameters
+	Movie(string);
+	//Movie(string, string);
+
 	// -----------------------------------Movie()-----------------------------------
 	// Destructor for Movie class
 	virtual ~Movie();
@@ -43,7 +47,7 @@ public:
 	// -----------------------------------setStock----------------------------------
 	// Sets a new value for the stock depending on borrow/rent actions
 	// Parameter: int - the new stock value
-	virtual void setStock(int);
+	void setStock(int);
 
 	// -----------------------------------getStock----------------------------------
 	// Returns the stock of the movie
@@ -59,7 +63,7 @@ public:
 
 	// -----------------------------------setSort-----------------------------------
 	// Sets private variable sort. Sort is used to sort movies in BST
-	void setSort(string);
+	//void setSort(string);
 
 	// ----------------------------------getSort()----------------------------------
 	// Gets variable sort. Sort is used to sort movies in BST
@@ -89,19 +93,19 @@ public:
 
 	// -----------------------------------Operator==---------------------------------
 	// Overloading == operator
-	virtual bool operator==(const Movie&) const;
+	virtual bool operator==(const Movie&) const = 0;
 
 	// -----------------------------------Operator!=---------------------------------
 	// Overloading != operator
-	virtual bool operator!=(const Movie&) const;
+	virtual bool operator!=(const Movie&) const = 0;
 
 	// -----------------------------------Operator>----------------------------------
 	// Overloading > operator
-	virtual bool operator>(const Movie&) const;
+	virtual bool operator>(const Movie&) const = 0;
 
 	// -----------------------------------Operator<----------------------------------
 	// Overloading < operator
-	virtual bool operator<(const Movie&) const;
+	virtual bool operator<(const Movie&) const = 0;
 
 private:
 	// Properties of Movie Class

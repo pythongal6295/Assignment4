@@ -74,20 +74,23 @@ Return::~Return() {}
 void Return::doTransaction()
 {
 	if (doAction != false) {
-		movieToFind.setSort(stringToFind);
+		//movieToFind->setSort(stringToFind);
 		Movie* p = nullptr;	// Points to movie if found in BST
 		bool found = false;
 
 		// Pick from what BST we're returning the movie (Comedies, classics or dramas)
 		switch (movieType) {
 		case 'F':
-			found = bstComedies->retrieve(movieToFind, p);
+			movieToFind = new Comedy(stringToFind);
+			found = bstComedies->retrieve(*movieToFind, p);
 			break;
 		case 'C':
-			found = bstClassics->retrieve(movieToFind, p);
+			movieToFind = new Classics(stringToFind);
+			found = bstClassics->retrieve(*movieToFind, p);
 			break;
 		case 'D':
-			found = bstDramas->retrieve(movieToFind, p);
+			movieToFind = new Drama(stringToFind);
+			found = bstDramas->retrieve(*movieToFind, p);
 			break;
 		default:
 			break;
@@ -97,9 +100,11 @@ void Return::doTransaction()
 			p->returnMovie();	//Return (stock + 1)
 			// Set transaction in customer history
 			curCustomer->insertHistoryNode(p, 'R');
+			delete movieToFind;
+			movieToFind = nullptr;
 		} else {
 			// If movie not found, do not set transaction in customer history
-			cout << "Movie not found";
+			cout << "Movie not found" << endl;
 		}
 	}
 }

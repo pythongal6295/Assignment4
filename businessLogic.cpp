@@ -100,8 +100,10 @@ void BusinessLogic::loadCommands(ifstream& infile)
 	char transaction;	// Type of transaction
 	string garbage;		// Garbage from file
 	Transaction* newTransaction;	// Pointer to Transaction object created in TransactionFactory
-
+	//int i = 0;
 	for (;;) {
+		//i++;
+		//cout << endl << "Executing line: " << i << endl;
 		infile >> transaction;
 		// If transaction type is borrow, return, show inventory or show client history, do transaction
 		if (transaction == 'B' || transaction == 'R' || transaction == 'I' || transaction == 'H') {

@@ -27,6 +27,11 @@ Drama::Drama()
 	director = "";
 }
 
+Drama::Drama(string sortInput) :Drama()
+{
+	sort = sortInput;
+}
+
 // -----------------------------------Drama()-----------------------------------
 // Paramaterized constructor for Drama. Sets information from file into private
 // data members
@@ -42,11 +47,43 @@ Drama::Drama(ifstream& infile) :Drama()
 	title.erase(0, 1);//Removing front blank space
 	infile >> year;
 	getline(infile, temp);
-
-	setSort(director + ' ' + title);	// Used to sort in BST
+	sort = director + ' ' + title;
+	//setSort(director + ' ' + title);	// Used to sort in BST
 	// Sets movie information to be displayed
 	setDisplay(director + ',' + title + ',' + to_string(year) + ',');
 }
 
 Drama::~Drama() {}
+
+//-----------------------------OVERLOADED OPERATORS------------------------------
+
+// -----------------------------------Operator==---------------------------------
+// Overloading == operator
+
+bool Drama::operator==(const Movie& rhs) const
+{
+	const Drama& movCom = static_cast<const Drama&> (rhs);
+	return sort == movCom.sort;
+}
+
+// -----------------------------------Operator!=---------------------------------
+// Overloading != operator
+bool Drama::operator!=(const Movie& rhs) const
+{
+	return !(*this == rhs);
+}
+
+// -----------------------------------Operator>----------------------------------
+// Overloading > operator
+bool Drama::operator>(const Movie& rhs) const
+{
+	const Drama& movCom = static_cast<const Drama&> (rhs);
+	return (sort > movCom.sort);
+}
+
+bool Drama::operator<(const Movie& rhs) const
+{
+	const Drama& movCom = static_cast<const Drama&> (rhs);
+	return (sort < movCom.sort);
+}
 

@@ -28,6 +28,8 @@ public:
 	// Default constructor for drama 
 	Drama();
 
+	Drama(string);
+
 	// -----------------------------------Drama()-----------------------------------
 	// Constructor with parameter for Drama class
 	Drama(ifstream&);
@@ -36,6 +38,21 @@ public:
 	// Destructor for class Drama 
 	virtual ~Drama();
 
+	// -----------------------------------Operator==---------------------------------
+	// Overloading == operator
+	bool operator==(const Movie&) const;
+
+	// -----------------------------------Operator!=---------------------------------
+	// Overloading != operator
+	bool operator!=(const Movie&) const;
+
+	// -----------------------------------Operator>----------------------------------
+	// Overloading > operator
+	bool operator>(const Movie&) const;
+
+	// -----------------------------------Operator<----------------------------------
+	// Overloading < operator
+	bool operator<(const Movie&) const;
 
 private:
 	// Information of drama movie
@@ -43,6 +60,7 @@ private:
 	int year;			// Year of specific drama movie
 	string title;		// Title of specific drama movie
 	string director;	// Director of specific drama movie
+	string sort;
 
 };
 #endif
