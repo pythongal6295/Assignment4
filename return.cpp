@@ -99,7 +99,7 @@ void Return::doTransaction()
 			curCustomer->insertHistoryNode(p, 'R');
 		} else {
 			// If movie not found, do not set transaction in customer history
-			cout << "Movie not found";
+			cout << "Movie not found" << endl;
 		}
 	}
 }
