@@ -139,7 +139,6 @@
     <ClCompile Include="history.cpp" />
     <ClCompile Include="movie.cpp" />
     <ClCompile Include="movieFactory.cpp" />
-    <ClCompile Include="nodedata.cpp" />
     <ClCompile Include="return.cpp" />
     <ClCompile Include="show.cpp" />
     <ClCompile Include="transaction.cpp" />
@@ -157,7 +156,6 @@
     <ClInclude Include="history.h" />
     <ClInclude Include="movie.h" />
     <ClInclude Include="movieFactory.h" />
-    <ClInclude Include="nodedata.h" />
     <ClInclude Include="return.h" />
     <ClInclude Include="show.h" />
     <ClInclude Include="transaction.h" />

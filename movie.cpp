@@ -95,11 +95,19 @@ void Movie::setMovieInfo(string input, char genre)
 
 bool Movie::operator==(const Movie& rhs) const
 {
-	if (movieType == 'C') {
-		if (sort != rhs.sort) {
-			return movieInfo == rhs.movieInfo;
-		}
-	}
+
+	//if (movieType == 'C') {
+	//	if (sort == rhs.sort && rhs.stock > 0) {
+	//		return (sort == rhs.sort);
+	//	} else if (sort == rhs.sort && rhs.stock == 0) {
+	//		return false;
+	//	} else if (sort != rhs.sort && movieInfo == rhs.movieInfo) {
+	//		return movieInfo == rhs.movieInfo;
+	//	}
+	//	/*if (sort == rhs.sort && rhs.stock==0) {
+	//		return false;
+	//	}*/
+	//}
 	return (sort == rhs.sort);
 }
 
