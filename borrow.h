@@ -26,11 +26,7 @@ public:
 	// Default constructor for Borrow class  
 	Borrow();
 
-	//// Constructor with parameter for Borrow class
-	//Borrow(ifstream&);
-
 	// Constructor with parameter for Borrow class
-	//Borrow(ifstream&, BinTree*&, BinTree*&, BinTree*&);//Still missing hashtable
 	Borrow(ifstream&, BinTree*&, BinTree*&, BinTree*&, HashTable*&);//Still missing hashtable
 
 	// Default destructor for Borrow class

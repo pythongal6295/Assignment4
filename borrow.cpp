@@ -68,7 +68,7 @@ void Borrow::doTransaction()
 		movieToFind.setSort(stringToFind);
 		movieToFind.setActionCode('B');
 		Movie* p = nullptr;
-		bool found = false;
+		//bool found = false;
 		int inStock = -2; // -1 not found, 0 movie found but not in stock, 1 found
 		bool stockAvailable = false;
 

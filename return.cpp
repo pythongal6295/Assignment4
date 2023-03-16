@@ -29,7 +29,7 @@ Return::Return()
 	curCustomer = nullptr;
 }
 
-//Return::Return(ifstream& infile, BinTree*& bstF, BinTree*& bstD, BinTree*& bstC) : Return()
+// Constructor with parameter for Return class
 Return::Return(ifstream& infile, BinTree*& bstF, BinTree*& bstD, BinTree*& bstC, HashTable*& ht) : Return()
 {
 	doAction = true;

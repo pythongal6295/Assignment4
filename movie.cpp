@@ -109,49 +109,22 @@ void Movie::setMovieInfo(string input, char genre)
 
 bool Movie::operator==(const Movie& rhs) const
 {
-
-	//if (movieType == 'C') {
-	//	if (sort == rhs.sort && rhs.stock > 0) {
-	//		return (sort == rhs.sort);
-	//	} else if (sort == rhs.sort && rhs.stock == 0) {
-	//		return false;
-	//	} else if (sort != rhs.sort && movieInfo == rhs.movieInfo) {
-	//		return movieInfo == rhs.movieInfo;
-	//	}
-	//	/*if (sort == rhs.sort && rhs.stock==0) {
-	//		return false;
-	//	}*/
-	//}
-
-	//// Return 0 if item found and it's in stock
-	//if (sort == rhs.sort && rhs.stock>0) {
-	//	return true;
-	//}
-	//else if (sort == rhs.sort && rhs.stock == 0) {
-	//	return false;
-	//}
-	//else if (movieInfo == rhs.movieInfo) {
-	//	return true;
-	//}
-	//return (sort != rhs.sort);
-
-
-
-
-	// When borrowed and returned
-	if (actionCode == 'R' || actionCode == 'B') {
+	// When movie is being borrowed
+	if (actionCode == 'B') {
+		// If movie is a classic
 		if (movieType == 'C') {
+			// If movie in stock return true
 			if (movieInfo == rhs.movieInfo && rhs.stock > 0) {
 				return true;
 			}
 			// If movie info same but not in stock, return false. Same for when movie info is not the same
 			return false;
 		}
+		// If movie to borrow is a drama or a comedy
 		return sort == rhs.sort;
 	}
-	
-	//// When inserting nodes
 
+	// When inserting nodes to the bst of movies
 	return sort == rhs.sort;
 }
 

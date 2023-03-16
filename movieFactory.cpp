@@ -46,7 +46,7 @@ Movie* MovieFactory::createMovieObject(char movieType, ifstream& infile)
 		selection = new Classics(infile);
 		break;
 	default:	// If movieType is invalid, set pointer to NULL
-		getline(infile, garbage);	//	TO IMPROVE
+		getline(infile, garbage);	
 		cout << endl << "Invalid movie code" << endl;
 		break;
 	}

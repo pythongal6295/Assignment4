@@ -27,10 +27,6 @@ public:
 	Return();
 
 	// Constructor with parameter for Return class
-	//Return(ifstream&);
-
-	// Constructor with parameter for Return class
-	//Return(ifstream&, BinTree*&, BinTree*&, BinTree*&);//Still missing hashtable
 	Return(ifstream&, BinTree*&, BinTree*&, BinTree*&, HashTable*&);//Still missing hashtable
 
 	// Default destructor for Return class
@@ -56,7 +52,7 @@ private:
 	bool doAction;
 	int idNum, releaseYear, releaseMonth;
 	char mediaType, movieType;
-	string movieTitle, movieDirector, majorActor, garbage, stringToFind;
+	string movieTitle, movieDirector, majorActor, garbage, stringToFind, searchByInfo;
 };
 
 #endif

@@ -21,23 +21,9 @@
 Comedy::Comedy()
 {
 	year = 0;
-	//stock = 0;
 	title = "";
 	director = "";
 }
-
-////Paramaterized constructor for Comedy 
-//Comedy::Comedy(string movieTitle, string movieDirector, int movieYear, int currStock)
-//{
-//	//set up the comedy movie node for the BST
-//	ComedyBST * comedyMovie = new ComedyBST;
-//	comedyMovie->title = movieTitle;
-//	comedyMovie->director = movieDirector;
-//	comedyMovie->year = movieYear;
-//	comedyMovie->stock = currStock;
-//	comedyMovie->left = NULL;
-//	comedyMovie->right = NULL;
-//}
 
 Comedy::Comedy(ifstream& infile)
 {
@@ -57,40 +43,4 @@ Comedy::Comedy(ifstream& infile)
 
 Comedy::~Comedy() {}
 
-//// -----------------------------------getYear-----------------------------------
-//// Returns the year of the movie
-//int Comedy::getYear()
-//{
-//	return year;
-//}
-//
-//// -----------------------------------getTitle-----------------------------------
-//// Returns the title of the movie
-//string Comedy::getTitle()
-//{
-//	return title;
-//}
-//
-//// -----------------------------------getStock-----------------------------------
-//// Returns the stock of the movie
-//int Comedy::getStock()
-//{
-//	return stock;
-//}
-//
-//// -----------------------------------getDirector-----------------------------------
-//// Returns the name of the directory of the movie
-//string Comedy::getDirector()
-//{
-//	return director;
-//}
-//
-//// -----------------------------------setStock-----------------------------------
-//// Sets a new value for the stock depending on borrow/rent actions
-//// Parameter: int - the new stock value
-//void Comedy::setStock(int newStock)
-//{
-//	stock = newStock;
-//	//stock += newStock;	// Add newStock to current stock
-//}
 
