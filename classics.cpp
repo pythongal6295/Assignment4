@@ -23,7 +23,6 @@ Classics::Classics()
 {
 	month = 0;
 	year = 0;
-	//stock = 0;
 	title = "";
 	director = "";
 	firstName = "";
@@ -48,119 +47,10 @@ Classics::Classics(ifstream& infile)
 	majorActor = firstName + ' ' + lastName;
 
 	setSort(releaseDate + ' ' + majorActor);
-	setMovieInfo(title + ' ' + director + ' ' + to_string(year), 'C');
+	setMovieInfo(to_string(year)+' '+to_string(month) + title + ' ' + director, 'C');
 	setDisplay(releaseDate + ',' + majorActor + ',' + title + ',' + director + ',');
 }
 
 Classics::~Classics() {}
-
-//// -----------------------------------Operator==---------------------------------
-//// Overloading == operator
-//bool Classics::operator==(const Classics& rhs) const
-//{
-//	if (releaseDate==rhs.releaseDate && majorActor==rhs.majorActor && title==rhs.title && director==rhs.director) {
-//		return true;
-//	}
-//	return false;
-//}
-
-// -----------------------------------display-----------------------------------
-// Outputs to the screen all of the details of the movie (Release Date, Title, Director, Stock, Major Actor)
-//void Classics::display()
-//{
-//	cout << "*********************************************************" << endl;
-//	cout << "Title: " << getTitle() << endl;
-//	cout << "Release Date: " << getMonth() << " " << getYear() << endl;
-//	cout << "Major Actor: " << getMajorActor() << endl;
-//	cout << "Director: " << getDirector() << endl;
-//	cout << "Stock: " << getStock() << endl;
-//}
-
-//// -----------------------------------getMonth-----------------------------------
-//// Returns the year of the movie
-//int Classics::getMonth()
-//{
-//	return month;
-//}
-//
-//// -----------------------------------getYear-----------------------------------
-//// Returns the year of the movie
-//int Classics::getYear()
-//{
-//	return year;
-//}
-//
-//// -----------------------------------getTitle-----------------------------------
-//// Returns the title of the movie
-//string Classics::getTitle()
-//{
-//	return title;
-//}
-//
-//// -----------------------------------getStock-----------------------------------
-//// Returns the stock of the movie
-//int Classics::getStock()
-//{
-//	return stock;
-//}
-//
-//// -----------------------------------getDirector-----------------------------------
-//// Returns the name of the directory of the movie
-//string Classics::getDirector()
-//{
-//	return director;
-//}
-//
-//// -----------------------------------getMajorActor-----------------------------------
-//// Returns the name of the major actor of the movie
-//string Classics::getMajorActor()
-//{
-//	return majorActor;
-//}
-//// -----------------------------------setStock-----------------------------------
-//// Sets a new value for the stock depending on borrow/rent actions
-//// Parameter: int - the new stock value
-//void Classics::setStock(int newStock)
-//{
-//	stock = newStock;
-//	//stock += newStock;	// Add newStock to current stock
-//}
-
-
-
-//// -----------------------------------Operator==---------------------------------
-//// Overloading == operator
-//bool Classics::operator==(const Classics &rhs) const
-//{
-//	if (director==rhs.director && title==rhs.title && releaseDate==rhs.releaseDate) {
-//
-//	}
-//
-//	//director
-//	//title
-//	//release day
-//	return false;
-//}
-//
-//// -----------------------------------Operator!=---------------------------------
-//// Overloading != operator
-//bool Classics::operator!=(const Movie&) const
-//{
-//	return false;
-//}
-//
-//// -----------------------------------Operator>----------------------------------
-//// Overloading > operator
-//bool Classics::operator>(const Movie&) const
-//{
-//	return false;
-//}
-//
-//// -----------------------------------Operator<----------------------------------
-//// Overloading < operator
-//bool Classics::operator<(const Movie&) const
-//{
-//	return false;
-//}
 
 

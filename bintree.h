@@ -83,7 +83,8 @@ public:
 	// Function to get the NodeData* of a given object in the tree (via pass-by-reference
 	// parameter) and to report whether the object is found(true or false).
 	// --------------------------------------------------------------------------------
-	bool retrieve(const Movie&, Movie*&);
+	int retrieve(const Movie&, Movie*&);
+	//bool retrieve(const Movie&, Movie*&);
 
 	//// --------------------------------------------------------------------------------
 	//// getHeight function
@@ -192,7 +193,8 @@ private:
 	// retrieveRecursive function
 	// Helper function for retrieve(). Uses recursion to find a given object.
 	// --------------------------------------------------------------------------------
-	bool retrieveRecursive(NodeBST*, const Movie&, Movie*&);
+	int retrieveRecursive(NodeBST*, const Movie&, Movie*&);
+	//bool retrieveRecursive(NodeBST*, const Movie&, Movie*&);
 
 	//// --------------------------------------------------------------------------------
 	//// arrayToBSTHelper function

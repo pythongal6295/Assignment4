@@ -66,24 +66,33 @@ void Borrow::doTransaction()
 {
 	if (doAction != false) {
 		movieToFind.setSort(stringToFind);
+		movieToFind.setActionCode('B');
 		Movie* p = nullptr;
-		bool found = false;
+		//bool found = false;
+		int inStock = -2; // -1 not found, 0 movie found but not in stock, 1 found
 		bool stockAvailable = false;
 
 		switch (movieType) {
 		case 'F':
-			found = bstComedies->retrieve(movieToFind, p);
+			inStock = bstComedies->retrieve(movieToFind, p);
 			break;
 		case 'C':
-			found = bstClassics->retrieve(movieToFind, p);
+			inStock = bstClassics->retrieve(movieToFind, p); // if return 1 do another search only with title, year and director
+			// If found but not in stock, find same movie with different major actor
+			if (inStock == 0) {
+				// Compare release date, title and director instead of comparing release date and major actor.
+				movieToFind.setMovieInfo(searchByInfo, 'C');
+				// If instock is 1 movie was found, if not found it's -1
+				inStock = bstClassics->retrieve(movieToFind, p);
+			}
 			break;
 		case 'D':
-			found = bstDramas->retrieve(movieToFind, p);
+			inStock = bstDramas->retrieve(movieToFind, p);
 			break;
 		default: // If movieType is unknown, do nothing. newMovie is set to NULL in MovieFactory
 			break;
 		}
-		if (p != nullptr && found == true) {
+		if (inStock == 1 && p != nullptr) {
 			//cout << "Movie to borrow: " << p->getSort() << " Stock: " << p->getStock() << endl;
 			stockAvailable = p->borrowMovie();	//Borrow stock -1
 			//cout << "Movie after borrow: " << p->getSort() << " Stock: " << p->getStock() << endl;
@@ -92,7 +101,7 @@ void Borrow::doTransaction()
 				cout << "Movie out of stock" << endl;
 			} else {
 				// Set transaction in customer history
-				curCustomer->insertHistoryNode(p, 'B'); 
+				curCustomer->insertHistoryNode(p, 'B');
 			}
 			// In classics go to movies with different major actors
 		} else {
@@ -112,12 +121,14 @@ void Borrow::setData(ifstream& infile)
 		movieTitle.erase(0, 1); // Removing front blank space
 		infile >> releaseYear;
 		stringToFind = movieTitle + ' ' + to_string(releaseYear);
+		// Optional: set searchByInfo
 		break;
 	case 'C':
 		infile >> releaseMonth >> releaseYear;
 		getline(infile, majorActor);
 		majorActor.erase(0, 1);
 		stringToFind = to_string(releaseYear) + ' ' + to_string(releaseMonth) + ' ' + majorActor;
+		searchByInfo = to_string(releaseYear) + ' ' + to_string(releaseMonth) + ' ' + movieTitle + ' ' + movieDirector;
 		break;
 	case 'D':
 		getline(infile, movieDirector, ',');
@@ -125,6 +136,7 @@ void Borrow::setData(ifstream& infile)
 		getline(infile, movieTitle, ',');
 		movieTitle.erase(0, 1);
 		stringToFind = movieDirector + ' ' + movieTitle;
+		// Optional: set searchByInfo
 		break;
 	default:
 		cout << endl << "Invalid video code" << endl;

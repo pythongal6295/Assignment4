@@ -29,9 +29,7 @@ TransactionFactory::~TransactionFactory()
 // ----------------------------------createTransactionObject----------------------------------
 // Creates new transaction object with switch, using first letter from current 
 // string line in data4commands.txt (BusinessLogic::loadCommands())
-//Transaction* TransactionFactory::createTransactionObject(char command, ifstream& infile)
 Transaction* TransactionFactory::createTransactionObject(char command, ifstream& infile, BinTree*& bstF, BinTree*& bstD, BinTree*& bstC, HashTable*& clients)
-//Transaction* TransactionFactory::createTransactionObject(char command, ifstream& infile, BinTree*& bstF, BinTree*& bstD, BinTree*& bstC)
 {
 	Transaction* selection = nullptr;
 

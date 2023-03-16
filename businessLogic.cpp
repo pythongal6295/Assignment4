@@ -114,7 +114,7 @@ void BusinessLogic::loadCommands(ifstream& infile)
 		}
 		// If transaction type is unknown, empty current line
 		else {
-			getline(infile, garbage);	//	TO IMPROVE
+			getline(infile, garbage);
 			cout << endl << "Invalid action code" << endl;
 		}
 		if (infile.eof()) break;		// Stop if no more lines of data
