@@ -64,7 +64,7 @@ private:
 	int year;			// Year of specific drama movie
 	string title;		// Title of specific drama movie
 	string director;	// Director of specific drama movie
-	string sort;
+	//string sort;
 
 };
 #endif

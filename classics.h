@@ -73,7 +73,7 @@ private:
 	string releaseDate; // Year and month when the movie was released
 	string majorActor;	// Major actor of specific classics movie
 
-	string sort;
+	//string sort;
 
 };
 #endif

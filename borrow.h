@@ -56,7 +56,7 @@ private:
 	Movie* movieToFind;		// Movie being borrowed (Information is set in doTransaction())
 	bool doAction;			// Variable which states if doTransaction can be executed or not
 	string garbage;			// String used to remove garbage information in file
-	string stringToFind;	// Movie info set in stringToFin from file
+	string stringToFind;	// Movie info set in stringToFind from file
 	string searchByInfo;	// Used by classic movie type to search for the same object in bst
 
 	// Properties of movie to borrow

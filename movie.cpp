@@ -22,11 +22,11 @@ Movie::Movie() :stock(0), movieType('\0'), actionCode('\0') {}
 //	sort = sortInput;
 //	movieInfo = movieInfoIn;
 //}
-Movie::Movie(string sortInput):Movie(){
-	
-	sort = sortInput;
-
-}
+//Movie::Movie(string sortInput):Movie(){
+//	
+//	sort = sortInput;
+//
+//}
 
 // ----------------------------------- ~Movie()-----------------------------------
 // Destructor for Movie class
@@ -57,7 +57,7 @@ int Movie::getStock()
 // Sets movie object's stock = stock - 1 when borrowed if stock != 0
 bool Movie::borrowMovie()
 {
-	if (stock != 0) {
+	if (stock > 0) {
 		stock--;
 		return true;
 	}

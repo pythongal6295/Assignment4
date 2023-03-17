@@ -51,7 +51,9 @@ Customer::~Customer()
 	for (list<customerHistory*>::iterator it = (*historyList).begin(); it != (*historyList).end(); ++it) {
 		tempHistoryNode = *it;
 		delete tempHistoryNode;
+
 	}
+
 }
 
 // -----------------------------------displayHistory-----------------------------------
