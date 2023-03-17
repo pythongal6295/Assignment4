@@ -18,15 +18,7 @@
 // Default constructor for Movie class
 Movie::Movie() :stock(0), movieType('\0'), actionCode('\0') {}
 
-//Movie::Movie(string sortInput, string movieInfoIn):Movie(){
-//	sort = sortInput;
-//	movieInfo = movieInfoIn;
-//}
-//Movie::Movie(string sortInput):Movie(){
-//	
-//	sort = sortInput;
-//
-//}
+
 
 // ----------------------------------- ~Movie()-----------------------------------
 // Destructor for Movie class
@@ -71,13 +63,6 @@ void Movie::returnMovie()
 	stock++;
 }
 
-// -----------------------------------setSort-----------------------------------
-// Sets private variable sort. Sort is used to sort movies in BST
-//void Movie::setSort(string input)
-//{
-//	sort = input;
-//}
-
 // -----------------------------------getSort()-----------------------------------
 // Gets variable sort. Sort is used to sort movies in BST
 string Movie::getSort()
@@ -120,53 +105,6 @@ char Movie::getActionCode()
 {
 	return actionCode;
 }
-
-////-----------------------------OVERLOADED OPERATORS------------------------------
-//
-//// -----------------------------------Operator==---------------------------------
-//// Overloading == operator
-//
-//bool Movie::operator==(const Movie& rhs) const
-//{
-//	// Used When movie is being borrowed
-//	if (actionCode == 'B') {
-//		// If movie is a classic
-//		if (movieType == 'C') {
-//			// If movie in stock return true
-//			if (movieInfo == rhs.movieInfo && rhs.stock > 0) {
-//				return true;
-//			}
-//			// If movie info is different or the same but not in stock, return false
-//			return false;
-//		}
-//		// If movie to borrow is a drama or a comedy, compare strings
-//		return sort == rhs.sort;
-//	}
-//
-//	// Used when inserting nodes to the bst of movies or returning a movie
-//	return sort == rhs.sort;
-//}
-//
-//// -----------------------------------Operator!=---------------------------------
-//// Overloading != operator
-//bool Movie::operator!=(const Movie& rhs) const
-//{
-//	return !(*this == rhs);
-//}
-//
-//// -----------------------------------Operator>----------------------------------
-//// Overloading > operator
-//bool Movie::operator>(const Movie& rhs) const
-//{
-//	return (sort > rhs.sort);
-//}
-//
-//// -----------------------------------Operator<----------------------------------
-//// Overloading < operator
-//bool Movie::operator<(const Movie& rhs) const
-//{
-//	return (sort < rhs.sort);
-//}
 
 //-------------------------- operator<< --------------------------------------
 // Overloading << operator to print movie Objects

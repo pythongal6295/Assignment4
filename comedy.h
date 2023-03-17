@@ -64,7 +64,6 @@ private:
 	int year;			// Year of specific comedy movie
 	string title;		// Title of specific comedy movie
 	string director;	// Director of specific comedy movie
-	//string sort;
 
 
 };

@@ -28,11 +28,22 @@ Classics::Classics()
 	director = "";
 	firstName = "";
 	lastName = "";
+	temp = "";
 }
 
-Classics::Classics(string sortInput) :Classics()
+Classics::Classics(string sortInput)
 {
 	sort = sortInput;
+}
+
+Classics::Classics(int yearIn, int monthIn, string first, string last) :Classics()
+{
+	
+	year = yearIn;
+	month = monthIn;
+	firstName = first;
+	lastName = last;
+
 }
 
 // -----------------------------------Classics-----------------------------------
@@ -52,8 +63,7 @@ Classics::Classics(ifstream& infile)
 	getline(infile, temp);
 	releaseDate = to_string(year) + ' ' + to_string(month);
 	majorActor = firstName + ' ' + lastName;
-	sort = releaseDate + ' ' + majorActor;
-	//setSort(releaseDate + ' ' + majorActor);	// Used for sorting in BST
+	sort = releaseDate + ' ' + majorActor;// Used for sorting in BST
 	// setMovieInfo sets variable used for classic movies in parent class Movie
 	setMovieInfo(to_string(year) + ' ' + to_string(month) + ' ' + title + ' ' + director, 'C');
 	// Sets movie information to be displayed
@@ -72,7 +82,9 @@ Classics::~Classics() {}
 bool Classics::operator==(const Movie& rhs) const
 {
 	const Classics& movCom = static_cast<const Classics&> (rhs);
-	return sort == movCom.sort;
+	//cout << (sort == movCom.sort)<<endl;
+	//return sort == movCom.sort;
+	return (year == movCom.year && month == movCom.month && firstName == movCom.firstName && lastName == movCom.lastName);
 }
 
 // -----------------------------------Operator!=---------------------------------
@@ -90,10 +102,29 @@ bool Classics::operator>(const Movie& rhs) const
 	return (sort > movCom.sort);
 }
 
+// -----------------------------------Operator<----------------------------------
+// Overloading < operator
 bool Classics::operator<(const Movie& rhs) const
 {
 	const Classics& movCom = static_cast<const Classics&> (rhs);
-	return (sort < movCom.sort);;
+	if (year < movCom.year) {
+		return true;
+	}
+	else if (year == movCom.year) {
+		if (firstName < movCom.firstName) {
+			return true;
+		}
+		else if (firstName == movCom.firstName) {
+			return (lastName < movCom.lastName);
+		}
+		else {
+			return false;
+		}
+	}
+	else {
+		return false;
+	}
+	//return (sort < movCom.sort);;
 }
 
 // -----------------------------------getSort()-----------------------------------

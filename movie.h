@@ -33,7 +33,6 @@ public:
 
 	// Constructor movie with parameters
 	Movie(string);
-	//Movie(string, string);
 
 	// -----------------------------------Movie()-----------------------------------
 	// Destructor for Movie class

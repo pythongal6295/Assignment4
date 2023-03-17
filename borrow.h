@@ -62,7 +62,7 @@ private:
 	// Properties of movie to borrow
 	int idNum, releaseYear, releaseMonth;
 	char mediaType, movieType;
-	string movieTitle, movieDirector, majorActor, releaseDate;
+	string movieTitle, movieDirector, majorActor, releaseDate, firstName, lastName;
 
 };
 #endif

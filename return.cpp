@@ -74,7 +74,6 @@ Return::~Return() {}
 void Return::doTransaction()
 {
 	if (doAction != false) {
-		//movieToFind->setSort(stringToFind);
 		Movie* p = nullptr;	// Points to movie if found in BST
 		bool found = false;
 
