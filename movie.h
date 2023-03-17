@@ -67,7 +67,7 @@ public:
 
 	// ----------------------------------getSort()----------------------------------
 	// Gets variable sort. Sort is used to sort movies in BST
-	string getSort();
+	virtual string getSort();
 
 	// --------------------------------setMovieInfo()--------------------------------
 	// Sets string movieInfo with movie information. Useful when borrowing classic movies

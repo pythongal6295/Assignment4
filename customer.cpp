@@ -104,6 +104,7 @@ void Customer::displayHistoryNode(const customerHistory* ch)
 	}
 
 	cout << transaction << " : " << ch->currentMovie->getSort() << endl;
+	
 }
 
 // -----------------------------------inserHistoryNode-----------------------------------

@@ -95,3 +95,10 @@ bool Classics::operator<(const Movie& rhs) const
 	const Classics& movCom = static_cast<const Classics&> (rhs);
 	return (sort < movCom.sort);;
 }
+
+// -----------------------------------getSort()-----------------------------------
+// Gets variable sort. Sort is used to sort movies in BST
+string Classics::getSort()
+{
+	return sort;
+}
