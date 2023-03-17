@@ -28,11 +28,14 @@ Classics::Classics()
 	director = "";
 	firstName = "";
 	lastName = "";
+	movieInfo = "";
+	actionCode = '\0';
 }
 
-Classics::Classics(string sortInput) :Classics()
+Classics::Classics(string sortInput, string movieInput) :Classics()
 {
 	sort = sortInput;
+	movieInfo=movieInput;
 }
 
 // -----------------------------------Classics-----------------------------------
@@ -72,6 +75,19 @@ Classics::~Classics() {}
 bool Classics::operator==(const Movie& rhs) const
 {
 	const Classics& movCom = static_cast<const Classics&> (rhs);
+
+	// Used When movie is being borrowed
+	if (actionCode == 'B') {
+		// If movie in stock return true
+		if (movCom.movieInfo == movCom.movieInfo && movCom.stock > 0) {
+			return true;
+		}
+		// If movie info is different or the same but not in stock, return false
+		return false;
+		// If movie to borrow is a drama or a comedy, compare strings
+		return sort == movCom.sort;
+	}
+	// Used to insert or return a movie in BST
 	return sort == movCom.sort;
 }
 
@@ -90,9 +106,12 @@ bool Classics::operator>(const Movie& rhs) const
 	return (sort > movCom.sort);
 }
 
+// -----------------------------------Operator<----------------------------------
+// Overloading < operator
 bool Classics::operator<(const Movie& rhs) const
 {
 	const Classics& movCom = static_cast<const Classics&> (rhs);
+
 	return (sort < movCom.sort);;
 }
 

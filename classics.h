@@ -32,7 +32,8 @@ public:
 	// Default constructor for Classics class
 	Classics();
 
-	Classics(string);
+	Classics(string, string);
+	//Classics(string);
 
 	// -----------------------------------Classics-----------------------------------
 	// Parametrized constructor for Classics, ifstream parameter type
@@ -72,6 +73,9 @@ private:
 	string lastName;	// Major actor's last name
 	string releaseDate; // Year and month when the movie was released
 	string majorActor;	// Major actor of specific classics movie
+
+	string movieInfo;
+	char actionCode;
 
 	string sort;
 

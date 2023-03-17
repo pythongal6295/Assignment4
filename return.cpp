@@ -85,7 +85,7 @@ void Return::doTransaction()
 			found = bstComedies->retrieve(*movieToFind, p);
 			break;
 		case 'C':
-			movieToFind = new Classics(stringToFind);
+			movieToFind = new Classics(stringToFind, "");
 			found = bstClassics->retrieve(*movieToFind, p);
 			break;
 		case 'D':

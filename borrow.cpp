@@ -95,16 +95,17 @@ void Borrow::doTransaction()
 			// If inStock = 0 do another search in bst only with release date, title, and director
 			// If inStock = 1 movie was found in bst
 			// If inStock = -1 movie not found in bst
-			movieToFind = new Classics(stringToFind);
-			inStock = bstClassics->retrieve(*movieToFind, p); 
-			//// If found but not in stock, find same movie with different major actor
-			//if (inStock == 0) {
-			//	// Compare release date, title and director instead of comparing release date and major actor.
-			//	movieToFind.setMovieInfo(p->getMovieInfo(), 'C');
-			//	// If instock is 1 movie was found, if not found it's -1
-			//	inStock = bstClassics->retrieve(movieToFind, p);
-			//}
-			break;
+			movieToFind = new Classics(stringToFind, searchByInfo);
+			movieToFind->setActionCode('B');		// Set type of action (borrow)
+			inStock = bstClassics->retrieve(*movieToFind, p);
+			// If found but not in stock, find same movie with different major actor
+			if (inStock == 0) {
+				// Compare release date, title and director instead of comparing release date and major actor.
+				movieToFind->setMovieInfo(p->getMovieInfo(), 'C');
+				// If instock is 1 movie was found, if not found it's -1
+				inStock = bstClassics->retrieve(*movieToFind, p);
+				}
+				break;
 		case 'D':
 			// For dramas only can get inStock = 1 (found) or 0 (not found)
 			movieToFind = new Drama(stringToFind);
@@ -112,56 +113,57 @@ void Borrow::doTransaction()
 			break;
 		default: // If movieType is unknown, do nothing. newMovie is set to NULL in MovieFactory
 			break;
-		}
-		// If movie was found, complete transaction (borrow movie)
-		if (inStock == 1 && p != nullptr) {
-			stockAvailable = p->borrowMovie();	//Borrow (stock - 1)
-			// If movie is out of stock
-			if (stockAvailable == false) {
-				cout << "Movie out of stock" << endl;
-			} else {	// If movie is in stock
-				// Set transaction in customer history
-				curCustomer->insertHistoryNode(p, 'B');
 			}
-			delete movieToFind;
-			movieToFind = nullptr;
-		} else {
-			cout << "Movie not found" << endl;
+			// If movie was found, complete transaction (borrow movie)
+			if (inStock == 1 && p != nullptr) {
+				stockAvailable = p->borrowMovie();	//Borrow (stock - 1)
+				// If movie is out of stock
+				if (stockAvailable == false) {
+					cout << "Movie out of stock" << endl;
+				} else {	// If movie is in stock
+					// Set transaction in customer history
+					curCustomer->insertHistoryNode(p, 'B');
+				}
+				delete movieToFind;
+				movieToFind = nullptr;
+			} else {
+				cout << "Movie not found" << endl;
+			}
+		}
+		// If invalid command code, discard transaction
+	}
+
+	// -----------------------------------setData--------------------------------------
+	// Sets data from file to variables. Wrong inputs are discarded and transaction is
+	// not executed.
+	void Borrow::setData(ifstream & infile)
+	{
+		// If movieType is comedy, classic or drama, save movie information in data members
+		switch (movieType) {
+		case 'F':	// Comedies
+			getline(infile, movieTitle, ',');
+			movieTitle.erase(0, 1); // Removing front blank space
+			infile >> releaseYear;
+			stringToFind = movieTitle + ' ' + to_string(releaseYear);
+			break;
+		case 'C':	// Classics
+			infile >> releaseMonth >> releaseYear;
+			getline(infile, majorActor);
+			majorActor.erase(0, 1);
+			stringToFind = to_string(releaseYear) + ' ' + to_string(releaseMonth) + ' ' + majorActor;
+			searchByInfo = to_string(releaseYear) + ' ' + to_string(releaseMonth) + ' ' + movieTitle + ' ' + movieDirector;
+			break;
+		case 'D':	// Dramas
+			getline(infile, movieDirector, ',');
+			movieDirector.erase(0, 1);
+			getline(infile, movieTitle, ',');
+			movieTitle.erase(0, 1);
+			stringToFind = movieDirector + ' ' + movieTitle;
+			break;
+		default:	// Unknown movie type
+			cout << endl << "Invalid video code" << endl;
+			getline(infile, garbage);	// Discard data from current line in file
+			doAction = false;	// Don't execute transaction
+			break;
 		}
 	}
-	// If invalid command code, discard transaction
-}
-
-// -----------------------------------setData--------------------------------------
-// Sets data from file to variables. Wrong inputs are discarded and transaction is
-// not executed.
-void Borrow::setData(ifstream& infile)
-{
-	// If movieType is comedy, classic or drama, save movie information in data members
-	switch (movieType) {
-	case 'F':	// Comedies
-		getline(infile, movieTitle, ',');
-		movieTitle.erase(0, 1); // Removing front blank space
-		infile >> releaseYear;
-		stringToFind = movieTitle + ' ' + to_string(releaseYear);
-		break;
-	case 'C':	// Classics
-		infile >> releaseMonth >> releaseYear;
-		getline(infile, majorActor);
-		majorActor.erase(0, 1);
-		stringToFind = to_string(releaseYear) + ' ' + to_string(releaseMonth) + ' ' + majorActor;
-		break;
-	case 'D':	// Dramas
-		getline(infile, movieDirector, ',');
-		movieDirector.erase(0, 1);
-		getline(infile, movieTitle, ',');
-		movieTitle.erase(0, 1);
-		stringToFind = movieDirector + ' ' + movieTitle;
-		break;
-	default:	// Unknown movie type
-		cout << endl << "Invalid video code" << endl;
-		getline(infile, garbage);	// Discard data from current line in file
-		doAction = false;	// Don't execute transaction
-		break;
-	}
-}
