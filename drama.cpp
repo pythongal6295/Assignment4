@@ -87,3 +87,9 @@ bool Drama::operator<(const Movie& rhs) const
 	return (sort < movCom.sort);
 }
 
+// -----------------------------------getSort()-----------------------------------
+// Gets variable sort. Sort is used to sort movies in BST
+string Drama::getSort()
+{
+	return sort;
+}

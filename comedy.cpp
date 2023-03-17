@@ -28,7 +28,9 @@ Comedy::Comedy()
 
 Comedy::Comedy(string sortInput) :Comedy()
 {
+
 	sort = sortInput;
+	cout << "Sort input for comedy is " << sort << endl;
 }
 
 // -----------------------------------Comedy-----------------------------------
@@ -81,9 +83,16 @@ bool Comedy::operator>(const Movie& rhs) const
 	return (sort > movCom.sort);
 }
 
-
+//Overloading < operator
 bool Comedy::operator<(const Movie& rhs) const
 {
 	const Comedy& movCom = static_cast<const Comedy&> (rhs);
 	return (sort < movCom.sort);
+}
+
+// -----------------------------------getSort()-----------------------------------
+// Gets variable sort. Sort is used to sort movies in BST
+string Comedy::getSort()
+{
+	return sort;
 }

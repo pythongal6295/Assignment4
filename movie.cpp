@@ -23,7 +23,9 @@ Movie::Movie() :stock(0), movieType('\0'), actionCode('\0') {}
 //	movieInfo = movieInfoIn;
 //}
 Movie::Movie(string sortInput):Movie(){
+	
 	sort = sortInput;
+
 }
 
 // ----------------------------------- ~Movie()-----------------------------------

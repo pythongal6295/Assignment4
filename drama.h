@@ -54,6 +54,10 @@ public:
 	// Overloading < operator
 	bool operator<(const Movie&) const;
 
+	// ----------------------------------getSort()----------------------------------
+	// Gets variable sort. Sort is used to sort movies in BST
+	string getSort();
+
 private:
 	// Information of drama movie
 	int month;			// Month of specific movie
