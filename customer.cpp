@@ -51,7 +51,9 @@ Customer::~Customer()
 	for (list<customerHistory*>::iterator it = (*historyList).begin(); it != (*historyList).end(); ++it) {
 		tempHistoryNode = *it;
 		delete tempHistoryNode;
+
 	}
+
 }
 
 // -----------------------------------displayHistory-----------------------------------
@@ -67,15 +69,7 @@ void Customer::displayHistory()
 		customerHistory* test = *it;
 
 		displayHistoryNode(test);
-
-		//cout << test;
-		//cout << test->currentMovie->getSort() << endl;
-		//cout << test->typeOfTransaction << endl;
-		//Movie input1 = **it
 	}
-	//cout << ' ' << *it;
-
-
 
 }
 
@@ -111,8 +105,6 @@ void Customer::displayHistoryNode(const customerHistory* ch)
 // insert new history node to LL with information from history class, pointer to movie, type of transaction
 void Customer::insertHistoryNode(Movie* movie, char transactionType)
 {
-	//customerHistory *historyNode = new customerHistory;
-
 	customerHistory* historyNode = new customerHistory();
 
 	historyNode->currentMovie = movie;
@@ -141,25 +133,3 @@ string Customer::getLastName()
 	return lastName;
 }
 
-////---------------------------------Friend operator <<-----------------------------
-////Prints out a HistoryNode
-//ostream& operator<<(ostream& output, const customerHistory* ch)
-//{
-//	string transaction = "";
-//
-//	if (ch->typeOfTransaction == 'B') {
-//		transaction = "Borrowed";
-//	}
-//
-//	else if (ch->typeOfTransaction == 'R') {
-//		transaction = "Returned";
-//	}
-//
-//	else {
-//		transaction = "unknown";
-//	}
-//
-//	cout << transaction << ch->currentMovie->getSort() << endl;
-//
-//	return output;
-//}

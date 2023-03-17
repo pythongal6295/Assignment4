@@ -33,6 +33,8 @@ public:
 	Classics();
 
 	Classics(string);
+	
+	Classics(int, int, string, string);
 
 	// -----------------------------------Classics-----------------------------------
 	// Parametrized constructor for Classics, ifstream parameter type
@@ -66,14 +68,13 @@ private:
 	// Information of classic movie
 	int year;			// Release year of specific classics movie
 	int month;			// Release month of specific classics movie
+	string temp;
 	string title;		// Title of specific classics movie
 	string director;	// Director of specific classics movie
 	string firstName;	// Major actor's first name
 	string lastName;	// Major actor's last name
 	string releaseDate; // Year and month when the movie was released
 	string majorActor;	// Major actor of specific classics movie
-
-	string sort;
 
 };
 #endif

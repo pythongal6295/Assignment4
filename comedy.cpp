@@ -47,8 +47,7 @@ Comedy::Comedy(ifstream& infile)
 	infile >> year;
 	getline(infile, temp);
 
-	sort = title + ' ' + to_string(year);
-	//setSort(title + ' ' + to_string(year));	// Used to sort in BST
+	sort = title + ' ' + to_string(year);// Used to sort in BST
 	// Sets movie information to be displayed
 	setDisplay(title + ',' + to_string(year) + ',' + director + ',');
 }
@@ -83,7 +82,8 @@ bool Comedy::operator>(const Movie& rhs) const
 	return (sort > movCom.sort);
 }
 
-//Overloading < operator
+// -----------------------------------Operator<----------------------------------
+// Overloading < operator
 bool Comedy::operator<(const Movie& rhs) const
 {
 	const Comedy& movCom = static_cast<const Comedy&> (rhs);

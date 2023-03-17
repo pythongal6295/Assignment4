@@ -16,7 +16,6 @@
 // ---------------------------------------------------------------------------------------------------------------
 
 #include "borrow.h"
-//#include "classics.h"
 
 // -----------------------------------Borrow()-----------------------------------
 // Default constructor for Borrow class
@@ -31,6 +30,7 @@ Borrow::Borrow()
 	bstDramas = nullptr;
 	bstClassics = nullptr;
 	curCustomer = nullptr;
+	stringToFind = "";
 }
 
 // -----------------------------------Borrow-----------------------------------
@@ -76,8 +76,6 @@ void Borrow::doTransaction()
 {
 	// If command codes are correct (true), execute transaction
 	if (doAction != false) {
-		//movieToFind->setSort(stringToFind);	// Set movie to be found
-		//movieToFind->setActionCode('B');		// Set type of action (borrow)
 		Movie* p = nullptr;	// Points to movie if found in BST
 		int inStock = -2; // Set to -2 by default. 
 		// inStock = -1 not found, 0 movie found but not in stock, 1 found
@@ -88,26 +86,20 @@ void Borrow::doTransaction()
 		switch (movieType) {
 		case 'F':
 			// For classics and dramas only can get inStock = 1 (found) or 0 (not found)
-			movieToFind = new Comedy(stringToFind);
+			movieToFind = new Comedy(this->stringToFind);
 			inStock = bstComedies->retrieve(*movieToFind, p);
 			break;
 		case 'C':
 			// If inStock = 0 do another search in bst only with release date, title, and director
 			// If inStock = 1 movie was found in bst
 			// If inStock = -1 movie not found in bst
-			movieToFind = new Classics(stringToFind);
+			movieToFind = new Classics(releaseYear, releaseMonth, firstName, lastName);
 			inStock = bstClassics->retrieve(*movieToFind, p); 
-			//// If found but not in stock, find same movie with different major actor
-			//if (inStock == 0) {
-			//	// Compare release date, title and director instead of comparing release date and major actor.
-			//	movieToFind.setMovieInfo(p->getMovieInfo(), 'C');
-			//	// If instock is 1 movie was found, if not found it's -1
-			//	inStock = bstClassics->retrieve(movieToFind, p);
-			//}
+
 			break;
 		case 'D':
 			// For dramas only can get inStock = 1 (found) or 0 (not found)
-			movieToFind = new Drama(stringToFind);
+			movieToFind = new Drama(this->stringToFind);
 			inStock = bstDramas->retrieve(*movieToFind, p);
 			break;
 		default: // If movieType is unknown, do nothing. newMovie is set to NULL in MovieFactory
@@ -143,20 +135,22 @@ void Borrow::setData(ifstream& infile)
 		getline(infile, movieTitle, ',');
 		movieTitle.erase(0, 1); // Removing front blank space
 		infile >> releaseYear;
-		stringToFind = movieTitle + ' ' + to_string(releaseYear);
+		this->stringToFind = movieTitle + ' ' + to_string(releaseYear);
 		break;
 	case 'C':	// Classics
 		infile >> releaseMonth >> releaseYear;
-		getline(infile, majorActor);
-		majorActor.erase(0, 1);
-		stringToFind = to_string(releaseYear) + ' ' + to_string(releaseMonth) + ' ' + majorActor;
+		infile >> firstName >> lastName;
+		majorActor = firstName +' '+ lastName;
+
+		releaseDate = to_string(releaseYear) + ' ' + to_string(releaseMonth);
+		this->stringToFind= releaseDate  + ' ' + majorActor;
 		break;
 	case 'D':	// Dramas
 		getline(infile, movieDirector, ',');
 		movieDirector.erase(0, 1);
 		getline(infile, movieTitle, ',');
 		movieTitle.erase(0, 1);
-		stringToFind = movieDirector + ' ' + movieTitle;
+		this->stringToFind = movieDirector + ' ' + movieTitle;
 		break;
 	default:	// Unknown movie type
 		cout << endl << "Invalid video code" << endl;

@@ -33,7 +33,6 @@ public:
 
 	// Constructor movie with parameters
 	Movie(string);
-	//Movie(string, string);
 
 	// -----------------------------------Movie()-----------------------------------
 	// Destructor for Movie class
@@ -107,10 +106,12 @@ public:
 	// Overloading < operator
 	virtual bool operator<(const Movie&) const = 0;
 
+protected:
+	string sort;
 private:
 	// Properties of Movie Class
 	int stock;			// Stock of a specific movie
-	string sort;		// String that contains data from specific movie type, used to sort in BST
+	//string sort;		// String that contains data from specific movie type, used to sort in BST
 	string toDisplay;	// Used for printing Movie information in <<	
 	string movieInfo;	// String that containg data from movie (release date + title + director)
 	char movieType;		// Movie genre (D,C or F)
